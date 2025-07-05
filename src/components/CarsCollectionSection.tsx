@@ -103,6 +103,7 @@ const CarsCollectionSection = () => {
             perfect journey
           </p>
         </div>
+       
 
         <div className="max-w-6xl mx-auto">
           <Carousel className="w-full" opts={{ align: "start", loop: true }}>
