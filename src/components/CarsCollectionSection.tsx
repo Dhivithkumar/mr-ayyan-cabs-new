@@ -48,40 +48,11 @@ const CarsCollectionSection = () => {
       capacity: "7+1",
       image: crysta,
     },
-    // {
-    //   name: "Baleno",
-    //   type: "Premium Hatchback",
-    //   capacity: "4+1",
-    //   image:
-    //     "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400&h=300&fit=crop",
-    // },
-    // {
-    //   name: "Toyota Glanza",
-    //   type: "Hatchback",
-    //   capacity: "4+1",
-    //   image:
-    //     "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=400&h=300&fit=crop",
-    // },
-    // {
-    //   name: "Ertiga",
-    //   type: "MPV",
-    //   capacity: "7+1",
-    //   image:
-    //     "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400&h=300&fit=crop",
-    // },
-    // {
-    //   name: "Eco",
-    //   type: "Compact",
-    //   capacity: "4+1",
-    //   image:
-    //     "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&h=300&fit=crop",
-    // },
     {
       name: "Tata Zest",
       type: "Sedan",
       capacity: "4+1",
-      image:
-        zest,
+      image: zest,
     },
   ];
 
@@ -103,9 +74,8 @@ const CarsCollectionSection = () => {
             perfect journey
           </p>
         </div>
-       
 
-        <div className="max-w-6xl mx-auto">
+        <div className="relative max-w-6xl mx-auto">
           <Carousel className="w-full" opts={{ align: "start", loop: true }}>
             <CarouselContent className="-ml-2 md:-ml-4">
               {cars.map((car, index) => (
@@ -163,8 +133,10 @@ const CarsCollectionSection = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex" />
-            <CarouselNext className="hidden md:flex" />
+
+            {/* ✅ Always visible arrows on all devices */}
+            <CarouselPrevious className="flex left-2 top-1/2 -translate-y-1/2 absolute z-10" />
+            <CarouselNext className="flex right-2 top-1/2 -translate-y-1/2 absolute z-10" />
           </Carousel>
         </div>
 
