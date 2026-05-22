@@ -1,143 +1,195 @@
-
 import { useState, useEffect } from "react";
-import { Phone, MessageCircle, Instagram, Car, Wifi, Camera, Gift, Facebook, Youtube } from "lucide-react";
+import { Menu, X, ArrowRight, Wifi, Camera, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import logo from '../assets/mr_ayyan_cabs_logo.png';
+import heroBg from '../assets/hero_background.jpg';
 
 const HeroSection = () => {
-  const whatsappMessage = "Hi ! Mr Ayyan Cabs . I want To Book a Cab . Can you Help me?";
-  const encodedMessage = encodeURIComponent(whatsappMessage);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const navLinks = [
+    { name: "Home", href: "#", active: true },
+    { name: "Book Now", href: "#booking" },
+    { name: "Fleet", href: "#fleet" },
+    { name: "Services", href: "#services" },
+    { name: "About Us", href: "#about" },
+    { name: "Contact", href: "#contact" }
+  ];
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-8">
-      {/* Clean Maroon-Green Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-secondary via-accent to-secondary opacity-95 z-10"></div>
-
-      <div className="container mx-auto px-4 relative z-30">
-        <div className="grid lg:grid-cols-2 gap-8 items-center">
-          {/* Left Side - Logo and Content */}
-          <div className="text-white space-y-6">
-            {/* Logo Section - New Ayyanar Logo */}
-            <div className="flex items-center space-x-4 animate-fadeInUp">
-              <div className="w-20 h-20 flex-shrink-0">
-                <img 
-                  src={logo}
-                  alt="Mr Ayyan Cabs Logo" 
-                  className="w-20 h-20 rounded-full animate-bounce-slow"
-                   style={{
-  width: '120px',
-  height: '80px',
-  borderRadius: '50%',
-  objectFit: 'cover',
-  objectPosition: 'center',
-  boxShadow: '0 0 8px rgba(0, 0, 0, 0.2)'
-  }}
-                />
-              </div>
-              <div className="flex-1">
-                <h1 className="text-3xl lg:text-4xl font-bold font-tamil text-primary">Mr Ayyan Cabs</h1>
-                <p className="text-lg text-primary/90">Tirupur</p>
-              </div>
+    <div className="relative flex flex-col bg-black overflow-hidden">
+      
+      {/* 1. DARK STICKY NAVBAR (SITS COMPLETELY ABOVE IMAGE) */}
+      <header 
+        className="sticky top-0 z-50 bg-[#0a0a0a] border-b border-white/5 py-1 lg:py-1.5 shadow-xl"
+      >
+        <div className="container mx-auto px-6 flex items-center justify-between">
+          
+          {/* Logo Section */}
+          <a href="#" className="flex items-center gap-2 lg:gap-4 group">
+            <img 
+              src={logo} 
+              alt="Mr. Ayyan Cabs Logo" 
+              className="w-16 h-16 lg:w-28 lg:h-28 -my-2 lg:-my-6 object-contain drop-shadow-xl transition-transform duration-500 group-hover:scale-105 relative z-10"
+            />
+            <div className="flex flex-col">
+              <span className="text-xl lg:text-2xl font-black text-white tracking-tight leading-none group-hover:text-[#D4A017] transition-colors duration-300">
+                Mr.Ayyan Cabs
+              </span>
+              <span className="text-[9px] lg:text-[10px] text-gray-400 font-bold tracking-[0.2em] uppercase mt-1">
+                Premium Heritage Service
+              </span>
             </div>
+          </a>
 
-            {/* Service Description */}
-            <div className="animate-fadeInUp space-y-2" style={{ animationDelay: '0.2s' }}>
-              <p className="text-base lg:text-lg text-white/90">Premium cab service at affordable rates</p>
-              <h2 className="text-lg lg:text-xl font-tamil text-primary">
-                மிக குறைந்த கட்டணத்தில் சேவை
-              </h2>
-            </div>
+          {/* Desktop Nav Links */}
+          <nav className="hidden lg:flex items-center gap-10">
+            {navLinks.map((link) => (
+              <a 
+                key={link.name} 
+                href={link.href}
+                className={`relative text-sm font-semibold tracking-wide transition-colors duration-300 py-2 text-gray-200 hover:text-[#D4A017] group`}
+              >
+                {link.name}
+                <span 
+                  className={`absolute bottom-0 left-1/2 h-[2px] bg-[#D4A017] transition-all duration-300 ease-out transform -translate-x-1/2 ${
+                    link.active ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`}
+                ></span>
+              </a>
+            ))}
+          </nav>
 
-            {/* Social Media Buttons */}
-            <div className="flex gap-3 animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
-              <Button 
-                size="sm" 
-                className="w-12 h-12 rounded-full bg-primary hover:bg-primary/90 text-black font-semibold shadow-md hover:shadow-lg transition-all duration-300"
-                onClick={() => window.open('tel:+919786223334', '_blank')}
-              >
-                <Phone className="w-5 h-5" />
-              </Button>
-              <Button 
-                size="sm" 
-                className="w-12 h-12 rounded-full bg-green-600 hover:bg-green-700 text-white shadow-md hover:shadow-lg transition-all duration-300"
-                onClick={() => window.open(`https://wa.me/919786223334?text=${encodedMessage}`, '_blank')}
-              >
-                <MessageCircle className="w-5 h-5" />
-              </Button>
-              <Button 
-                size="sm" 
-                className="w-12 h-12 rounded-full bg-pink-600 hover:bg-pink-700 text-white shadow-md hover:shadow-lg transition-all duration-300"
-                onClick={() => window.open('https://instagram.com/mrayyan.cabs', '_blank')}
-              >
-                <Instagram className="w-5 h-5" />
-              </Button>
-              <Button 
-                size="sm" 
-                className="w-12 h-12 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-md hover:shadow-lg transition-all duration-300"
-                onClick={() => window.open('https://facebook.com/mrayyancabs', '_blank')}
-              >
-                <Facebook className="w-5 h-5" />
-              </Button>
-              <Button 
-                size="sm" 
-                className="w-12 h-12 rounded-full bg-red-600 hover:bg-red-700 text-white shadow-md hover:shadow-lg transition-all duration-300"
-                onClick={() => window.open('https://youtube.com/@mrayyancabs', '_blank')}
-              >
-                <Youtube className="w-5 h-5" />
-              </Button>
-            </div>
+          {/* Mobile Menu Button */}
+          <button 
+            className="lg:hidden relative z-50 p-2 -mr-2 text-white hover:bg-white/10 rounded-full transition-colors"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle Menu"
+          >
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
 
-            {/* Premium Services Section */}
-            <div className="bg-black/30 backdrop-blur-sm rounded-xl p-6 border border-primary/20 animate-fadeInUp" style={{ animationDelay: '0.6s' }}>
-              <h3 className="text-primary font-semibold mb-4 text-center">✨ Premium Services Included</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                <Card className="bg-black/40 border-primary/30 backdrop-blur-sm transform hover:scale-105 transition-all duration-300">
-                  <CardContent className="p-4 text-center">
-                    <div className="animate-float">
-                      <Wifi className="w-8 h-8 text-primary mx-auto mb-2" />
-                    </div>
-                    <p className="text-primary font-medium">Free Wi-Fi</p>
-                    <p className="text-xs text-gray-300">Stay connected</p>
-                  </CardContent>
-                </Card>
-                <Card className="bg-black/40 border-secondary/30 backdrop-blur-sm transform hover:scale-105 transition-all duration-300">
-                  <CardContent className="p-4 text-center">
-                    <div className="animate-float" style={{ animationDelay: '0.5s' }}>
-                      <Camera className="w-8 h-8 text-secondary mx-auto mb-2" />
-                    </div>
-                    <p className="text-secondary font-medium">Free Photoshoot</p>
-                    <p className="text-xs text-gray-300">Tourist places</p>
-                  </CardContent>
-                </Card>
-                <Card className="bg-black/40 border-accent/30 backdrop-blur-sm transform hover:scale-105 transition-all duration-300">
-                  <CardContent className="p-4 text-center">
-                    <div className="animate-float" style={{ animationDelay: '1s' }}>
-                      <Gift className="w-8 h-8 text-accent mx-auto mb-2" />
-                    </div>
-                    <p className="text-accent font-medium">Trip Gifts</p>
-                    <p className="text-xs text-gray-300">Long journeys</p>
-                  </CardContent>
-                </Card>
-              </div>
-              <p className="text-sm font-tamil text-white/90 text-center">
-                பாதுகாப்பான பயணம் மற்றும் அனுபவமுள்ள ஓட்டுநர்களை கொண்டு இயக்கப்படுகிறது
-              </p>
-            </div>
-          </div>
-
-          {/* Right Side - Decorative Element */}
-          <div className="hidden lg:block">
-            <div className="relative">
-              <div className="w-80 h-80 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 animate-[spin_20s_linear_infinite] opacity-30"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Car className="w-24 h-24 text-primary animate-float" />
-              </div>
-            </div>
+        {/* Mobile Navigation Drawer */}
+        <div 
+          className={`lg:hidden absolute top-full left-0 w-full bg-[#0a0a0a] shadow-2xl overflow-hidden transition-all duration-300 ease-in-out border-t border-white/10 ${
+            isMobileMenuOpen ? 'max-h-[400px]' : 'max-h-0'
+          }`}
+        >
+          <div className="px-6 py-6 flex flex-col gap-2">
+            {navLinks.map((link, index) => (
+              <a 
+                key={link.name} 
+                href={link.href}
+                className="text-lg font-bold text-gray-200 py-3 border-b border-white/5 hover:text-[#D4A017] hover:pl-2 transition-all duration-300 flex items-center justify-between"
+                onClick={() => setIsMobileMenuOpen(false)}
+                style={{ transitionDelay: `${index * 50}ms` }}
+              >
+                {link.name}
+                <ArrowRight className="w-4 h-4 opacity-50" />
+              </a>
+            ))}
           </div>
         </div>
+      </header>
+
+      {/* 2. RESPONSIVE HERO AREA */}
+      <div className="relative flex-grow flex flex-col items-center lg:items-start justify-center pt-8 lg:pt-20 pb-8 lg:pb-24 min-h-[calc(100vh-88px)]">
+        
+        {/* Background - Starts strictly below navbar, NO zoom animation */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={heroBg} 
+            alt="South Indian Temple Gopuram and Ayyanar Horse Statue at sunset with White Cab" 
+            className="w-full h-full object-cover object-[65%_center] lg:object-center"
+          />
+          {/* Responsive Gradient Overlay: Darker on left for desktop text legibility, subtle top/bottom for mobile */}
+          <div className="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-r from-black/60 lg:from-black/80 via-black/20 lg:via-black/30 to-black/80 lg:to-transparent"></div>
+        </div>
+
+        {/* Hero Content - Centered on Mobile, Left-Aligned on Desktop */}
+        <div className="container mx-auto px-6 relative z-10 w-full flex-grow flex flex-col items-center lg:items-start justify-center text-center lg:text-left mt-8 lg:mt-0">
+          
+          <div className="max-w-xl lg:max-w-3xl flex flex-col items-center lg:items-start">
+            
+            {/* Solid Yellow Badge */}
+            <div className="inline-block bg-[#F59E0B] text-black px-4 lg:px-5 py-1.5 rounded-full text-[11px] sm:text-xs lg:text-sm font-bold tracking-wide lg:tracking-wider mb-4 lg:mb-5">
+              <span className="lg:hidden uppercase">Your Guardian on the Road</span>
+              <span className="hidden lg:inline">Your Guardian on the Road</span>
+            </div>
+
+            {/* Typography - Responsive styling */}
+            <h1 className="font-sans text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight lg:leading-[1.1] tracking-tight mb-4 lg:mb-6 drop-shadow-md">
+              <span className="text-white">Inspired by Legacy,</span><br />
+              {/* White on mobile, pale gold on desktop */}
+              <span className="text-white lg:text-[#f0d58e]">Driven by Safety.</span>
+            </h1>
+
+            {/* Subheadline */}
+            <p className="text-sm sm:text-base lg:text-lg text-white/95 leading-snug lg:leading-relaxed max-w-[320px] sm:max-w-md lg:max-w-2xl font-medium drop-shadow-md mb-8 lg:mb-10">
+              Experience South India's most reliable cab service. Blending ancient guardianship with modern comfort and premium perks.
+            </p>
+
+            {/* CTAs - Stacked on Mobile, Row on Desktop */}
+            <div className="flex flex-col lg:flex-row gap-4 w-full max-w-[320px] sm:max-w-sm lg:max-w-none mb-12 lg:mb-0">
+              <Button 
+                className="w-full lg:w-auto bg-[#7c1a1a] hover:bg-[#5a1212] text-white py-6 lg:px-10 lg:py-7 rounded-xl text-base lg:text-lg font-medium shadow-lg transition-all duration-300"
+                onClick={() => {
+                  const el = document.getElementById('booking');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                Book Your Ride
+              </Button>
+              <Button 
+                variant="outline"
+                className="w-full lg:w-auto bg-white/5 lg:bg-transparent backdrop-blur-sm lg:backdrop-blur-none border border-white/30 lg:border-white/50 hover:bg-white/10 text-white py-6 lg:px-10 lg:py-7 rounded-xl text-base lg:text-lg font-medium transition-all duration-300"
+                onClick={() => {
+                  const el = document.getElementById('services');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                View Services
+              </Button>
+            </div>
+
+          </div>
+          
+        </div>
+
+        {/* Floating Icons Row at Bottom */}
+        <div className="relative z-10 w-full px-4 sm:px-6 pb-6 lg:pb-0 lg:mt-12 mt-auto">
+          <div className="flex justify-between items-start max-w-[340px] sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
+            
+            <div className="flex flex-col items-center text-center gap-1.5 group cursor-pointer">
+              <div className="lg:bg-white/10 p-1 lg:p-3 rounded-full lg:backdrop-blur-sm lg:border lg:border-white/20 transition-all duration-300 group-hover:-translate-y-2 lg:group-hover:bg-white/20 lg:group-hover:shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+                <Wifi className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:animate-pulse drop-shadow-md lg:drop-shadow-none" />
+              </div>
+              <span className="text-[10px] sm:text-xs text-white font-bold drop-shadow-md tracking-wide mt-1 lg:mt-0">Free Wi-Fi</span>
+            </div>
+            
+            <div className="flex flex-col items-center text-center gap-1.5 group cursor-pointer">
+              <div className="lg:bg-white/10 p-1 lg:p-3 rounded-full lg:backdrop-blur-sm lg:border lg:border-white/20 transition-all duration-300 group-hover:-translate-y-2 lg:group-hover:bg-white/20 lg:group-hover:shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+                <Camera className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:animate-pulse drop-shadow-md lg:drop-shadow-none" />
+              </div>
+              <span className="text-[10px] sm:text-xs text-white font-bold drop-shadow-md tracking-wide mt-1 lg:mt-0">Free Photoshoot</span>
+              <span className="hidden lg:block text-[9px] sm:text-[10px] text-gray-300 font-medium italic -mt-1 drop-shadow-md">(tourist places)</span>
+            </div>
+            
+            <div className="flex flex-col items-center text-center gap-1.5 group cursor-pointer">
+              <div className="lg:bg-white/10 p-1 lg:p-3 rounded-full lg:backdrop-blur-sm lg:border lg:border-white/20 transition-all duration-300 group-hover:-translate-y-2 lg:group-hover:bg-white/20 lg:group-hover:shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+                <Gift className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:animate-pulse drop-shadow-md lg:drop-shadow-none" />
+              </div>
+              <span className="text-[10px] sm:text-xs text-white font-bold drop-shadow-md tracking-wide mt-1 lg:mt-0">Free Gift</span>
+              <span className="hidden lg:block text-[9px] sm:text-[10px] text-gray-300 font-medium italic -mt-1 drop-shadow-md">(long trips)</span>
+            </div>
+            
+          </div>
+        </div>
+
       </div>
-    </section>
+      
+    </div>
   );
 };
 

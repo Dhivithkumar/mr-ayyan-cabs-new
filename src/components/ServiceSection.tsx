@@ -13,7 +13,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section id="services" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl lg:text-5xl font-bold font-tamil text-center text-primary mb-16 animate-fadeInUp">
           Our Services

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import HeroSection from "../components/HeroSection";
+import BookingSection from "../components/BookingSection";
 import AboutSection from "../components/AboutSection";
 // Make sure the file exists at the specified path, or update the path if necessary
 import ServicesSection from "../components/ServiceSection";
@@ -26,6 +27,7 @@ const Index = () => {
       <StickyWhatsApp />
       <StickyCallButton />
       <HeroSection />
+      <BookingSection />
       <AboutSection />
       <ServicesSection />
       <PricingSection />
