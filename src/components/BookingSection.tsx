@@ -43,9 +43,7 @@ const BookingSection = () => {
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
             Book Your <span className="text-[#D4A017]">Premium Ride</span>
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            Experience the comfort of our heritage cabs. Fill out the details below to reserve your journey across South India.
-          </p>
+
         </div>
 
         <div className="max-w-4xl mx-auto bg-white border border-gray-100 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.06)] overflow-hidden">

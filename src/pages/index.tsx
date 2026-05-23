@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import HeroSection from "../components/HeroSection";
 import BookingSection from "../components/BookingSection";
-import AboutSection from "../components/AboutSection";
 // Make sure the file exists at the specified path, or update the path if necessary
 import ServicesSection from "../components/ServiceSection";
 import PricingSection from "../components/PricingSection";
@@ -28,7 +27,6 @@ const Index = () => {
       <StickyCallButton />
       <HeroSection />
       <BookingSection />
-      <AboutSection />
       <ServicesSection />
       <PricingSection />
       <BlessingsSection />
