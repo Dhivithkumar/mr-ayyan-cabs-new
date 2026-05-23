@@ -23,8 +23,10 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <StickyWhatsApp />
-      <StickyCallButton />
+      <div className={`transition-opacity duration-500 z-50 relative ${scrollY > 300 ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+        <StickyWhatsApp />
+        <StickyCallButton />
+      </div>
       <HeroSection />
       <BookingSection />
       <ServicesSection />

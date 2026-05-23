@@ -91,7 +91,7 @@ const HeroSection = () => {
       </header>
 
       {/* 2. RESPONSIVE HERO AREA */}
-      <div className="relative flex-grow flex flex-col items-center lg:items-start justify-center pt-8 lg:pt-20 pb-8 lg:pb-24 min-h-[calc(100vh-88px)]">
+      <div className="relative flex-grow flex flex-col items-center lg:items-start justify-center pt-8 lg:pt-20 pb-28 lg:pb-24 min-h-[calc(100vh-88px)]">
         
         {/* Background - Starts strictly below navbar, NO zoom animation */}
         <div className="absolute inset-0 z-0">
@@ -163,7 +163,7 @@ const HeroSection = () => {
             </div>
 
             {/* Floating Icons Row - Placed under buttons */}
-            <div className="relative z-10 w-full mt-4 lg:mt-6 mb-2 lg:mb-0">
+            <div className="relative z-10 w-full mt-4 lg:mt-6 mb-32 lg:mb-0">
               <div className="flex justify-between lg:justify-end lg:gap-16 items-start w-full max-w-[340px] sm:max-w-md lg:max-w-none mx-auto lg:mx-0 pr-0 lg:pr-2">
             
             <div className="flex flex-col items-center text-center gap-1.5 group cursor-pointer">
