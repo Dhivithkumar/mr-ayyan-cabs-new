@@ -30,8 +30,8 @@ const HeroSection = () => {
             className="hidden sm:block w-full h-full object-cover object-[75%_center] lg:object-[85%_center]"
             loading="eager"
           />
-          {/* Responsive Subtle Gradient Overlay - Ensures Text Readability while preserving deity & cab visuals */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/55 to-black/40 sm:bg-gradient-to-r sm:from-[#0a0a0a] sm:via-black/65 sm:to-transparent pointer-events-none"></div>
+          {/* Responsive Subtle Gradient Overlay - High Transparency to make image vibrant while preserving text readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-black/25 to-transparent sm:bg-gradient-to-r sm:from-[#0a0a0a]/85 sm:via-black/40 sm:to-transparent pointer-events-none"></div>
         </div>
 
         {/* 3. HERO CONTENT */}

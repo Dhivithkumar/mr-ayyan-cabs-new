@@ -105,7 +105,6 @@ const TirupurOutstationCab = () => {
       <CarsCollectionSection />
       <ContactSection />
       <Footer />
-      <MobileBottomBar />
     </div>
   );
 };

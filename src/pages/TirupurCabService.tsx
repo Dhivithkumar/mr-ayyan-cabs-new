@@ -106,7 +106,6 @@ const TirupurCabService = () => {
       <AreasWeServeSection />
       <ContactSection />
       <Footer />
-      <MobileBottomBar />
     </div>
   );
 };

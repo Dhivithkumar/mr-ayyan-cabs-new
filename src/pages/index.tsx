@@ -58,7 +58,6 @@ const Index = () => {
       <BookingSection />
       <ContactSection />
       <Footer />
-      <MobileBottomBar />
     </div>
   );
 };

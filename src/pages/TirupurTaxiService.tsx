@@ -103,7 +103,6 @@ const TirupurTaxiService = () => {
       <CarsCollectionSection />
       <ContactSection />
       <Footer />
-      <MobileBottomBar />
     </div>
   );
 };

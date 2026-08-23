@@ -105,7 +105,6 @@ const TirupurAirportTaxi = () => {
       <FAQSection />
       <ContactSection />
       <Footer />
-      <MobileBottomBar />
     </div>
   );
 };

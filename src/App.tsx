@@ -9,6 +9,7 @@ import TirupurTaxiService from "./pages/TirupurTaxiService.tsx";
 import TirupurAirportTaxi from "./pages/TirupurAirportTaxi.tsx";
 import TirupurOutstationCab from "./pages/TirupurOutstationCab.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import MobileBottomBar from "./components/MobileBottomBar.tsx";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const App = () => (
           {/* CATCH-ALL ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <MobileBottomBar />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

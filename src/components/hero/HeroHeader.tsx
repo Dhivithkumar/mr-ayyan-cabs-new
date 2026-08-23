@@ -19,17 +19,17 @@ export const HeroHeader = () => {
   const whatsappMessage = encodeURIComponent("Hi Mr Ayyan Cabs, I would like to book a cab in Tirupur.");
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 py-3 sm:py-4 px-4 md:px-8 border-b border-white/15 bg-black/75 backdrop-blur-xl transition-all text-white shadow-lg">
-      <div className="container mx-auto flex items-center justify-between w-full">
+    <header className="fixed top-0 left-0 right-0 z-50 py-2 sm:py-3 px-2 sm:px-4 border-b border-white/10 bg-black/40 backdrop-blur-md transition-all text-white">
+      <div className="w-full flex items-center justify-between px-1 sm:px-3">
         
-        {/* Logo & Brand Identity (ALIGNED LEFT CORNER) */}
+        {/* Logo & Brand Identity (MOVED TO VERY LEFT CORNER - INCREASED LOGO SIZE) */}
         <a href="/" className="flex items-center gap-2.5 group focus:outline-none shrink-0">
           <img 
             src={logo} 
             alt="Mr Ayyan Cabs Logo" 
-            className="w-11 h-11 sm:w-12 sm:h-12 object-contain drop-shadow-md transition-transform duration-300 group-hover:scale-105"
+            className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain drop-shadow-md transition-transform duration-300 group-hover:scale-105"
           />
-          <span className="text-lg sm:text-2xl font-black text-white leading-none tracking-tight uppercase font-heading">
+          <span className="text-xl sm:text-2xl md:text-3xl font-black text-white leading-none tracking-tight uppercase font-heading">
             <span className="text-white">MR </span>
             <span className="text-[#F5B800]">AYYAN </span>
             <span className="text-white">CABS</span>
@@ -42,7 +42,7 @@ export const HeroHeader = () => {
             <a 
               key={link.name} 
               href={link.href}
-              className="text-xs md:text-sm font-bold text-gray-200 hover:text-[#F5B800] transition-colors py-1 relative group tracking-wide"
+              className="text-xs md:text-sm font-semibold text-gray-200 hover:text-[#F5B800] transition-colors py-1 relative group"
             >
               {link.name}
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#F5B800] transition-all duration-300 group-hover:w-full"></span>
@@ -50,28 +50,18 @@ export const HeroHeader = () => {
           ))}
         </nav>
 
-        {/* Header Right Action Buttons (ALIGNED RIGHT CORNER WITH VIBRANT ICON COLORS) */}
-        <div className="flex items-center gap-3 shrink-0 ml-auto lg:ml-0">
-          {/* Phone Call Quick Button - Gold Fill */}
-          <a 
-            href="tel:+919786223334" 
-            className="w-10 h-10 sm:w-11 sm:h-11 bg-gradient-to-br from-[#F5B800] to-[#c79400] hover:from-[#ffd13b] hover:to-[#F5B800] text-black rounded-full flex items-center justify-center shadow-[0_0_12px_rgba(245,184,0,0.4)] active:scale-95 transition-all border border-amber-300/40"
-            aria-label="Call Mr Ayyan Cabs at +91 97862 23334"
-            title="Call +91 97862 23334"
-          >
-            <Phone className="w-5 h-5 fill-black text-black" />
-          </a>
-
-          {/* Menu Drawer Toggle - Gold Icon & Border */}
+        {/* Header Right Action (BURGER MENU DRAWER TOGGLE - VERY RIGHT CORNER) */}
+        <div className="flex items-center gap-2 shrink-0">
+          {/* Menu Drawer Toggle */}
           <button 
-            className="w-10 h-10 sm:w-11 sm:h-11 bg-black/80 hover:bg-black border-2 border-[#F5B800] text-[#F5B800] rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-all focus:outline-none"
+            className="w-9 h-9 sm:w-10 sm:h-10 bg-black/60 hover:bg-black/80 border border-white/20 hover:border-white/40 text-white rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-all focus:outline-none"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle Navigation Menu"
           >
             {isMobileMenuOpen ? (
-              <X className="w-5 h-5 text-[#F5B800]" />
+              <X className="w-4 h-4 text-[#F5B800]" />
             ) : (
-              <Menu className="w-5 h-5 text-[#F5B800]" />
+              <Menu className="w-4 h-4 text-white" />
             )}
           </button>
         </div>
