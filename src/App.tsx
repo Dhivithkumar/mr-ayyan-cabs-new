@@ -4,6 +4,10 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/index.tsx";
+import TirupurCabService from "./pages/TirupurCabService.tsx";
+import TirupurTaxiService from "./pages/TirupurTaxiService.tsx";
+import TirupurAirportTaxi from "./pages/TirupurAirportTaxi.tsx";
+import TirupurOutstationCab from "./pages/TirupurOutstationCab.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -16,7 +20,11 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/tirupur-cab-service" element={<TirupurCabService />} />
+          <Route path="/tirupur-taxi-service" element={<TirupurTaxiService />} />
+          <Route path="/tirupur-airport-taxi" element={<TirupurAirportTaxi />} />
+          <Route path="/tirupur-outstation-cab" element={<TirupurOutstationCab />} />
+          {/* CATCH-ALL ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

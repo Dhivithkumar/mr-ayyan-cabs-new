@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MapPin, Navigation, Calendar as CalendarIcon, Car, ArrowRight } from "lucide-react";
+import { MapPin, Navigation, Calendar as CalendarIcon, Car, Phone, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const BookingSection = () => {
@@ -7,6 +7,7 @@ const BookingSection = () => {
     pickup: "",
     destination: "",
     datetime: "",
+    tripType: "Local Ride",
     cabType: "Toyota Etios (Sedan)"
   });
 
@@ -17,78 +18,96 @@ const BookingSection = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Format the datetime
     const formattedDate = formData.datetime 
       ? new Date(formData.datetime).toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' }) 
       : 'Not specified';
 
-    // Construct the WhatsApp message with proper newline characters
-    const rawMessage = `*New Booking Request*\n\n*Pickup Location:* ${formData.pickup}\n*Destination:* ${formData.destination}\n*Date & Time:* ${formattedDate}\n*Cab Type:* ${formData.cabType}`;
+    const rawMessage = `*New Cab Booking Inquiry - Mr Ayyan Cabs*\n\n*Pickup Location:* ${formData.pickup}\n*Destination:* ${formData.destination}\n*Date & Time:* ${formattedDate}\n*Trip Type:* ${formData.tripType}\n*Cab Type:* ${formData.cabType}`;
     
-    // Properly encode the entire message so characters like '&' don't break the URL
     const encodedMessage = encodeURIComponent(rawMessage);
-    
-    // Open WhatsApp
     window.open(`https://wa.me/919786223334?text=${encodedMessage}`, '_blank');
   };
 
   return (
-    <section id="booking" className="py-20 relative bg-[#f8f9fa] overflow-hidden">
-      {/* Light theme background accents */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#D4A017]/5 rounded-full blur-[100px] pointer-events-none z-0"></div>
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[100px] pointer-events-none z-0"></div>
-
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
-            Book Your <span className="text-[#D4A017]">Premium Ride</span>
+    <section id="booking" className="py-20 md:py-28 bg-gradient-to-b from-gray-50 via-white to-gray-50 border-t border-gray-200/80 relative">
+      <div className="container mx-auto px-4 md:px-6">
+        
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-amber-700 font-extrabold text-xs sm:text-sm uppercase tracking-widest bg-amber-100/70 text-amber-900 px-4 py-1.5 rounded-full border border-amber-200/80 inline-block mb-3 font-heading">
+            Quick Booking
+          </span>
+          <h2 className="text-3xl md:text-5xl font-black text-gray-900 tracking-tight mb-4 font-heading">
+            Book Your Cab in Tirupur
           </h2>
-
+          <p className="text-base sm:text-lg text-gray-600 font-medium">
+            Fill out your trip details below for instant WhatsApp booking, or call us directly at +91 97862 23334.
+          </p>
         </div>
 
-        <div className="max-w-4xl mx-auto bg-white border border-gray-100 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.06)] overflow-hidden">
-          <form onSubmit={handleSubmit} className="p-8 md:p-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Form Container */}
+        <div className="max-w-4xl mx-auto bg-white border border-gray-200/80 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden p-8 md:p-12">
+          <form onSubmit={handleSubmit} className="space-y-7">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
               
               {/* Pickup Location */}
               <div className="space-y-2">
-                <label className="text-xs font-bold text-gray-500 uppercase tracking-wider flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-[#D4A017]" />
-                  Pickup Location
+                <label className="text-xs font-bold text-gray-700 uppercase tracking-wider flex items-center gap-2 font-heading">
+                  <MapPin className="w-4 h-4 text-[#F59E0B]" />
+                  Pickup Point in Tirupur
                 </label>
                 <input
                   type="text"
                   name="pickup"
-                  placeholder="Enter pickup point..."
+                  placeholder="e.g. Railway Station, New Bus Stand, Avinashi Road"
                   value={formData.pickup}
                   onChange={handleChange}
                   required
-                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-4 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#D4A017] focus:ring-1 focus:ring-[#D4A017] transition-all shadow-sm"
+                  className="w-full bg-gray-50/80 border border-gray-200 rounded-xl px-4 py-3.5 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all text-sm font-medium"
                 />
               </div>
 
               {/* Destination */}
               <div className="space-y-2">
-                <label className="text-xs font-bold text-gray-500 uppercase tracking-wider flex items-center gap-2">
-                  <Navigation className="w-4 h-4 text-[#D4A017]" />
+                <label className="text-xs font-bold text-gray-700 uppercase tracking-wider flex items-center gap-2 font-heading">
+                  <Navigation className="w-4 h-4 text-[#F59E0B]" />
                   Destination
                 </label>
                 <input
                   type="text"
                   name="destination"
-                  placeholder="Where to?"
+                  placeholder="e.g. Coimbatore Airport, Erode, Chennai, Ooty"
                   value={formData.destination}
                   onChange={handleChange}
                   required
-                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-4 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#D4A017] focus:ring-1 focus:ring-[#D4A017] transition-all shadow-sm"
+                  className="w-full bg-gray-50/80 border border-gray-200 rounded-xl px-4 py-3.5 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all text-sm font-medium"
                 />
+              </div>
+
+              {/* Trip Type */}
+              <div className="space-y-2">
+                <label className="text-xs font-bold text-gray-700 uppercase tracking-wider flex items-center gap-2 font-heading">
+                  <Navigation className="w-4 h-4 text-[#F59E0B]" />
+                  Trip Service Type
+                </label>
+                <select
+                  name="tripType"
+                  value={formData.tripType}
+                  onChange={handleChange}
+                  className="w-full bg-gray-50/80 border border-gray-200 rounded-xl px-4 py-3.5 text-gray-900 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all text-sm font-medium cursor-pointer"
+                >
+                  <option value="Local Ride">Local Tirupur Cab</option>
+                  <option value="Airport Taxi">Airport Pickup / Drop (Coimbatore CJB)</option>
+                  <option value="Outstation One-Way">Outstation One-Way Drop</option>
+                  <option value="Outstation Round Trip">Outstation Round Trip</option>
+                </select>
               </div>
 
               {/* Date & Time */}
               <div className="space-y-2">
-                <label className="text-xs font-bold text-gray-500 uppercase tracking-wider flex items-center gap-2">
-                  <CalendarIcon className="w-4 h-4 text-[#D4A017]" />
-                  Date & Time
+                <label className="text-xs font-bold text-gray-700 uppercase tracking-wider flex items-center gap-2 font-heading">
+                  <CalendarIcon className="w-4 h-4 text-[#F59E0B]" />
+                  Travel Date &amp; Time
                 </label>
                 <input
                   type="datetime-local"
@@ -96,45 +115,54 @@ const BookingSection = () => {
                   value={formData.datetime}
                   onChange={handleChange}
                   required
-                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-4 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#D4A017] focus:ring-1 focus:ring-[#D4A017] transition-all shadow-sm custom-datetime-input-light"
+                  className="w-full bg-gray-50/80 border border-gray-200 rounded-xl px-4 py-3.5 text-gray-900 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all text-sm font-medium"
                   style={{ colorScheme: "light" }}
                 />
               </div>
 
               {/* Cab Type */}
-              <div className="space-y-2">
-                <label className="text-xs font-bold text-gray-500 uppercase tracking-wider flex items-center gap-2">
-                  <Car className="w-4 h-4 text-[#D4A017]" />
-                  Cab Type
+              <div className="space-y-2 md:col-span-2">
+                <label className="text-xs font-bold text-gray-700 uppercase tracking-wider flex items-center gap-2 font-heading">
+                  <Car className="w-4 h-4 text-[#F59E0B]" />
+                  Select Vehicle Type
                 </label>
                 <select
                   name="cabType"
                   value={formData.cabType}
                   onChange={handleChange}
-                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-4 text-gray-900 focus:outline-none focus:border-[#D4A017] focus:ring-1 focus:ring-[#D4A017] transition-all appearance-none shadow-sm cursor-pointer"
-                  style={{ backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1em' }}
+                  className="w-full bg-gray-50/80 border border-gray-200 rounded-xl px-4 py-3.5 text-gray-900 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all text-sm font-medium cursor-pointer"
                 >
-                  <option value="Toyota Etios (Sedan)" className="bg-white text-gray-900">Toyota Etios (Sedan - 4+1 Seats)</option>
-                  <option value="Swift (Hatchback)" className="bg-white text-gray-900">Swift (Hatchback - 4+1 Seats)</option>
-                  <option value="Tata Zest (Sedan)" className="bg-white text-gray-900">Tata Zest (Sedan - 4+1 Seats)</option>
-                  <option value="Innova (SUV)" className="bg-white text-gray-900">Innova (SUV - 7+1 Seats)</option>
-                  <option value="Crysta (Premium SUV)" className="bg-white text-gray-900">Crysta (Premium SUV - 7+1 Seats)</option>
+                  <option value="Toyota Etios (Sedan - 4+1)">Toyota Etios (Sedan - 4+1 Seats)</option>
+                  <option value="Swift (Hatchback - 4+1)">Swift (Hatchback - 4+1 Seats)</option>
+                  <option value="Tata Zest (Sedan - 4+1)">Tata Zest (Sedan - 4+1 Seats)</option>
+                  <option value="Innova (SUV - 7+1)">Toyota Innova (SUV - 7+1 Seats)</option>
+                  <option value="Crysta (Premium SUV - 7+1)">Toyota Innova Crysta (Premium SUV - 7+1 Seats)</option>
                 </select>
               </div>
+
             </div>
 
-            {/* Submit Button */}
-            <div className="mt-10 flex justify-center">
+            {/* Actions */}
+            <div className="pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button 
                 type="submit" 
-                className="w-full md:w-auto min-w-[250px] bg-[#7c1a1a] hover:bg-[#5a1212] text-white px-10 py-7 rounded-xl text-lg font-bold shadow-[0_8px_20px_rgba(124,26,26,0.25)] transition-all duration-300 transform hover:-translate-y-1 group"
+                className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold px-9 py-4 rounded-xl text-base shadow-lg transition-all flex items-center justify-center gap-2 font-heading"
               >
-                Confirm Booking
-                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                <MessageCircle className="w-5 h-5" />
+                Book via WhatsApp
               </Button>
+              <a
+                href="tel:+919786223334"
+                className="w-full sm:w-auto bg-gold-gradient hover:bg-gold-gradient-hover text-black font-extrabold px-9 py-4 rounded-xl text-base gold-shadow transition-all flex items-center justify-center gap-2 text-center font-heading"
+              >
+                <Phone className="w-5 h-5 fill-black" />
+                Call +91 97862 23334
+              </a>
             </div>
+
           </form>
         </div>
+
       </div>
     </section>
   );
