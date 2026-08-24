@@ -9,16 +9,10 @@ export const OutstationSection = () => {
         <div className="max-w-5xl mx-auto">
           
           {/* Header */}
-          <div className="text-center mb-12">
-            <span className="text-amber-600 font-bold text-xs sm:text-sm uppercase tracking-wider bg-amber-50 px-3 py-1 rounded-full border border-amber-200 inline-block mb-3">
-              Outstation Travel
-            </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight mb-4">
-              Tirupur Outstation Cab Service
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-5xl font-black text-[#D4A017] tracking-tight font-heading">
+              Outstation Cabs
             </h2>
-            <p className="text-base text-gray-600 max-w-2xl mx-auto">
-              Comfortable, reliable outstation taxi rentals from Tirupur. Available in Sedan and SUV options for one-way drops and round-trip journeys across South India.
-            </p>
           </div>
 
           {/* Cards */}

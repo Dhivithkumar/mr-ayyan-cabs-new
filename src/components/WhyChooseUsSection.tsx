@@ -1,5 +1,6 @@
 import { ShieldCheck, Clock, HeartHandshake, Car, Phone } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { ScrollReveal, StaggerContainer, StaggerItem } from "./ui/ScrollReveal";
 
 const WhyChooseUsSection = () => {
   const points = [
@@ -30,35 +31,31 @@ const WhyChooseUsSection = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-5xl mx-auto">
           
-          <div className="text-center mb-12">
-            <span className="text-amber-600 font-bold text-xs sm:text-sm uppercase tracking-wider bg-amber-50 px-3 py-1 rounded-full border border-amber-200 inline-block mb-3">
-              Why Ride With Us
-            </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight mb-4">
-              Why Choose Mr Ayyan Cabs Tirupur?
+          <ScrollReveal animation="fade-down" className="text-center mb-10">
+            <h2 className="text-3xl md:text-5xl font-black text-[#D4A017] tracking-tight font-heading">
+              Why Choose Us
             </h2>
-            <p className="text-base text-gray-600 max-w-2xl mx-auto">
-              Built on community trust, local road experience, and customer-first service across Tirupur district.
-            </p>
-          </div>
+          </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
             {points.map((item, index) => (
-              <Card key={index} className="bg-white border-gray-200 hover:border-amber-400 shadow-sm transition-all">
-                <CardContent className="p-6 flex items-start gap-4">
-                  <div className="w-14 h-14 bg-amber-50 border border-amber-100 rounded-2xl flex items-center justify-center shrink-0">
-                    {item.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-1">{item.title}</h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
-                  </div>
-                </CardContent>
-              </Card>
+              <StaggerItem key={index} animation="fade-up">
+                <Card className="bg-white border-gray-200 hover:border-amber-400 shadow-sm transition-all h-full">
+                  <CardContent className="p-6 flex items-start gap-4">
+                    <div className="w-14 h-14 bg-amber-50 border border-amber-100 rounded-2xl flex items-center justify-center shrink-0">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-gray-900 mb-1">{item.title}</h3>
+                      <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
 
-          <div className="text-center">
+          <ScrollReveal animation="zoom-in" delay={0.2} className="text-center">
             <a
               href="tel:+919786223334"
               className="inline-flex items-center gap-2 bg-[#D4A017] hover:bg-[#b88910] text-black font-bold px-8 py-3.5 rounded-xl text-sm transition-all shadow-md"
@@ -66,7 +63,7 @@ const WhyChooseUsSection = () => {
               <Phone className="w-4 h-4 fill-black" />
               Call Mr Ayyan Cabs (+91 97862 23334)
             </a>
-          </div>
+          </ScrollReveal>
 
         </div>
       </div>

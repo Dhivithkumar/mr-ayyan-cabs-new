@@ -3,9 +3,10 @@ import BookingSection from "../components/BookingSection";
 import ServicesSection from "../components/ServiceSection";
 import CarsCollectionSection from "../components/CarsCollectionSection";
 import AreasWeServeSection from "../components/AreasWeServeSection";
+import AboutSection from "../components/AboutSection";
+import WhyChooseUsSection from "../components/WhyChooseUsSection";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
-import MobileBottomBar from "../components/MobileBottomBar";
 import SEOHead from "../components/SEOHead";
 import { Phone, MessageCircle, CheckCircle, Car } from "lucide-react";
 
@@ -102,6 +103,8 @@ const TirupurCabService = () => {
 
       <BookingSection />
       <ServicesSection />
+      <AboutSection />
+      <WhyChooseUsSection />
       <CarsCollectionSection />
       <AreasWeServeSection />
       <ContactSection />

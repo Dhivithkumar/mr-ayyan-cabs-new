@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { MapPin, Navigation, Calendar as CalendarIcon, Car, Phone, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ScrollReveal } from "./ui/ScrollReveal";
 
 const BookingSection = () => {
   const [formData, setFormData] = useState({
@@ -33,20 +34,14 @@ const BookingSection = () => {
       <div className="container mx-auto px-4 md:px-6">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-amber-700 font-extrabold text-xs sm:text-sm uppercase tracking-widest bg-amber-100/70 text-amber-900 px-4 py-1.5 rounded-full border border-amber-200/80 inline-block mb-3 font-heading">
-            Quick Booking
-          </span>
-          <h2 className="text-3xl md:text-5xl font-black text-gray-900 tracking-tight mb-4 font-heading">
-            Book Your Cab in Tirupur
+        <ScrollReveal animation="fade-down" className="text-center max-w-3xl mx-auto mb-10">
+          <h2 className="text-3xl md:text-5xl font-black text-[#D4A017] tracking-tight font-heading">
+            Booking
           </h2>
-          <p className="text-base sm:text-lg text-gray-600 font-medium">
-            Fill out your trip details below for instant WhatsApp booking, or call us directly at +91 97862 23334.
-          </p>
-        </div>
+        </ScrollReveal>
 
         {/* Form Container */}
-        <div className="max-w-4xl mx-auto bg-white border border-gray-200/80 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden p-8 md:p-12">
+        <ScrollReveal animation="zoom-in" delay={0.1} className="max-w-4xl mx-auto bg-white border border-gray-200/80 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden p-8 md:p-12">
           <form onSubmit={handleSubmit} className="space-y-7">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
               
@@ -161,7 +156,7 @@ const BookingSection = () => {
             </div>
 
           </form>
-        </div>
+        </ScrollReveal>
 
       </div>
     </section>

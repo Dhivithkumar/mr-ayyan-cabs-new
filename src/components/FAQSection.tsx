@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronDown, Phone, MessageCircle } from "lucide-react";
+import { ScrollReveal, StaggerContainer, StaggerItem } from "./ui/ScrollReveal";
 
 export const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -64,42 +65,37 @@ export const FAQSection = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
           
-          <div className="text-center mb-12">
-            <span className="text-amber-600 font-bold text-xs sm:text-sm uppercase tracking-wider bg-amber-50 px-3 py-1 rounded-full border border-amber-200 inline-block mb-3">
-              Got Questions?
-            </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight mb-4">
-              Frequently Asked Questions
+          <ScrollReveal animation="fade-down" className="text-center mb-10">
+            <h2 className="text-3xl md:text-5xl font-black text-[#D4A017] tracking-tight font-heading">
+              FAQ
             </h2>
-            <p className="text-base text-gray-600 max-w-2xl mx-auto">
-              Find answers to common questions about booking a cab, airport taxi transfers, outstation routes, and vehicle options in Tirupur.
-            </p>
-          </div>
+          </ScrollReveal>
 
-          <div className="space-y-4 mb-10">
+          <StaggerContainer className="space-y-4 mb-10">
             {faqs.map((faq, idx) => (
-              <div 
-                key={idx}
-                className="border border-gray-200 rounded-xl overflow-hidden bg-gray-50 transition-colors"
-              >
-                <button
-                  onClick={() => toggleFAQ(idx)}
-                  className="w-full text-left p-5 font-bold text-gray-900 flex items-center justify-between gap-4 focus:outline-none focus:ring-2 focus:ring-amber-500"
-                  aria-expanded={openIndex === idx}
+              <StaggerItem key={idx} animation="fade-up">
+                <div 
+                  className="border border-gray-200 rounded-xl overflow-hidden bg-gray-50 transition-colors"
                 >
-                  <span className="text-base sm:text-lg">{faq.q}</span>
-                  <ChevronDown className={`w-5 h-5 text-amber-600 transition-transform duration-200 shrink-0 ${openIndex === idx ? 'transform rotate-180' : ''}`} />
-                </button>
-                {openIndex === idx && (
-                  <div className="px-5 pb-5 text-sm text-gray-600 leading-relaxed border-t border-gray-200/60 pt-3 bg-white">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
+                  <button
+                    onClick={() => toggleFAQ(idx)}
+                    className="w-full text-left p-5 font-bold text-gray-900 flex items-center justify-between gap-4 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                    aria-expanded={openIndex === idx}
+                  >
+                    <span className="text-base sm:text-lg">{faq.q}</span>
+                    <ChevronDown className={`w-5 h-5 text-amber-600 transition-transform duration-200 shrink-0 ${openIndex === idx ? 'transform rotate-180' : ''}`} />
+                  </button>
+                  {openIndex === idx && (
+                    <div className="px-5 pb-5 text-sm text-gray-600 leading-relaxed border-t border-gray-200/60 pt-3 bg-white">
+                      {faq.a}
+                    </div>
+                  )}
+                </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
 
-          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6 text-center flex flex-col sm:flex-row items-center justify-between gap-4">
+          <ScrollReveal animation="zoom-in" delay={0.2} className="bg-amber-50 border border-amber-200 rounded-2xl p-6 text-center flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-left">
               <h3 className="font-bold text-gray-900 text-base">Have more questions?</h3>
               <p className="text-xs text-gray-600 mt-0.5">Call or WhatsApp our team directly for instant support.</p>
@@ -120,7 +116,7 @@ export const FAQSection = () => {
                 <MessageCircle className="w-3.5 h-3.5" /> WhatsApp
               </a>
             </div>
-          </div>
+          </ScrollReveal>
 
         </div>
       </div>

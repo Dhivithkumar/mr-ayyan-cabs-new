@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "react";
 import { Car, Plane, Camera, Navigation, ArrowRight, Phone, MessageCircle, MapPin } from "lucide-react";
+import { ScrollReveal, StaggerContainer, StaggerItem } from "./ui/ScrollReveal";
 
 import localCityImg from "../assets/service_local_city.jpg";
 import airportDepartureImg from "../assets/service_airport_departure.jpg";
@@ -163,24 +164,20 @@ const ServicesSection = () => {
       <div className="container mx-auto px-3 sm:px-4 md:px-6">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-16">
-          <span className="text-amber-700 font-extrabold text-[11px] sm:text-sm uppercase tracking-widest bg-amber-100/70 text-amber-900 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full border border-amber-200/80 inline-block mb-2 sm:mb-3 font-heading">
-            Tirupur Cab &amp; Taxi Services
-          </span>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-2 sm:mb-4 font-heading">
-            Our Premium Cab Services
+        <ScrollReveal animation="fade-down" className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-[#D4A017] tracking-tight font-heading">
+            Services
           </h2>
-          <p className="text-xs sm:text-lg text-gray-600 font-medium">
-            Local city rides, airport flight transfers, family tourism &amp; round trips.
-          </p>
-        </div>
+        </ScrollReveal>
 
         {/* 2x2 Services Video Cards Grid (FULL VIDEO VISIBILITY) */}
-        <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:gap-8 max-w-5xl mx-auto">
+        <StaggerContainer className="grid grid-cols-2 gap-3 sm:gap-6 lg:gap-8 max-w-5xl mx-auto">
           {services.map((service) => (
-            <VideoCard key={service.id} service={service} whatsappMessage={whatsappMessage} />
+            <StaggerItem key={service.id} animation="zoom-in">
+              <VideoCard service={service} whatsappMessage={whatsappMessage} />
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
 
       </div>
     </section>

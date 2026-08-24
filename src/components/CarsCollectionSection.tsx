@@ -1,5 +1,6 @@
-import { Users, Luggage, Phone, ShieldCheck } from "lucide-react";
+import { Phone, Users, Luggage } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { ScrollReveal } from "./ui/ScrollReveal";
 import {
   Carousel,
   CarouselContent,
@@ -17,9 +18,8 @@ import zest from "../assets/zest.jpg";
 type CarType = {
   name: string;
   type: string;
-  capacity: string;
-  luggage: string;
-  description: string;
+  seats: string;
+  bags: string;
   image: string;
   altText: string;
 };
@@ -28,70 +28,59 @@ const CarsCollectionSection = () => {
   const cars: CarType[] = [
     {
       name: "Toyota Etios",
-      type: "Sedan (AC)",
-      capacity: "4 + 1 Passengers",
-      luggage: "2 Large Bags",
-      description: "Spacious and comfortable sedan ideal for local city rides, airport transfers, and outstation trips.",
+      type: "Sedan",
+      seats: "4+1 Seats",
+      bags: "2 Bags",
       image: toyotaEtios,
       altText: "Toyota Etios sedan cab in Tirupur - Mr Ayyan Cabs",
     },
     {
       name: "Maruti Swift",
-      type: "Hatchback (AC)",
-      capacity: "4 + 1 Passengers",
-      luggage: "1 Medium Bag",
-      description: "Economical hatchback perfect for quick local city travel and short-distance cab bookings.",
+      type: "Hatchback",
+      seats: "4+1 Seats",
+      bags: "1 Bag",
       image: swift,
       altText: "Maruti Swift hatchback cab in Tirupur - Mr Ayyan Cabs",
     },
     {
       name: "Tata Zest",
-      type: "Sedan (AC)",
-      capacity: "4 + 1 Passengers",
-      luggage: "2 Bags",
-      description: "Comfortable sedan for budget-friendly outstation drops and airport travel.",
+      type: "Sedan",
+      seats: "4+1 Seats",
+      bags: "2 Bags",
       image: zest,
       altText: "Tata Zest sedan cab in Tirupur - Mr Ayyan Cabs",
     },
     {
       name: "Toyota Innova",
-      type: "SUV (AC)",
-      capacity: "7 + 1 Passengers",
-      luggage: "4 Bags",
-      description: "Popular 7-seater family SUV for comfortable outstation travel, group trips, and airport transfers.",
+      type: "SUV",
+      seats: "7+1 Seats",
+      bags: "4 Bags",
       image: innova,
       altText: "Toyota Innova 7 seater SUV cab in Tirupur - Mr Ayyan Cabs",
     },
     {
       name: "Toyota Innova Crysta",
-      type: "Premium SUV (AC)",
-      capacity: "7 + 1 Passengers",
-      luggage: "4 Large Bags",
-      description: "Premium SUV providing high luxury comfort for family vacations, long outstation tours, and corporate travel.",
+      type: "Premium SUV",
+      seats: "7+1 Seats",
+      bags: "4 Bags",
       image: crysta,
       altText: "Toyota Innova Crysta premium cab in Tirupur - Mr Ayyan Cabs",
     },
   ];
 
   return (
-    <section id="fleet" className="py-20 md:py-28 bg-white border-t border-gray-200/80">
+    <section id="fleet" className="py-16 md:py-24 bg-white border-t border-gray-200/80">
       <div className="container mx-auto px-4 md:px-6">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-amber-700 font-extrabold text-xs sm:text-sm uppercase tracking-widest bg-amber-100/70 text-amber-900 px-4 py-1.5 rounded-full border border-amber-200/80 inline-block mb-3 font-heading">
-            Well-Maintained Fleet
-          </span>
-          <h2 className="text-3xl md:text-5xl font-black text-gray-900 tracking-tight mb-4 font-heading">
-            Our Vehicle Fleet in Tirupur
+        {/* Section Header - Only Yellow Section Name */}
+        <ScrollReveal animation="fade-down" className="text-center max-w-3xl mx-auto mb-10">
+          <h2 className="text-3xl md:text-5xl font-black text-[#D4A017] tracking-tight font-heading">
+            Fleets
           </h2>
-          <p className="text-base sm:text-lg text-gray-600 font-medium">
-            Choose from air-conditioned sedans, hatchbacks, and spacious 7-seater SUVs suitable for any journey.
-          </p>
-        </div>
+        </ScrollReveal>
 
         {/* Fleet Carousel */}
-        <div className="relative max-w-6xl mx-auto px-6">
+        <ScrollReveal animation="zoom-in" delay={0.1} className="relative max-w-6xl mx-auto px-6">
           <Carousel className="w-full" opts={{ align: "start", loop: true }}>
             <CarouselContent className="-ml-2 md:-ml-4">
               {cars.map((car, index) => (
@@ -109,34 +98,21 @@ const CarsCollectionSection = () => {
                           className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
                           loading="lazy"
                         />
-                        <span className="absolute top-4 right-4 bg-[#0a0a0a] text-[#F59E0B] text-xs font-black px-3 py-1 rounded-full border border-amber-500/30 font-heading">
-                          {car.capacity}
+                        <span className="absolute top-4 right-4 bg-[#0a0a0a] text-[#F59E0B] text-xs font-extrabold px-3 py-1 rounded-full border border-amber-500/30 font-heading">
+                          {car.type}
                         </span>
                       </div>
 
-                      {/* Content */}
-                      <CardContent className="p-6">
-                        <div className="flex items-center justify-between mb-2">
-                          <h3 className="text-xl font-extrabold text-gray-900 font-heading">{car.name}</h3>
-                          <span className="text-xs font-bold text-amber-800 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">
-                            {car.type}
+                      {/* Content: Name, Seats & Bags */}
+                      <CardContent className="p-6 text-center">
+                        <h3 className="text-xl font-extrabold text-gray-900 font-heading mb-3">{car.name}</h3>
+                        <div className="flex items-center justify-center gap-2 flex-wrap">
+                          <span className="inline-flex items-center gap-1.5 text-xs font-bold text-gray-800 bg-amber-50/80 px-3 py-1.5 rounded-full border border-amber-200">
+                            <Users className="w-3.5 h-3.5 text-[#D4A017]" /> {car.seats}
                           </span>
-                        </div>
-                        <p className="text-xs text-gray-600 mb-5 leading-relaxed font-medium">{car.description}</p>
-                        
-                        <div className="space-y-2 text-xs text-gray-600 font-semibold mb-2">
-                          <div className="flex items-center gap-2">
-                            <Users className="w-4 h-4 text-[#F59E0B]" />
-                            <span>Seating: {car.capacity}</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <Luggage className="w-4 h-4 text-[#F59E0B]" />
-                            <span>Luggage: {car.luggage}</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                            <span>Air Conditioned &amp; Clean Cabs</span>
-                          </div>
+                          <span className="inline-flex items-center gap-1.5 text-xs font-bold text-gray-800 bg-amber-50/80 px-3 py-1.5 rounded-full border border-amber-200">
+                            <Luggage className="w-3.5 h-3.5 text-[#D4A017]" /> {car.bags}
+                          </span>
                         </div>
                       </CardContent>
                     </div>
@@ -146,7 +122,7 @@ const CarsCollectionSection = () => {
                         href="tel:+919786223334"
                         className="w-full inline-flex items-center justify-center gap-2 bg-maroon-gradient hover:opacity-95 text-white font-extrabold text-xs py-3 px-4 rounded-xl transition-all shadow-md font-heading"
                       >
-                        <Phone className="w-3.5 h-3.5" /> Call to Book {car.name}
+                        <Phone className="w-3.5 h-3.5" /> Call to Book
                       </a>
                     </div>
                   </Card>
@@ -156,7 +132,7 @@ const CarsCollectionSection = () => {
             <CarouselPrevious className="-left-4 bg-white border-gray-300 text-gray-800 hover:bg-amber-500 hover:text-black hover:border-amber-500 transition-colors" />
             <CarouselNext className="-right-4 bg-white border-gray-300 text-gray-800 hover:bg-amber-500 hover:text-black hover:border-amber-500 transition-colors" />
           </Carousel>
-        </div>
+        </ScrollReveal>
 
       </div>
     </section>

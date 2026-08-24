@@ -1,19 +1,14 @@
 import HeroSection from "../components/HeroSection";
-import BlessingsSection from "../components/BlessingsSection";
-import AboutSection from "../components/AboutSection";
 import ServicesSection from "../components/ServiceSection";
-import AirportTaxiSection from "../components/AirportTaxiSection";
-import OutstationSection from "../components/OutstationSection";
-import PopularRoutesSection from "../components/PopularRoutesSection";
-import AreasWeServeSection from "../components/AreasWeServeSection";
 import CarsCollectionSection from "../components/CarsCollectionSection";
-import WhyChooseUsSection from "../components/WhyChooseUsSection";
-import ReviewsSection from "../components/ReviewsSection";
-import FAQSection from "../components/FAQSection";
 import BookingSection from "../components/BookingSection";
+import AreasWeServeSection from "../components/AreasWeServeSection";
+import PopularRoutesSection from "../components/PopularRoutesSection";
+import ReviewsSection from "../components/ReviewsSection";
+import BlessingsSection from "../components/BlessingsSection";
+import FAQSection from "../components/FAQSection";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
-import MobileBottomBar from "../components/MobileBottomBar";
 import SEOHead from "../components/SEOHead";
 
 const Index = () => {
@@ -43,20 +38,27 @@ const Index = () => {
         canonicalUrl="https://mrayyancabs.com/"
         schema={homeSchema}
       />
+      {/* 1. Hero */}
       <HeroSection />
+      {/* 2. Services */}
       <ServicesSection />
-      <AirportTaxiSection />
-      <OutstationSection />
-      <AreasWeServeSection />
-      <PopularRoutesSection />
+      {/* 3. Fleets */}
       <CarsCollectionSection />
-      <ReviewsSection />
-      <AboutSection />
-      <BlessingsSection />
-      <WhyChooseUsSection />
-      <FAQSection />
+      {/* 4. Booking */}
       <BookingSection />
+      {/* 5. Areas We Serve */}
+      <AreasWeServeSection />
+      {/* 6. Cab route from Tirupur */}
+      <PopularRoutesSection />
+      {/* 7. Feed back and Reviews */}
+      <ReviewsSection />
+      {/* 8. Ayyanar Blessings */}
+      <BlessingsSection />
+      {/* 9. FAQ */}
+      <FAQSection />
+      {/* 10. Contact */}
       <ContactSection />
+      {/* Footer */}
       <Footer />
     </div>
   );

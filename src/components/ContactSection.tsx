@@ -1,102 +1,122 @@
-import { Phone, MessageCircle, MapPin, Clock } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Phone, MessageCircle, Mail, MapPin, Clock } from "lucide-react";
+import { ScrollReveal } from "./ui/ScrollReveal";
 
-const ContactSection = () => {
+export const ContactSection = () => {
   const whatsappMessage = encodeURIComponent("Hi Mr Ayyan Cabs, I want to book a cab in Tirupur.");
 
   return (
-    <section className="py-16 md:py-20 bg-white border-t border-gray-200" id="contact">
+    <section className="py-16 md:py-24 bg-gray-50/80 border-t border-gray-200" id="contact">
       <div className="container mx-auto px-4 md:px-6">
         
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-amber-600 font-bold text-xs sm:text-sm uppercase tracking-wider bg-amber-50 px-3 py-1 rounded-full border border-amber-200 inline-block mb-3">
-            Contact Mr Ayyan Cabs
-          </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight mb-4">
-            Call or Message Us Any Time
+        {/* Section Header */}
+        <ScrollReveal animation="fade-down" className="text-center max-w-3xl mx-auto mb-10">
+          <h2 className="text-3xl md:text-5xl font-black text-[#D4A017] tracking-tight font-heading">
+            Get In Touch
           </h2>
-          <p className="text-base text-gray-600">
-            For local taxi booking, airport transfers, or outstation rides in Tirupur, contact us directly.
-          </p>
-        </div>
+        </ScrollReveal>
 
-        <div className="max-w-4xl mx-auto">
-          {/* Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        {/* SINGLE BOX CARD CONTAINING ALL 5 CONTACT ITEMS */}
+        <ScrollReveal animation="zoom-in" delay={0.1} className="max-w-3xl mx-auto bg-white rounded-3xl border border-gray-200 shadow-xl overflow-hidden p-6 sm:p-10">
+          
+          <div className="text-center pb-6 mb-8 border-b border-gray-100">
+            <h3 className="text-xl sm:text-2xl font-black text-gray-900 font-heading uppercase tracking-tight">
+              Mr <span className="text-[#D4A017]">Ayyan</span> Cabs Contact Info
+            </h3>
+            <p className="text-xs sm:text-sm text-gray-500 mt-1">
+              Reach out to us anytime for instant taxi bookings and inquiries in Tirupur
+            </p>
+          </div>
+
+          <div className="space-y-4">
             
-            <a
-              href="tel:+919786223334"
-              className="p-6 bg-gray-50 border border-gray-200 hover:border-amber-400 rounded-2xl text-center transition-all group"
+            {/* 1. Phone Number with Icon */}
+            <a 
+              href="tel:+919786223334" 
+              className="flex items-center gap-4 p-4 rounded-2xl bg-amber-50/50 border border-amber-100/80 hover:border-amber-300 transition-all group"
             >
-              <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                <Phone className="w-6 h-6 text-amber-700" />
+              <div className="w-12 h-12 rounded-2xl bg-[#D4A017] text-black flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform">
+                <Phone className="w-5 h-5 fill-black" />
               </div>
-              <h3 className="font-bold text-gray-900 text-sm mb-1">Phone Number</h3>
-              <p className="text-sm font-semibold text-amber-700">+91 97862 23334</p>
-              <span className="text-[11px] text-gray-500 block mt-1">Tap to call</span>
+              <div>
+                <span className="text-xs font-extrabold text-amber-800 uppercase tracking-wider block font-heading">Phone Number</span>
+                <span className="text-base sm:text-lg font-black text-gray-900 group-hover:text-[#D4A017] transition-colors">
+                  +91 97862 23334
+                </span>
+              </div>
             </a>
 
-            <a
+            {/* 2. WhatsApp Number with Icon */}
+            <a 
               href={`https://wa.me/919786223334?text=${whatsappMessage}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-6 bg-gray-50 border border-gray-200 hover:border-emerald-400 rounded-2xl text-center transition-all group"
+              className="flex items-center gap-4 p-4 rounded-2xl bg-emerald-50/50 border border-emerald-100/80 hover:border-emerald-300 transition-all group"
             >
-              <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                <MessageCircle className="w-6 h-6 text-emerald-700" />
+              <div className="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform">
+                <MessageCircle className="w-5 h-5 fill-white" />
               </div>
-              <h3 className="font-bold text-gray-900 text-sm mb-1">WhatsApp</h3>
-              <p className="text-sm font-semibold text-emerald-700">+91 97862 23334</p>
-              <span className="text-[11px] text-gray-500 block mt-1">Tap to chat</span>
+              <div>
+                <span className="text-xs font-extrabold text-emerald-800 uppercase tracking-wider block font-heading">WhatsApp Booking</span>
+                <span className="text-base sm:text-lg font-black text-gray-900 group-hover:text-emerald-700 transition-colors">
+                  +91 97862 23334
+                </span>
+              </div>
             </a>
 
-            <div className="p-6 bg-gray-50 border border-gray-200 rounded-2xl text-center">
-              <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                <MapPin className="w-6 h-6 text-amber-700" />
+            {/* 3. Mail Address with Icon */}
+            <a 
+              href="mailto:mrayyancabs@gmail.com"
+              className="flex items-center gap-4 p-4 rounded-2xl bg-sky-50/50 border border-sky-100/80 hover:border-sky-300 transition-all group"
+            >
+              <div className="w-12 h-12 rounded-2xl bg-sky-600 text-white flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform">
+                <Mail className="w-5 h-5" />
               </div>
-              <h3 className="font-bold text-gray-900 text-sm mb-1">Location</h3>
-              <p className="text-sm text-gray-600">Tirupur, Tamil Nadu</p>
-              <span className="text-[11px] text-gray-500 block mt-1">India - 641603</span>
+              <div>
+                <span className="text-xs font-extrabold text-sky-800 uppercase tracking-wider block font-heading">Email Address</span>
+                <span className="text-base sm:text-lg font-black text-gray-900 group-hover:text-sky-700 transition-colors break-all">
+                  mrayyancabs@gmail.com
+                </span>
+              </div>
+            </a>
+
+            {/* 4. Office Address with Icon */}
+            <div className="flex items-start gap-4 p-4 rounded-2xl bg-gray-50 border border-gray-200/80 hover:border-amber-300 transition-all group">
+              <div className="w-12 h-12 rounded-2xl bg-gray-900 text-[#D4A017] flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform">
+                <MapPin className="w-5 h-5" />
+              </div>
+              <div className="flex-1">
+                <span className="text-xs font-extrabold text-gray-500 uppercase tracking-wider block font-heading">Office Address</span>
+                <p className="text-sm sm:text-base font-extrabold text-gray-900 mt-0.5 leading-snug">
+                  Tirupur Main Road, Tirupur, Tamil Nadu - 641603, India
+                </p>
+                <span className="text-xs font-semibold text-amber-800 mt-1 block">Local &amp; Outstation Pickup Across Tirupur</span>
+              </div>
             </div>
 
-            <div className="p-6 bg-gray-50 border border-gray-200 rounded-2xl text-center">
-              <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                <Clock className="w-6 h-6 text-amber-700" />
+            {/* 5. Business Hours with Icon */}
+            <div className="flex items-start gap-4 p-4 rounded-2xl bg-amber-50/30 border border-amber-200/60 hover:border-amber-400 transition-all group">
+              <div className="w-12 h-12 rounded-2xl bg-amber-100 text-[#D4A017] flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform">
+                <Clock className="w-5 h-5" />
               </div>
-              <h3 className="font-bold text-gray-900 text-sm mb-1">Operating Hours</h3>
-              <p className="text-sm text-gray-600">24 Hours Available</p>
-              <span className="text-[11px] text-gray-500 block mt-1">7 Days a Week</span>
+              <div className="flex-1">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-extrabold text-amber-800 uppercase tracking-wider block font-heading">Business Hours</span>
+                  <span className="inline-flex items-center gap-1.5 text-xs font-extrabold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    24/7 Open
+                  </span>
+                </div>
+                <p className="text-sm sm:text-base font-extrabold text-gray-900 mt-0.5">
+                  24 Hours / 7 Days a Week
+                </p>
+                <span className="text-xs font-medium text-gray-500 block mt-0.5">Round the clock Day &amp; Night Taxi Service</span>
+              </div>
             </div>
 
           </div>
 
-          {/* Callout */}
-          <div className="bg-[#0f0f0f] text-white p-8 md:p-10 rounded-2xl text-center shadow-xl">
-            <h3 className="text-2xl font-bold mb-2 text-white">Ready to Travel?</h3>
-            <p className="text-gray-300 text-sm max-w-xl mx-auto mb-6">
-              Call Mr Ayyan Cabs now for instant cab availability in Tirupur. Experienced drivers and clean vehicles ready for local, airport, and outstation trips.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
-              <Button 
-                size="lg" 
-                className="bg-[#D4A017] hover:bg-[#b88910] text-black font-bold rounded-xl text-base"
-                onClick={() => window.open('tel:+919786223334', '_self')}
-              >
-                <Phone className="w-5 h-5 mr-2 fill-black" />
-                Call +91 97862 23334
-              </Button>
-              <Button 
-                size="lg" 
-                className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-base"
-                onClick={() => window.open(`https://wa.me/919786223334?text=${whatsappMessage}`, '_blank')}
-              >
-                <MessageCircle className="w-5 h-5 mr-2" />
-                WhatsApp Us
-              </Button>
-            </div>
-          </div>
+        </ScrollReveal>
 
-        </div>
       </div>
     </section>
   );
