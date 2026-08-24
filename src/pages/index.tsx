@@ -44,16 +44,16 @@ const Index = () => {
         schema={homeSchema}
       />
       <HeroSection />
-      <BlessingsSection />
-      <AboutSection />
       <ServicesSection />
       <AirportTaxiSection />
       <OutstationSection />
-      <PopularRoutesSection />
       <AreasWeServeSection />
+      <PopularRoutesSection />
       <CarsCollectionSection />
-      <WhyChooseUsSection />
       <ReviewsSection />
+      <AboutSection />
+      <BlessingsSection />
+      <WhyChooseUsSection />
       <FAQSection />
       <BookingSection />
       <ContactSection />

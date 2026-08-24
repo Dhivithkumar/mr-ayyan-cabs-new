@@ -7,13 +7,17 @@ export const HeroHeader = () => {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Services", href: "/#services" },
+    { name: "Tirupur Cab Service", href: "/tirupur-cab-service" },
+    { name: "Tirupur Taxi Service", href: "/tirupur-taxi-service" },
     { name: "Airport Taxi", href: "/tirupur-airport-taxi" },
-    { name: "Outstation", href: "/tirupur-outstation-cab" },
+    { name: "Outstation Cab", href: "/tirupur-outstation-cab" },
+    { name: "Areas We Serve", href: "/#areas" },
+    { name: "Popular Routes", href: "/#routes" },
     { name: "Fleet", href: "/#fleet" },
     { name: "Reviews", href: "/#reviews" },
+    { name: "About Us", href: "/#about" },
     { name: "FAQ", href: "/#faq" },
-    { name: "Contact", href: "/#contact" }
+    { name: "Contact / Book", href: "/#contact" }
   ];
 
   const whatsappMessage = encodeURIComponent("Hi Mr Ayyan Cabs, I would like to book a cab in Tirupur.");

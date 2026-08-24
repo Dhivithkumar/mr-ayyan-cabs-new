@@ -13,8 +13,8 @@ const HeroSection = () => {
       {/* 1. MINIMAL TRANSPARENT HEADER */}
       <HeroHeader />
 
-      {/* 2. MAIN HERO CONTAINER WITH BACKGROUND */}
-      <div className="relative min-h-[85vh] lg:min-h-[88vh] flex flex-col justify-between pt-24 md:pt-28 pb-12 lg:pb-16 overflow-hidden">
+      {/* 2. MAIN HERO CONTAINER WITH BACKGROUND (FULL VIEWPORT HEIGHT COVERAGE) */}
+      <div className="relative min-h-screen sm:min-h-[90vh] flex flex-col justify-between pt-20 sm:pt-24 md:pt-28 pb-20 lg:pb-20 overflow-hidden bg-[#0a0a0a]">
         
         {/* Background Image Setup: Deity, Horse, Cab & Sunset visible */}
         <div className="absolute inset-0 z-0">
