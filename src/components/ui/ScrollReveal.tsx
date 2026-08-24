@@ -12,39 +12,42 @@ interface ScrollRevealProps {
   once?: boolean;
 }
 
+// Ultra-smooth Apple-like ease-out curve
+const EASE_OUT = [0.16, 1, 0.3, 1];
+
 export const ScrollReveal: React.FC<ScrollRevealProps> = ({
   children,
   animation = "fade-up",
   delay = 0,
-  duration = 0.6,
+  duration = 0.35,
   className = "",
-  once = false,
+  once = true,
 }) => {
   const getVariants = (): Variants => {
     switch (animation) {
       case "fade-up":
         return {
-          hidden: { opacity: 0, y: 40 },
+          hidden: { opacity: 0, y: 18 },
           visible: { opacity: 1, y: 0 },
         };
       case "fade-down":
         return {
-          hidden: { opacity: 0, y: -40 },
+          hidden: { opacity: 0, y: -18 },
           visible: { opacity: 1, y: 0 },
         };
       case "slide-left":
         return {
-          hidden: { opacity: 0, x: 50 },
+          hidden: { opacity: 0, x: 24 },
           visible: { opacity: 1, x: 0 },
         };
       case "slide-right":
         return {
-          hidden: { opacity: 0, x: -50 },
+          hidden: { opacity: 0, x: -24 },
           visible: { opacity: 1, x: 0 },
         };
       case "zoom-in":
         return {
-          hidden: { opacity: 0, scale: 0.88 },
+          hidden: { opacity: 0, scale: 0.95 },
           visible: { opacity: 1, scale: 1 },
         };
       case "fade":
@@ -60,14 +63,15 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once, amount: 0.15 }}
+      viewport={{ once, amount: 0.05 }}
       transition={{
         duration,
         delay,
-        ease: [0.25, 0.1, 0.25, 1], // Smooth cubic-bezier cubic transition
+        ease: EASE_OUT,
       }}
       variants={getVariants()}
       className={className}
+      style={{ willChange: "transform, opacity" }}
     >
       {children}
     </motion.div>
@@ -83,9 +87,9 @@ interface StaggerContainerProps {
 
 export const StaggerContainer: React.FC<StaggerContainerProps> = ({
   children,
-  staggerDelay = 0.12,
+  staggerDelay = 0.06,
   className = "",
-  once = false,
+  once = true,
 }) => {
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -101,9 +105,10 @@ export const StaggerContainer: React.FC<StaggerContainerProps> = ({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once, amount: 0.1 }}
+      viewport={{ once, amount: 0.05 }}
       variants={containerVariants}
       className={className}
+      style={{ willChange: "opacity" }}
     >
       {children}
     </motion.div>
@@ -116,21 +121,28 @@ export const StaggerItem: React.FC<{
   className?: string;
 }> = ({ children, animation = "fade-up", className = "" }) => {
   const itemVariants: Variants = {
-    hidden: animation === "slide-left" ? { opacity: 0, x: 40 } : animation === "slide-right" ? { opacity: 0, x: -40 } : animation === "zoom-in" ? { opacity: 0, scale: 0.9 } : { opacity: 0, y: 30 },
+    hidden: 
+      animation === "slide-left" 
+        ? { opacity: 0, x: 20 } 
+        : animation === "slide-right" 
+        ? { opacity: 0, x: -20 } 
+        : animation === "zoom-in" 
+        ? { opacity: 0, scale: 0.95 } 
+        : { opacity: 0, y: 16 },
     visible: {
       opacity: 1,
       x: 0,
       y: 0,
       scale: 1,
       transition: {
-        duration: 0.5,
-        ease: [0.25, 0.1, 0.25, 1],
+        duration: 0.35,
+        ease: EASE_OUT,
       },
     },
   };
 
   return (
-    <motion.div variants={itemVariants} className={className}>
+    <motion.div variants={itemVariants} className={className} style={{ willChange: "transform, opacity" }}>
       {children}
     </motion.div>
   );

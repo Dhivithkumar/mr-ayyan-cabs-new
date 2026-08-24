@@ -58,6 +58,9 @@ const BookingSection = () => {
                   value={formData.pickup}
                   onChange={handleChange}
                   required
+                  inputMode="text"
+                  autoCapitalize="words"
+                  enterKeyHint="next"
                   className="w-full bg-gray-50/80 border border-gray-200 rounded-xl px-4 py-3.5 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all text-sm font-medium"
                 />
               </div>
@@ -75,6 +78,9 @@ const BookingSection = () => {
                   value={formData.destination}
                   onChange={handleChange}
                   required
+                  inputMode="text"
+                  autoCapitalize="words"
+                  enterKeyHint="done"
                   className="w-full bg-gray-50/80 border border-gray-200 rounded-xl px-4 py-3.5 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all text-sm font-medium"
                 />
               </div>
