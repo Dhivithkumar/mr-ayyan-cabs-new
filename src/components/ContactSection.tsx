@@ -32,13 +32,13 @@ export const ContactSection = () => {
             {/* 1. Phone Number with Icon */}
             <a 
               href="tel:+919786223334" 
-              className="flex items-center gap-4 p-4 rounded-2xl bg-amber-50/50 border border-amber-100/80 hover:border-amber-300 transition-all group"
+              className="flex items-center gap-4 p-4 rounded-2xl bg-amber-50/40 border border-amber-200/70 hover:border-[#D4A017] hover:shadow-md transition-all group"
             >
-              <div className="w-12 h-12 rounded-2xl bg-[#D4A017] text-black flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform">
-                <Phone className="w-5 h-5 fill-black" />
+              <div className="w-12 h-12 rounded-2xl bg-black text-[#F5B800] border border-[#F5B800]/30 flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform">
+                <Phone className="w-5 h-5 fill-[#F5B800]" />
               </div>
               <div>
-                <span className="text-xs font-extrabold text-amber-800 uppercase tracking-wider block font-heading">Phone Number</span>
+                <span className="text-xs font-extrabold text-[#D4A017] uppercase tracking-wider block font-heading">Phone Number</span>
                 <span className="text-base sm:text-lg font-black text-gray-900 group-hover:text-[#D4A017] transition-colors">
                   +91 97862 23334
                 </span>
@@ -50,14 +50,14 @@ export const ContactSection = () => {
               href={`https://wa.me/919786223334?text=${whatsappMessage}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 p-4 rounded-2xl bg-emerald-50/50 border border-emerald-100/80 hover:border-emerald-300 transition-all group"
+              className="flex items-center gap-4 p-4 rounded-2xl bg-amber-50/40 border border-amber-200/70 hover:border-[#D4A017] hover:shadow-md transition-all group"
             >
-              <div className="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform">
-                <MessageCircle className="w-5 h-5 fill-white" />
+              <div className="w-12 h-12 rounded-2xl bg-black text-[#F5B800] border border-[#F5B800]/30 flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform">
+                <MessageCircle className="w-5 h-5 fill-[#F5B800]" />
               </div>
               <div>
-                <span className="text-xs font-extrabold text-emerald-800 uppercase tracking-wider block font-heading">WhatsApp Booking</span>
-                <span className="text-base sm:text-lg font-black text-gray-900 group-hover:text-emerald-700 transition-colors">
+                <span className="text-xs font-extrabold text-[#D4A017] uppercase tracking-wider block font-heading">WhatsApp Booking</span>
+                <span className="text-base sm:text-lg font-black text-gray-900 group-hover:text-[#D4A017] transition-colors">
                   +91 97862 23334
                 </span>
               </div>
@@ -66,50 +66,50 @@ export const ContactSection = () => {
             {/* 3. Mail Address with Icon */}
             <a 
               href="mailto:mrayyancabs@gmail.com"
-              className="flex items-center gap-4 p-4 rounded-2xl bg-sky-50/50 border border-sky-100/80 hover:border-sky-300 transition-all group"
+              className="flex items-center gap-4 p-4 rounded-2xl bg-amber-50/40 border border-amber-200/70 hover:border-[#D4A017] hover:shadow-md transition-all group"
             >
-              <div className="w-12 h-12 rounded-2xl bg-sky-600 text-white flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform">
+              <div className="w-12 h-12 rounded-2xl bg-black text-[#F5B800] border border-[#F5B800]/30 flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform">
                 <Mail className="w-5 h-5" />
               </div>
               <div>
-                <span className="text-xs font-extrabold text-sky-800 uppercase tracking-wider block font-heading">Email Address</span>
-                <span className="text-base sm:text-lg font-black text-gray-900 group-hover:text-sky-700 transition-colors break-all">
+                <span className="text-xs font-extrabold text-[#D4A017] uppercase tracking-wider block font-heading">Email Address</span>
+                <span className="text-base sm:text-lg font-black text-gray-900 group-hover:text-[#D4A017] transition-colors break-all">
                   mrayyancabs@gmail.com
                 </span>
               </div>
             </a>
 
             {/* 4. Office Address with Icon */}
-            <div className="flex items-start gap-4 p-4 rounded-2xl bg-gray-50 border border-gray-200/80 hover:border-amber-300 transition-all group">
-              <div className="w-12 h-12 rounded-2xl bg-gray-900 text-[#D4A017] flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform">
+            <div className="flex items-start gap-4 p-4 rounded-2xl bg-amber-50/40 border border-amber-200/70 hover:border-[#D4A017] hover:shadow-md transition-all group">
+              <div className="w-12 h-12 rounded-2xl bg-black text-[#F5B800] border border-[#F5B800]/30 flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform">
                 <MapPin className="w-5 h-5" />
               </div>
               <div className="flex-1">
-                <span className="text-xs font-extrabold text-gray-500 uppercase tracking-wider block font-heading">Office Address</span>
+                <span className="text-xs font-extrabold text-[#D4A017] uppercase tracking-wider block font-heading">Office Address</span>
                 <p className="text-sm sm:text-base font-extrabold text-gray-900 mt-0.5 leading-snug">
                   Tirupur Main Road, Tirupur, Tamil Nadu - 641603, India
                 </p>
-                <span className="text-xs font-semibold text-amber-800 mt-1 block">Local &amp; Outstation Pickup Across Tirupur</span>
+                <span className="text-xs font-semibold text-gray-600 mt-1 block">Local &amp; Outstation Pickup Across Tirupur</span>
               </div>
             </div>
 
             {/* 5. Business Hours with Icon */}
-            <div className="flex items-start gap-4 p-4 rounded-2xl bg-amber-50/30 border border-amber-200/60 hover:border-amber-400 transition-all group">
-              <div className="w-12 h-12 rounded-2xl bg-amber-100 text-[#D4A017] flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform">
+            <div className="flex items-start gap-4 p-4 rounded-2xl bg-amber-50/40 border border-amber-200/70 hover:border-[#D4A017] hover:shadow-md transition-all group">
+              <div className="w-12 h-12 rounded-2xl bg-black text-[#F5B800] border border-[#F5B800]/30 flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform">
                 <Clock className="w-5 h-5" />
               </div>
               <div className="flex-1">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-extrabold text-amber-800 uppercase tracking-wider block font-heading">Business Hours</span>
-                  <span className="inline-flex items-center gap-1.5 text-xs font-extrabold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span className="text-xs font-extrabold text-[#D4A017] uppercase tracking-wider block font-heading">Business Hours</span>
+                  <span className="inline-flex items-center gap-1.5 text-xs font-extrabold text-black bg-[#F5B800] px-2.5 py-1 rounded-full border border-amber-400">
+                    <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
                     24/7 Open
                   </span>
                 </div>
                 <p className="text-sm sm:text-base font-extrabold text-gray-900 mt-0.5">
                   24 Hours / 7 Days a Week
                 </p>
-                <span className="text-xs font-medium text-gray-500 block mt-0.5">Round the clock Day &amp; Night Taxi Service</span>
+                <span className="text-xs font-medium text-gray-600 block mt-0.5">Round the clock Day &amp; Night Taxi Service</span>
               </div>
             </div>
 

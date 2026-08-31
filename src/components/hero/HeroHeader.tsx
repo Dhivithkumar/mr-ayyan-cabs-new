@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone, MessageCircle, ArrowRight, Home, Car, MapPin, Route, Star, HelpCircle, Mail } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import logo from '../../assets/mr_ayyan_cabs_logo.png';
 
 export const HeroHeader = () => {
@@ -18,26 +19,26 @@ export const HeroHeader = () => {
   }, [isMenuOpen]);
 
   const navLinks = [
-    { name: "Home", href: "/", icon: <Home className="w-4 h-4" /> },
+    { name: "Home", href: "/", icon: <Home className="w-4 h-4 text-white" /> },
     { name: "Tirupur Cab Service", href: "/tirupur-cab-service", icon: <Car className="w-4 h-4 text-[#F5B800]" /> },
     { name: "Tirupur Taxi Service", href: "/tirupur-taxi-service", icon: <Car className="w-4 h-4 text-[#F5B800]" /> },
     { name: "Airport Taxi", href: "/tirupur-airport-taxi", icon: <Car className="w-4 h-4 text-sky-400" /> },
     { name: "Outstation Cab", href: "/tirupur-outstation-cab", icon: <Car className="w-4 h-4 text-emerald-400" /> },
-    { name: "Services", href: "/#services", icon: <Car className="w-4 h-4" /> },
-    { name: "Fleets", href: "/#fleet", icon: <Car className="w-4 h-4" /> },
-    { name: "Booking", href: "/#booking", icon: <Mail className="w-4 h-4" /> },
-    { name: "Areas We Serve", href: "/#areas", icon: <MapPin className="w-4 h-4" /> },
-    { name: "Cab Routes", href: "/#routes", icon: <Route className="w-4 h-4" /> },
-    { name: "Reviews", href: "/#reviews", icon: <Star className="w-4 h-4" /> },
-    { name: "FAQ", href: "/#faq", icon: <HelpCircle className="w-4 h-4" /> },
-    { name: "Contact", href: "/#contact", icon: <Phone className="w-4 h-4" /> }
+    { name: "Services", href: "/#services", icon: <Car className="w-4 h-4 text-amber-400" /> },
+    { name: "Fleets", href: "/#fleet", icon: <Car className="w-4 h-4 text-yellow-400" /> },
+    { name: "Booking", href: "/#booking", icon: <Mail className="w-4 h-4 text-[#F5B800]" /> },
+    { name: "Areas We Serve", href: "/#areas", icon: <MapPin className="w-4 h-4 text-amber-400" /> },
+    { name: "Cab Routes", href: "/#routes", icon: <Route className="w-4 h-4 text-amber-400" /> },
+    { name: "Reviews", href: "/#reviews", icon: <Star className="w-4 h-4 text-yellow-400" /> },
+    { name: "FAQ", href: "/#faq", icon: <HelpCircle className="w-4 h-4 text-sky-400" /> },
+    { name: "Contact", href: "/#contact", icon: <Phone className="w-4 h-4 text-emerald-400" /> }
   ];
 
   const whatsappMessage = encodeURIComponent("Hi Mr Ayyan Cabs, I would like to book a cab in Tirupur.");
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-40 py-2 sm:py-3 px-3 sm:px-6 border-b border-white/10 bg-black/60 backdrop-blur-md transition-all text-white">
+      <header className="fixed top-0 left-0 right-0 z-40 py-2 sm:py-3 px-3 sm:px-6 border-b border-white/10 bg-black/70 backdrop-blur-lg transition-all text-white transform-gpu">
         <div className="w-full flex items-center justify-between">
           
           {/* Logo & Brand Identity */}
@@ -45,7 +46,7 @@ export const HeroHeader = () => {
             <img 
               src={logo} 
               alt="Mr Ayyan Cabs Logo" 
-              className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 object-contain drop-shadow-md transition-transform duration-300 group-hover:scale-105"
+              className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 object-contain drop-shadow-md transition-transform duration-300 group-hover:scale-105 transform-gpu"
             />
             <span className="text-lg sm:text-xl md:text-2xl font-black text-white leading-none tracking-tight uppercase font-heading">
               <span className="text-white">MR </span>
@@ -72,14 +73,14 @@ export const HeroHeader = () => {
           <div className="flex items-center gap-3 shrink-0">
             <a 
               href="tel:+919786223334" 
-              className="hidden sm:inline-flex items-center gap-2 bg-[#F5B800] hover:bg-[#e0a700] text-black font-extrabold text-xs px-4 py-2 rounded-full shadow-md transition-transform active:scale-95 font-heading"
+              className="hidden sm:inline-flex items-center gap-2 bg-[#F5B800] hover:bg-[#e0a700] text-black font-extrabold text-xs px-4 py-2 rounded-full shadow-md transition-transform active:scale-95 transform-gpu font-heading"
             >
               <Phone className="w-3.5 h-3.5 fill-black" />
               <span>+91 97862 23334</span>
             </a>
 
             <button 
-              className="w-10 h-10 bg-black/80 hover:bg-black border border-white/20 hover:border-[#F5B800] text-white rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-all focus:outline-none"
+              className="w-10 h-10 bg-black/80 hover:bg-black border border-white/20 hover:border-[#F5B800] text-white rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-all transform-gpu focus:outline-none"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle Navigation Menu"
             >
@@ -94,73 +95,85 @@ export const HeroHeader = () => {
         </div>
       </header>
 
-      {/* Full Overlay Drawer Navigation Menu */}
-      {isMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex flex-col justify-between p-6 sm:p-10 animate-in fade-in duration-200 overflow-y-auto">
-          
-          {/* Header Bar inside Drawer */}
-          <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
-            <div className="flex items-center gap-2">
-              <img src={logo} alt="Mr Ayyan Cabs" className="w-10 h-10 object-contain" />
-              <span className="text-xl font-black text-white font-heading">
-                MR <span className="text-[#F5B800]">AYYAN</span> CABS
-              </span>
-            </div>
+      {/* Full Overlay Drawer Navigation Menu with Silky Spring Animation */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: "-100%" }}
+            animate={{ opacity: 1, y: "0%" }}
+            exit={{ opacity: 0, y: "-100%" }}
+            transition={{ type: "spring", damping: 28, stiffness: 280, mass: 0.8 }}
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex flex-col justify-between p-6 sm:p-10 overflow-y-auto transform-gpu"
+          >
             
-            <button 
-              onClick={() => setIsMenuOpen(false)}
-              className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
-              aria-label="Close Menu"
-            >
-              <X className="w-5 h-5 text-[#F5B800]" />
-            </button>
-          </div>
-
-          {/* Navigation Links Grid */}
-          <div className="max-w-4xl mx-auto w-full my-auto py-4">
-            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 font-heading">
-              Navigation Menu
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="p-3.5 rounded-2xl bg-white/5 hover:bg-amber-500/15 border border-white/10 hover:border-[#F5B800] text-gray-100 hover:text-[#F5B800] flex items-center justify-between text-sm sm:text-base font-bold transition-all group"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <div className="flex items-center gap-3">
-                    {link.icon}
-                    <span>{link.name}</span>
-                  </div>
-                  <ArrowRight className="w-4 h-4 text-gray-500 group-hover:text-[#F5B800] group-hover:translate-x-1 transition-all" />
-                </a>
-              ))}
+            {/* Header Bar inside Drawer */}
+            <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-4 sm:mb-6">
+              <div className="flex items-center gap-2">
+                <img src={logo} alt="Mr Ayyan Cabs" className="w-10 h-10 object-contain" />
+                <span className="text-xl font-black text-white font-heading">
+                  MR <span className="text-[#F5B800]">AYYAN</span> CABS
+                </span>
+              </div>
+              
+              <button 
+                onClick={() => setIsMenuOpen(false)}
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center active:scale-90 transition-all transform-gpu"
+                aria-label="Close Menu"
+              >
+                <X className="w-5 h-5 text-[#F5B800]" />
+              </button>
             </div>
-          </div>
 
-          {/* Bottom Action CTAs */}
-          <div className="max-w-4xl mx-auto w-full pt-6 border-t border-white/10 flex flex-col sm:flex-row gap-3">
-            <a 
-              href="tel:+919786223334"
-              className="flex-1 bg-[#F5B800] hover:bg-[#e0a700] text-black font-extrabold py-3.5 rounded-xl flex items-center justify-center gap-2 text-sm sm:text-base shadow-lg transition-transform active:scale-98 font-heading"
-            >
-              <Phone className="w-4 h-4 fill-black" /> Call +91 97862 23334
-            </a>
-            <a 
-              href={`https://wa.me/919786223334?text=${whatsappMessage}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold py-3.5 rounded-xl flex items-center justify-center gap-2 text-sm sm:text-base shadow-lg transition-transform active:scale-98 font-heading"
-            >
-              <MessageCircle className="w-4 h-4 fill-white" /> WhatsApp Booking
-            </a>
-          </div>
+            {/* Navigation Links Grid */}
+            <div className="max-w-4xl mx-auto w-full my-auto py-2">
+              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 font-heading">
+                Navigation Menu
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
+                {navLinks.map((link, idx) => (
+                  <motion.a
+                    key={link.name}
+                    href={link.href}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.05 + idx * 0.02, duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                    className="p-3.5 rounded-2xl bg-white/5 hover:bg-amber-500/15 border border-white/10 hover:border-[#F5B800] text-gray-100 hover:text-[#F5B800] flex items-center justify-between text-sm sm:text-base font-bold transition-all active:scale-[0.98] transform-gpu group"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <div className="flex items-center gap-3">
+                      {link.icon}
+                      <span>{link.name}</span>
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-gray-500 group-hover:text-[#F5B800] group-hover:translate-x-1 transition-all" />
+                  </motion.a>
+                ))}
+              </div>
+            </div>
 
-        </div>
-      )}
+            {/* Bottom Action CTAs */}
+            <div className="max-w-4xl mx-auto w-full pt-4 sm:pt-6 border-t border-white/10 flex flex-col sm:flex-row gap-3">
+              <a 
+                href="tel:+919786223334"
+                className="flex-1 bg-[#F5B800] hover:bg-[#e0a700] text-black font-extrabold py-3.5 rounded-xl flex items-center justify-center gap-2 text-sm sm:text-base shadow-lg transition-transform active:scale-95 transform-gpu font-heading"
+              >
+                <Phone className="w-4 h-4 fill-black" /> Call +91 97862 23334
+              </a>
+              <a 
+                href={`https://wa.me/919786223334?text=${whatsappMessage}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold py-3.5 rounded-xl flex items-center justify-center gap-2 text-sm sm:text-base shadow-lg transition-transform active:scale-95 transform-gpu font-heading"
+              >
+                <MessageCircle className="w-4 h-4 fill-white" /> WhatsApp Booking
+              </a>
+            </div>
+
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
 
 export default HeroHeader;
+

@@ -77,7 +77,7 @@
   background: linear-gradient(135deg, #F5B800 0%, #E09000 100%);
 }
 
-.bg-[#8B0000] {
+.bg-maroon-dark {
   background-color: #8B0000;
 }
 
@@ -136,16 +136,18 @@ html {
 /* Continuous Marquee Ticker (Right to Left) */
 @keyframes marquee {
   0% {
-    transform: translateX(0%);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 .animate-marquee {
   display: flex;
   width: max-content;
+  will-change: transform;
+  transform: translateZ(0);
   animation: marquee 35s linear infinite;
 }
 

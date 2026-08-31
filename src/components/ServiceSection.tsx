@@ -21,29 +21,46 @@ interface ServiceItem {
 
 const VideoCard = ({ service, whatsappMessage }: { service: ServiceItem; whatsappMessage: string }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch((err) => {
-        console.log("Autoplay waiting for interaction:", err);
-      });
-    }
+    const card = cardRef.current;
+    if (!card) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (videoRef.current) {
+            if (entry.isIntersecting) {
+              videoRef.current.play().catch(() => {});
+            } else {
+              videoRef.current.pause();
+            }
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(card);
+    return () => observer.disconnect();
   }, []);
 
   return (
     <div 
-      className="relative rounded-2xl sm:rounded-[28px] overflow-hidden bg-black border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.2)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.35)] transition-all duration-500 group min-h-[220px] sm:min-h-[350px] flex flex-col justify-between"
+      ref={cardRef}
+      className="relative rounded-2xl sm:rounded-[28px] overflow-hidden bg-black border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.2)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.35)] transition-all duration-300 group min-h-[220px] sm:min-h-[350px] flex flex-col justify-between transform-gpu"
     >
-      {/* Background Video Layer - 100% FULL VISIBILITY */}
-      <div className="absolute inset-0 z-0 bg-black overflow-hidden">
+      {/* Background Video Layer - Intersection Lazy Loaded */}
+      <div className="absolute inset-0 z-0 bg-black overflow-hidden transform-gpu">
         <video
           ref={videoRef}
-          autoPlay
           loop
           muted
           playsInline
+          preload="none"
           poster={service.poster}
-          className="w-full h-full object-cover opacity-100 transition-transform duration-700 group-hover:scale-108"
+          className="w-full h-full object-cover opacity-100 transition-transform duration-500 group-hover:scale-105 transform-gpu"
         >
           <source src={service.video} type="video/mp4" />
         </video>
