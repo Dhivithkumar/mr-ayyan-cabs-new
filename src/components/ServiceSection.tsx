@@ -191,7 +191,7 @@ const ServicesSection = () => {
         </ScrollReveal>
 
         {/* 2x2 Services Video Cards Grid (FULL VIDEO VISIBILITY) */}
-        <StaggerContainer className="grid grid-cols-2 gap-3 sm:gap-6 lg:gap-8 max-w-5xl mx-auto">
+        <StaggerContainer staggerDelay={0.16} className="grid grid-cols-2 gap-3 sm:gap-6 lg:gap-8 max-w-5xl mx-auto">
           {services.map((service) => (
             <StaggerItem key={service.id} animation="zoom-in">
               <VideoCard service={service} whatsappMessage={whatsappMessage} />

@@ -1,7 +1,15 @@
 import React from "react";
 import { motion, Variants } from "framer-motion";
 
-type AnimationDirection = "fade-up" | "fade-down" | "slide-left" | "slide-right" | "zoom-in" | "fade";
+type AnimationDirection = 
+  | "fade-up" 
+  | "fade-down" 
+  | "slide-left" 
+  | "slide-right" 
+  | "slide-from-left" 
+  | "slide-from-right" 
+  | "zoom-in" 
+  | "fade";
 
 interface ScrollRevealProps {
   children: React.ReactNode;
@@ -36,13 +44,15 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
           visible: { opacity: 1, y: 0 },
         };
       case "slide-left":
+      case "slide-from-right":
         return {
-          hidden: { opacity: 0, x: -12 },
+          hidden: { opacity: 0, x: 40 },
           visible: { opacity: 1, x: 0 },
         };
       case "slide-right":
+      case "slide-from-left":
         return {
-          hidden: { opacity: 0, x: 12 },
+          hidden: { opacity: 0, x: -40 },
           visible: { opacity: 1, x: 0 },
         };
       case "zoom-in":
@@ -118,21 +128,49 @@ export const StaggerItem: React.FC<{
   animation?: AnimationDirection;
   className?: string;
 }> = ({ children, animation = "fade-up", className = "" }) => {
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.25,
-        ease: EASE_OUT,
-      },
-    },
+  const getItemVariants = (): Variants => {
+    switch (animation) {
+      case "slide-from-left":
+        return {
+          hidden: { opacity: 0, x: -50 },
+          visible: { opacity: 1, x: 0, transition: { duration: 0.35, ease: EASE_OUT } },
+        };
+      case "slide-from-right":
+        return {
+          hidden: { opacity: 0, x: 50 },
+          visible: { opacity: 1, x: 0, transition: { duration: 0.35, ease: EASE_OUT } },
+        };
+      case "slide-left":
+        return {
+          hidden: { opacity: 0, x: 40 },
+          visible: { opacity: 1, x: 0, transition: { duration: 0.35, ease: EASE_OUT } },
+        };
+      case "slide-right":
+        return {
+          hidden: { opacity: 0, x: -40 },
+          visible: { opacity: 1, x: 0, transition: { duration: 0.35, ease: EASE_OUT } },
+        };
+      case "zoom-in":
+        return {
+          hidden: { opacity: 0, scale: 0.88, y: 16 },
+          visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.38, ease: EASE_OUT } },
+        };
+      case "fade-down":
+        return {
+          hidden: { opacity: 0, y: -20 },
+          visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: EASE_OUT } },
+        };
+      case "fade-up":
+      default:
+        return {
+          hidden: { opacity: 0, y: 20 },
+          visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: EASE_OUT } },
+        };
+    }
   };
 
   return (
-    <motion.div variants={itemVariants} className={`transform-gpu ${className}`}>
+    <motion.div variants={getItemVariants()} className={`transform-gpu ${className}`}>
       {children}
     </motion.div>
   );

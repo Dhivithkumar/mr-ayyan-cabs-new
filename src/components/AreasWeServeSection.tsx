@@ -28,9 +28,12 @@ export const AreasWeServeSection = () => {
             </h2>
           </ScrollReveal>
 
-          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5 sm:gap-4 mb-12">
+          <StaggerContainer staggerDelay={0.05} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5 sm:gap-4 mb-12">
             {primaryAreas.map((area, idx) => (
-              <StaggerItem key={idx} animation="zoom-in">
+              <StaggerItem 
+                key={idx} 
+                animation={idx % 4 < 2 ? "slide-from-left" : "slide-from-right"}
+              >
                 <div 
                   className="bg-white p-3 sm:p-5 rounded-2xl border border-gray-200/80 hover:border-amber-400 flex items-center gap-2 sm:gap-3 text-gray-900 font-bold shadow-sm hover:shadow-md transition-all card-hover-effect min-w-0"
                 >

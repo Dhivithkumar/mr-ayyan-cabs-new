@@ -26,9 +26,9 @@ export const PopularRoutesSection = () => {
           </ScrollReveal>
 
           {/* Single Line Route Cards List */}
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+          <StaggerContainer staggerDelay={0.08} className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
             {routes.map((route, idx) => (
-              <StaggerItem key={idx} animation={idx % 2 === 0 ? "slide-right" : "slide-left"}>
+              <StaggerItem key={idx} animation="slide-from-left">
                 <div 
                   className="p-3.5 sm:p-4 bg-gray-50/90 hover:bg-amber-50/50 rounded-2xl border border-gray-200/80 hover:border-amber-400 flex items-center justify-between gap-3 transition-all duration-300 shadow-sm hover:shadow-md group"
                 >
