@@ -39,8 +39,8 @@ const Footer = () => {
             <ul className="space-y-2 text-xs">
               <li><a href="/" className="hover:text-amber-400 transition-colors">Home</a></li>
               <li><a href="/#services" className="hover:text-amber-400 transition-colors">Services</a></li>
-              <li><a href="/#airport" className="hover:text-amber-400 transition-colors">Airport Taxi</a></li>
-              <li><a href="/#outstation" className="hover:text-amber-400 transition-colors">Outstation Cabs</a></li>
+              <li><a href="/tirupur-airport-taxi" className="hover:text-amber-400 transition-colors">Airport Taxi</a></li>
+              <li><a href="/tirupur-outstation-cab" className="hover:text-amber-400 transition-colors">Outstation Cabs</a></li>
               <li><a href="/#fleet" className="hover:text-amber-400 transition-colors">Vehicle Fleet</a></li>
               <li><a href="/#faq" className="hover:text-amber-400 transition-colors">FAQ</a></li>
               <li><a href="/#contact" className="hover:text-amber-400 transition-colors">Contact Us</a></li>

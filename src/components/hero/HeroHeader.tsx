@@ -1,10 +1,26 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone, MessageCircle, ArrowRight, Home, Car, MapPin, Route, Star, HelpCircle, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate, useLocation } from "react-router-dom";
 import logo from '../../assets/mr_ayyan_cabs_logo.png';
 
 export const HeroHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Scroll to hash target on location change or initial load
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace("#", "");
+      const element = document.getElementById(id);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    }
+  }, [location]);
 
   // Prevent background scrolling when menu drawer is open
   useEffect(() => {
@@ -34,6 +50,37 @@ export const HeroHeader = () => {
     { name: "Contact", href: "/#contact", icon: <Phone className="w-4 h-4 text-emerald-400" /> }
   ];
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    setIsMenuOpen(false);
+
+    // If it's a separate route (e.g. /tirupur-cab-service or /)
+    if (!href.includes("#")) {
+      e.preventDefault();
+      navigate(href);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    // It's a hash section link like /#services or #services
+    const hashIndex = href.indexOf("#");
+    const targetPath = href.substring(0, hashIndex) || "/";
+    const sectionId = href.substring(hashIndex + 1);
+
+    if (location.pathname === targetPath || (targetPath === "/" && location.pathname === "/")) {
+      e.preventDefault();
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", href);
+      } else {
+        navigate(href);
+      }
+    } else {
+      e.preventDefault();
+      navigate(href);
+    }
+  };
+
   const whatsappMessage = encodeURIComponent("Hi Mr Ayyan Cabs, I would like to book a cab in Tirupur.");
 
   return (
@@ -42,7 +89,7 @@ export const HeroHeader = () => {
         <div className="w-full flex items-center justify-between">
           
           {/* Logo & Brand Identity */}
-          <a href="/" className="flex items-center gap-2.5 group focus:outline-none shrink-0">
+          <a href="/" onClick={(e) => handleNavClick(e, '/')} className="flex items-center gap-2.5 group focus:outline-none shrink-0">
             <img 
               src={logo} 
               alt="Mr Ayyan Cabs Logo" 
@@ -61,6 +108,7 @@ export const HeroHeader = () => {
               <a 
                 key={link.name} 
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className="text-xs md:text-sm font-semibold text-gray-200 hover:text-[#F5B800] transition-colors py-1 relative group"
               >
                 {link.name}
@@ -108,12 +156,12 @@ export const HeroHeader = () => {
             
             {/* Header Bar inside Drawer */}
             <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-4 sm:mb-6">
-              <div className="flex items-center gap-2">
+              <a href="/" onClick={(e) => handleNavClick(e, '/')} className="flex items-center gap-2">
                 <img src={logo} alt="Mr Ayyan Cabs" className="w-10 h-10 object-contain" />
                 <span className="text-xl font-black text-white font-heading">
                   MR <span className="text-[#F5B800]">AYYAN</span> CABS
                 </span>
-              </div>
+              </a>
               
               <button 
                 onClick={() => setIsMenuOpen(false)}
@@ -134,11 +182,11 @@ export const HeroHeader = () => {
                   <motion.a
                     key={link.name}
                     href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.05 + idx * 0.02, duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
                     className="p-3.5 rounded-2xl bg-white/5 hover:bg-amber-500/15 border border-white/10 hover:border-[#F5B800] text-gray-100 hover:text-[#F5B800] flex items-center justify-between text-sm sm:text-base font-bold transition-all active:scale-[0.98] transform-gpu group"
-                    onClick={() => setIsMenuOpen(false)}
                   >
                     <div className="flex items-center gap-3">
                       {link.icon}
