@@ -99,6 +99,7 @@ html.lenis, html.lenis body {
 .text-gold-gradient {
   background: linear-gradient(135deg, #F5B800 0%, #E09000 50%, #FFD700 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 

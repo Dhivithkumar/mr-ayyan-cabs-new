@@ -40,7 +40,7 @@ const VideoCard = ({ service }: { service: ServiceItem }) => {
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.35 }
     );
 
     observer.observe(card);

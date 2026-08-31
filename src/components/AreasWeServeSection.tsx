@@ -28,7 +28,7 @@ export const AreasWeServeSection = () => {
             </h2>
           </ScrollReveal>
 
-          <StaggerContainer staggerDelay={0.05} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5 sm:gap-4 mb-12">
+          <StaggerContainer staggerDelay={0.09} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5 sm:gap-4 mb-12">
             {primaryAreas.map((area, idx) => (
               <StaggerItem 
                 key={idx} 

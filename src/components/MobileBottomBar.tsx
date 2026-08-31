@@ -31,7 +31,7 @@ export const MobileBottomBar = () => {
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+        transition={{ type: "spring", damping: 25, stiffness: 260, delay: 0.2 }}
         className="w-[88%] max-w-[290px] flex flex-col items-center pointer-events-auto transform-gpu"
       >
         
@@ -46,7 +46,7 @@ export const MobileBottomBar = () => {
         </button>
 
         {/* 2. FLOATING DARK CAPSULE BAR WITH VERTICAL DIVIDERS */}
-        <div className="w-full bg-[#18191c]/98 sm:backdrop-blur-xl border border-neutral-700/80 rounded-[18px] py-1.5 px-1 shadow-[0_6px_25px_rgba(0,0,0,0.85)] transform-gpu">
+        <div className="w-full bg-[#18191c]/95 backdrop-blur-xl border border-neutral-700/80 rounded-[18px] py-1.5 px-1 shadow-[0_6px_25px_rgba(0,0,0,0.85)] transform-gpu">
           <div className="grid grid-cols-3 divide-x divide-neutral-700/80 items-center w-full">
             
             {/* COLUMN 1: CALL */}

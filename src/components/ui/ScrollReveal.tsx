@@ -126,45 +126,46 @@ export const StaggerContainer: React.FC<StaggerContainerProps> = ({
 export const StaggerItem: React.FC<{
   children: React.ReactNode;
   animation?: AnimationDirection;
+  duration?: number;
   className?: string;
-}> = ({ children, animation = "fade-up", className = "" }) => {
+}> = ({ children, animation = "fade-up", duration = 0.58, className = "" }) => {
   const getItemVariants = (): Variants => {
     switch (animation) {
       case "slide-from-left":
         return {
-          hidden: { opacity: 0, x: -50 },
-          visible: { opacity: 1, x: 0, transition: { duration: 0.35, ease: EASE_OUT } },
+          hidden: { opacity: 0, x: -45 },
+          visible: { opacity: 1, x: 0, transition: { duration, ease: EASE_OUT } },
         };
       case "slide-from-right":
         return {
-          hidden: { opacity: 0, x: 50 },
-          visible: { opacity: 1, x: 0, transition: { duration: 0.35, ease: EASE_OUT } },
+          hidden: { opacity: 0, x: 45 },
+          visible: { opacity: 1, x: 0, transition: { duration, ease: EASE_OUT } },
         };
       case "slide-left":
         return {
-          hidden: { opacity: 0, x: 40 },
-          visible: { opacity: 1, x: 0, transition: { duration: 0.35, ease: EASE_OUT } },
+          hidden: { opacity: 0, x: 35 },
+          visible: { opacity: 1, x: 0, transition: { duration, ease: EASE_OUT } },
         };
       case "slide-right":
         return {
-          hidden: { opacity: 0, x: -40 },
-          visible: { opacity: 1, x: 0, transition: { duration: 0.35, ease: EASE_OUT } },
+          hidden: { opacity: 0, x: -35 },
+          visible: { opacity: 1, x: 0, transition: { duration, ease: EASE_OUT } },
         };
       case "zoom-in":
         return {
-          hidden: { opacity: 0, scale: 0.88, y: 16 },
-          visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.38, ease: EASE_OUT } },
+          hidden: { opacity: 0, scale: 0.9, y: 16 },
+          visible: { opacity: 1, scale: 1, y: 0, transition: { duration, ease: EASE_OUT } },
         };
       case "fade-down":
         return {
           hidden: { opacity: 0, y: -20 },
-          visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: EASE_OUT } },
+          visible: { opacity: 1, y: 0, transition: { duration, ease: EASE_OUT } },
         };
       case "fade-up":
       default:
         return {
           hidden: { opacity: 0, y: 20 },
-          visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: EASE_OUT } },
+          visible: { opacity: 1, y: 0, transition: { duration, ease: EASE_OUT } },
         };
     }
   };

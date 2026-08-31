@@ -17,7 +17,7 @@ const HeroSection = () => {
       <div className="relative min-h-screen sm:min-h-[90vh] flex flex-col justify-between pt-20 sm:pt-24 md:pt-28 pb-20 lg:pb-20 overflow-hidden bg-[#0a0a0a]">
         
         {/* Background Image Setup: Deity, Horse, Cab & Sunset visible */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 transform-gpu">
           <img 
             src={heroBgMobile} 
             alt="Mr Ayyan Cabs Tirupur Cab and Taxi Service Background" 

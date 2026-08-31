@@ -102,7 +102,7 @@ export const HeroHeader = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-40 py-2 sm:py-3 px-3 sm:px-6 border-b border-white/10 bg-black/90 sm:backdrop-blur-lg transition-colors transition-shadow duration-300 text-white transform-gpu">
+      <header className="fixed top-0 left-0 right-0 z-40 py-2 sm:py-3 px-3 sm:px-6 border-b border-white/10 bg-black/70 backdrop-blur-lg transition-colors transition-shadow duration-300 text-white transform-gpu">
         <div className="w-full flex items-center justify-between">
           
           {/* Logo & Brand Identity */}
@@ -167,8 +167,8 @@ export const HeroHeader = () => {
             initial={{ opacity: 0, y: "-100%" }}
             animate={{ opacity: 1, y: "0%" }}
             exit={{ opacity: 0, y: "-100%" }}
-            transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-50 bg-black/98 sm:backdrop-blur-2xl flex flex-col justify-between p-6 sm:p-10 overflow-y-auto transform-gpu"
+            transition={{ type: "spring", damping: 28, stiffness: 280, mass: 0.8 }}
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex flex-col justify-between p-6 sm:p-10 overflow-y-auto transform-gpu"
           >
             
             {/* Header Bar inside Drawer */}

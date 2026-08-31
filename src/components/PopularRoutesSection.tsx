@@ -26,7 +26,7 @@ export const PopularRoutesSection = () => {
           </ScrollReveal>
 
           {/* Single Line Route Cards List */}
-          <StaggerContainer staggerDelay={0.08} className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+          <StaggerContainer staggerDelay={0.12} className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
             {routes.map((route, idx) => (
               <StaggerItem key={idx} animation="slide-from-left">
                 <div 
