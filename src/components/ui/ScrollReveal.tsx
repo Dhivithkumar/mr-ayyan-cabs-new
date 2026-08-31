@@ -73,7 +73,7 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once, amount: 0.1, margin: "0px 0px -30px 0px" }}
+      viewport={{ once, amount: 0.05, margin: "0px 0px -10px 0px" }}
       variants={getVariants()}
       transition={{
         duration,
@@ -114,7 +114,7 @@ export const StaggerContainer: React.FC<StaggerContainerProps> = ({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once, amount: 0.1, margin: "0px 0px -30px 0px" }}
+      viewport={{ once, amount: 0.05, margin: "0px 0px -10px 0px" }}
       variants={containerVariants}
       className={`transform-gpu ${className}`}
     >

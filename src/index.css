@@ -39,7 +39,7 @@
 
   html {
     -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
+    touch-action: pan-y;
   }
 
   body {
@@ -47,6 +47,8 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
     overflow-x: hidden;
     text-wrap: pretty;
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
   }
   
   h1, h2, h3, h4, .font-heading {
