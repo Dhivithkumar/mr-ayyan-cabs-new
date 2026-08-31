@@ -38,7 +38,6 @@
   }
 
   html {
-    scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
   }
@@ -64,6 +63,34 @@
   button, a {
     touch-action: manipulation;
   }
+}
+
+/* Lenis Smooth Scroll Recommended Styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Hardware Acceleration Helpers */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 /* Custom Luxury Gradients & Color Utilities (Reddish Maroon, Yellow, White) */
@@ -102,17 +129,12 @@
 }
 
 .card-hover-effect {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-hover-effect:hover {
   transform: translateY(-5px);
   box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.12);
-}
-
-/* Smooth Scroll */
-html {
-  scroll-behavior: smooth;
 }
 
 /* Custom Scrollbar */
@@ -146,8 +168,8 @@ html {
 .animate-marquee {
   display: flex;
   width: max-content;
-  will-change: transform;
   transform: translateZ(0);
+  backface-visibility: hidden;
   animation: marquee 35s linear infinite;
 }
 

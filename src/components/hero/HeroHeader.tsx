@@ -3,11 +3,13 @@ import { Menu, X, Phone, MessageCircle, ArrowRight, Home, Car, MapPin, Route, St
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate, useLocation } from "react-router-dom";
 import logo from '../../assets/mr_ayyan_cabs_logo.png';
+import { useSmoothScroll } from "../ui/SmoothScroll";
 
 export const HeroHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const lenis = useSmoothScroll();
 
   // Scroll to hash target on location change or initial load
   useEffect(() => {
@@ -16,23 +18,30 @@ export const HeroHeader = () => {
       const element = document.getElementById(id);
       if (element) {
         setTimeout(() => {
-          element.scrollIntoView({ behavior: "smooth" });
+          if (lenis) {
+            lenis.scrollTo(element, { duration: 1.2 });
+          } else {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
         }, 100);
       }
     }
-  }, [location]);
+  }, [location, lenis]);
 
   // Prevent background scrolling when menu drawer is open
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = "hidden";
+      if (lenis) lenis.stop();
     } else {
       document.body.style.overflow = "unset";
+      if (lenis) lenis.start();
     }
     return () => {
       document.body.style.overflow = "unset";
+      if (lenis) lenis.start();
     };
-  }, [isMenuOpen]);
+  }, [isMenuOpen, lenis]);
 
   const navLinks = [
     { name: "Home", href: "/", icon: <Home className="w-4 h-4 text-white" /> },
@@ -57,7 +66,11 @@ export const HeroHeader = () => {
     if (!href.includes("#")) {
       e.preventDefault();
       navigate(href);
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      if (lenis) {
+        lenis.scrollTo(0, { duration: 1.0 });
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
       return;
     }
 
@@ -70,7 +83,11 @@ export const HeroHeader = () => {
       e.preventDefault();
       const element = document.getElementById(sectionId);
       if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+        if (lenis) {
+          lenis.scrollTo(element, { duration: 1.2 });
+        } else {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
         window.history.pushState(null, "", href);
       } else {
         navigate(href);
@@ -85,7 +102,7 @@ export const HeroHeader = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-40 py-2 sm:py-3 px-3 sm:px-6 border-b border-white/10 bg-black/70 backdrop-blur-lg transition-all text-white transform-gpu">
+      <header className="fixed top-0 left-0 right-0 z-40 py-2 sm:py-3 px-3 sm:px-6 border-b border-white/10 bg-black/70 backdrop-blur-lg transition-colors transition-shadow duration-300 text-white transform-gpu">
         <div className="w-full flex items-center justify-between">
           
           {/* Logo & Brand Identity */}

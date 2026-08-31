@@ -27,27 +27,27 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
     switch (animation) {
       case "fade-up":
         return {
-          hidden: { opacity: 0, y: 8 },
+          hidden: { opacity: 0, y: 12 },
           visible: { opacity: 1, y: 0 },
         };
       case "fade-down":
         return {
-          hidden: { opacity: 0, y: -8 },
+          hidden: { opacity: 0, y: -12 },
           visible: { opacity: 1, y: 0 },
         };
       case "slide-left":
         return {
-          hidden: { opacity: 0, y: 8 },
-          visible: { opacity: 1, y: 0 },
+          hidden: { opacity: 0, x: -12 },
+          visible: { opacity: 1, x: 0 },
         };
       case "slide-right":
         return {
-          hidden: { opacity: 0, y: 8 },
-          visible: { opacity: 1, y: 0 },
+          hidden: { opacity: 0, x: 12 },
+          visible: { opacity: 1, x: 0 },
         };
       case "zoom-in":
         return {
-          hidden: { opacity: 0, scale: 0.98 },
+          hidden: { opacity: 0, scale: 0.96 },
           visible: { opacity: 1, scale: 1 },
         };
       case "fade":
@@ -63,14 +63,14 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.01 }}
+      viewport={{ once, amount: 0.1, margin: "0px 0px -30px 0px" }}
+      variants={getVariants()}
       transition={{
         duration,
         delay,
         ease: EASE_OUT,
       }}
       className={`transform-gpu ${className}`}
-      style={{ willChange: "transform, opacity" }}
     >
       {children}
     </motion.div>
@@ -104,10 +104,9 @@ export const StaggerContainer: React.FC<StaggerContainerProps> = ({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.01 }}
+      viewport={{ once, amount: 0.1, margin: "0px 0px -30px 0px" }}
       variants={containerVariants}
       className={`transform-gpu ${className}`}
-      style={{ willChange: "opacity" }}
     >
       {children}
     </motion.div>
@@ -120,7 +119,7 @@ export const StaggerItem: React.FC<{
   className?: string;
 }> = ({ children, animation = "fade-up", className = "" }) => {
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 8 },
+    hidden: { opacity: 0, y: 10 },
     visible: {
       opacity: 1,
       y: 0,
@@ -133,7 +132,7 @@ export const StaggerItem: React.FC<{
   };
 
   return (
-    <motion.div variants={itemVariants} className={`transform-gpu ${className}`} style={{ willChange: "transform, opacity" }}>
+    <motion.div variants={itemVariants} className={`transform-gpu ${className}`}>
       {children}
     </motion.div>
   );

@@ -32,14 +32,17 @@ const VideoCard = ({ service, whatsappMessage }: { service: ServiceItem; whatsap
         entries.forEach((entry) => {
           if (videoRef.current) {
             if (entry.isIntersecting) {
-              videoRef.current.play().catch(() => {});
+              const playPromise = videoRef.current.play();
+              if (playPromise !== undefined) {
+                playPromise.catch(() => {});
+              }
             } else {
               videoRef.current.pause();
             }
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.2 }
     );
 
     observer.observe(card);
@@ -58,7 +61,7 @@ const VideoCard = ({ service, whatsappMessage }: { service: ServiceItem; whatsap
           loop
           muted
           playsInline
-          preload="none"
+          preload="metadata"
           poster={service.poster}
           className="w-full h-full object-cover opacity-100 transition-transform duration-500 group-hover:scale-105 transform-gpu"
         >

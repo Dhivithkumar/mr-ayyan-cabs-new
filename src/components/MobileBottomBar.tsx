@@ -1,18 +1,28 @@
 import { ChevronUp, Phone, Calendar, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
+import { useSmoothScroll } from "./ui/SmoothScroll";
 
 export const MobileBottomBar = () => {
   const whatsappMessage = encodeURIComponent("Hi Mr Ayyan Cabs, I would like to book a cab in Tirupur.");
+  const lenis = useSmoothScroll();
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (lenis) {
+      lenis.scrollTo(0, { duration: 1.2 });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   const scrollToBooking = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const bookingElem = document.getElementById("booking");
     if (bookingElem) {
       e.preventDefault();
-      bookingElem.scrollIntoView({ behavior: "smooth" });
+      if (lenis) {
+        lenis.scrollTo(bookingElem, { duration: 1.2 });
+      } else {
+        bookingElem.scrollIntoView({ behavior: "smooth" });
+      }
     }
   };
 

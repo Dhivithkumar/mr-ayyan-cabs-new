@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { SmoothScroll } from "@/components/ui/SmoothScroll";
 import Index from "./pages/index.tsx";
 import TirupurCabService from "./pages/TirupurCabService.tsx";
 import TirupurTaxiService from "./pages/TirupurTaxiService.tsx";
@@ -16,20 +17,22 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/tirupur-cab-service" element={<TirupurCabService />} />
-          <Route path="/tirupur-taxi-service" element={<TirupurTaxiService />} />
-          <Route path="/tirupur-airport-taxi" element={<TirupurAirportTaxi />} />
-          <Route path="/tirupur-outstation-cab" element={<TirupurOutstationCab />} />
-          {/* CATCH-ALL ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <MobileBottomBar />
-      </BrowserRouter>
+      <SmoothScroll>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/tirupur-cab-service" element={<TirupurCabService />} />
+            <Route path="/tirupur-taxi-service" element={<TirupurTaxiService />} />
+            <Route path="/tirupur-airport-taxi" element={<TirupurAirportTaxi />} />
+            <Route path="/tirupur-outstation-cab" element={<TirupurOutstationCab />} />
+            {/* CATCH-ALL ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <MobileBottomBar />
+        </BrowserRouter>
+      </SmoothScroll>
     </TooltipProvider>
   </QueryClientProvider>
 );
