@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import HeroHeader from "./hero/HeroHeader";
 import LocationBadge from "./hero/LocationBadge";
 import HeroCTA from "./hero/HeroCTA";
@@ -14,10 +13,10 @@ const HeroSection = () => {
       {/* 1. MINIMAL TRANSPARENT HEADER */}
       <HeroHeader />
 
-      {/* 2. MAIN HERO CONTAINER WITH BACKGROUND */}
-      <div className="relative min-h-[85vh] sm:min-h-[88vh] flex flex-col justify-between pt-20 sm:pt-28 md:pt-32 pb-12 sm:pb-16 overflow-hidden bg-[#0a0a0a]">
+      {/* 2. MAIN HERO CONTAINER WITH BACKGROUND (FULL VIEWPORT HEIGHT COVERAGE) */}
+      <div className="relative min-h-screen sm:min-h-[90vh] flex flex-col justify-between pt-20 sm:pt-24 md:pt-28 pb-20 lg:pb-20 overflow-hidden bg-[#0a0a0a]">
         
-        {/* Background Image Setup */}
+        {/* Background Image Setup: Deity, Horse, Cab & Sunset visible */}
         <div className="absolute inset-0 z-0">
           <img 
             src={heroBgMobile} 
@@ -31,54 +30,57 @@ const HeroSection = () => {
             className="hidden sm:block w-full h-full object-cover object-[75%_center] lg:object-[85%_center]"
             loading="eager"
           />
-          {/* Dark Overlay for Pristine Contrast & Text Readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/40 to-black/60 sm:bg-gradient-to-r sm:from-[#0a0a0a]/90 sm:via-black/50 sm:to-transparent pointer-events-none"></div>
+          {/* Responsive Subtle Gradient Overlay - High Transparency to make image vibrant while preserving text readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-black/25 to-transparent sm:bg-gradient-to-r sm:from-[#0a0a0a]/85 sm:via-black/40 sm:to-transparent pointer-events-none"></div>
         </div>
 
-        {/* 3. HERO CONTENT - LEFT TO RIGHT ANIMATION ON WINDOWS/DESKTOP */}
-        <div className="container mx-auto px-4 md:px-8 relative z-10 my-auto">
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-2xl text-left flex flex-col items-start"
-          >
+        {/* 3. HERO CONTENT */}
+        <div className="container mx-auto px-4 md:px-8 relative z-10 my-auto pt-16 sm:pt-0">
+          <div className="max-w-xl text-right sm:text-left ml-auto sm:ml-0 flex flex-col items-end sm:items-start">
             
-            {/* Unified Clean Headline */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] mb-3 text-white uppercase drop-shadow-lg font-heading text-left">
-              PREMIUM <span className="text-[#F5B800]">CAB SERVICE</span> IN TIRUPUR
+            {/* Main H1 Headline - Mobile vs Desktop */}
+            <h1 className="block sm:hidden text-4xl font-black tracking-tight leading-[1.08] mb-2 text-white uppercase drop-shadow-md font-heading text-right">
+              <span className="text-white">PREMIUM</span>
+              <br />
+              <span className="text-[#F5B800]">CAB SERVICE</span>
+              <br />
+              <span className="text-white">IN TIRUPUR</span>
             </h1>
 
-            {/* Accent Underline Bar */}
-            <div className="w-12 sm:w-16 h-1 bg-[#F5B800] rounded-full mb-3"></div>
+            <h1 className="hidden sm:block text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] mb-3 text-white uppercase drop-shadow-md text-left">
+              <span>TIRUPUR</span>
+              <br />
+              <span className="text-[#D4A017]">CAB &amp; TAXI</span>
+              <br />
+              <span>SERVICE</span>
+            </h1>
 
-            {/* Supporting Sub-text */}
-            <p className="text-sm sm:text-base md:text-lg text-gray-200 font-semibold leading-relaxed mb-4 max-w-lg text-left drop-shadow">
-              Local City Rides, Airport Transfers &amp; Outstation Cab Packages
+            {/* Accent Underline Bar for Mobile */}
+            <div className="block sm:hidden w-12 h-1 bg-[#F5B800] rounded-full my-2.5 ml-auto"></div>
+
+            {/* Supporting Text */}
+            <p className="text-base sm:text-base md:text-lg text-gray-200 font-medium leading-relaxed mb-3 max-w-md drop-shadow text-right sm:text-left">
+              Local, Airport &amp; Outstation<br className="block sm:hidden" /> Travel Made Easy
             </p>
 
             {/* Location Pill / Badge */}
-            <div className="mb-5">
-              <LocationBadge />
+            <LocationBadge />
+
+            {/* Free Benefits (Moved up on mobile) */}
+            <div className="w-full mt-2">
+              <FreeBenefits />
             </div>
 
-            {/* Hero CTAs (Call Now + WhatsApp) */}
-            <div className="w-full max-w-md mb-4">
+            {/* Desktop CTAs & Trust Strip */}
+            <div className="hidden sm:block">
               <HeroCTA />
-            </div>
-
-            {/* Trust Rating Strip */}
-            <div className="w-full">
               <TrustStrip />
             </div>
 
-          </motion.div>
+          </div>
         </div>
 
       </div>
-
-      {/* 4. FREE BENEFITS STRIP */}
-      <FreeBenefits />
 
     </div>
   );

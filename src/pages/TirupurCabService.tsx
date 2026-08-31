@@ -38,10 +38,10 @@ const TirupurCabService = () => {
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
             
-            <span className="text-amber-600 font-bold text-xs uppercase tracking-wider bg-amber-50 px-3 py-1 rounded-full border border-amber-200 inline-block mb-3 font-heading">
+            <span className="text-amber-600 font-bold text-xs uppercase tracking-wider bg-amber-50 px-3 py-1 rounded-full border border-amber-200 inline-block mb-3">
               Tirupur Local Cab Rental
             </span>
-            <h1 className="text-3xl md:text-5xl font-black text-[#D4A017] tracking-tight mb-6 font-heading">
+            <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-6">
               Reliable Local Cab Service in Tirupur
             </h1>
 
