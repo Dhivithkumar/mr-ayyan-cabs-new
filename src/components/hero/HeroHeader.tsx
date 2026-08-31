@@ -101,7 +101,7 @@ export const HeroHeader = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-40 py-2 sm:py-3 px-3 sm:px-6 border-b border-white/10 bg-black/70 backdrop-blur-lg transition-colors transition-shadow duration-300 text-white">
+      <header className="fixed top-0 left-0 right-0 z-40 py-2 sm:py-3 px-3 sm:px-6 border-b border-white/10 bg-black/70 backdrop-blur-lg text-white">
         <div className="w-full flex items-center justify-between">
           
           {/* Logo & Brand Identity */}
@@ -109,7 +109,7 @@ export const HeroHeader = () => {
             <img 
               src={logo} 
               alt="Mr Ayyan Cabs Logo" 
-              className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 object-contain drop-shadow-md transition-transform duration-300 group-hover:scale-105 transform-gpu"
+              className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 object-contain drop-shadow-md"
             />
             <span className="text-lg sm:text-xl md:text-2xl font-black text-white leading-none tracking-tight uppercase font-heading">
               <span className="text-white">MR </span>
@@ -125,10 +125,9 @@ export const HeroHeader = () => {
                 key={link.name} 
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-xs md:text-sm font-semibold text-gray-200 hover:text-[#F5B800] transition-colors py-1 relative group"
+                className="text-xs md:text-sm font-semibold text-gray-200 hover:text-[#F5B800] py-1 relative group"
               >
                 {link.name}
-                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#F5B800] transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
           </nav>
@@ -137,14 +136,14 @@ export const HeroHeader = () => {
           <div className="flex items-center gap-3 shrink-0">
             <a 
               href="tel:+919786223334" 
-              className="hidden sm:inline-flex items-center gap-2 bg-[#F5B800] hover:bg-[#e0a700] text-black font-extrabold text-xs px-4 py-2 rounded-full shadow-md transition-transform active:scale-95 transform-gpu font-heading"
+              className="hidden sm:inline-flex items-center gap-2 bg-[#F5B800] hover:bg-[#e0a700] text-black font-extrabold text-xs px-4 py-2 rounded-full shadow-md font-heading"
             >
               <Phone className="w-3.5 h-3.5 fill-black" />
               <span>+91 97862 23334</span>
             </a>
 
             <button 
-              className="w-10 h-10 bg-black/80 hover:bg-black border border-white/20 hover:border-[#F5B800] text-white rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-all transform-gpu focus:outline-none"
+              className="w-10 h-10 bg-black/80 hover:bg-black border border-white/20 hover:border-[#F5B800] text-white rounded-full flex items-center justify-center shadow-lg focus:outline-none"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle Navigation Menu"
             >

@@ -32,7 +32,7 @@ export const MobileBottomBar = () => {
         {/* 1. TOP SCROLL TO TOP CHEVRON ARROW */}
         <button 
           onClick={scrollToTop}
-          className="mb-0.5 text-white opacity-80 hover:opacity-100 focus:outline-none p-0.5 drop-shadow"
+          className="mb-0.5 text-white focus:outline-none p-0.5 drop-shadow"
           aria-label="Scroll to top"
           title="Scroll to top"
         >
