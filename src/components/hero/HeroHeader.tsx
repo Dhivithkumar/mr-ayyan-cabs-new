@@ -101,7 +101,7 @@ export const HeroHeader = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-40 py-2 sm:py-3 px-3 sm:px-6 border-b border-white/10 bg-black/70 backdrop-blur-lg transition-colors transition-shadow duration-300 text-white transform-gpu">
+      <header className="fixed top-0 left-0 right-0 z-40 py-2 sm:py-3 px-3 sm:px-6 border-b border-white/10 bg-black/70 backdrop-blur-lg transition-colors transition-shadow duration-300 text-white">
         <div className="w-full flex items-center justify-between">
           
           {/* Logo & Brand Identity */}
