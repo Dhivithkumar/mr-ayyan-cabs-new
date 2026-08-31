@@ -35,10 +35,10 @@ const TirupurTaxiService = () => {
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
             
-            <span className="text-amber-600 font-bold text-xs uppercase tracking-wider bg-amber-50 px-3 py-1 rounded-full border border-amber-200 inline-block mb-3">
+            <span className="text-amber-600 font-bold text-xs uppercase tracking-wider bg-amber-50 px-3 py-1 rounded-full border border-amber-200 inline-block mb-3 font-heading">
               24x7 Taxi Booking Tirupur
             </span>
-            <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-6">
+            <h1 className="text-3xl md:text-5xl font-black text-[#D4A017] tracking-tight mb-6 font-heading">
               Prompt &amp; Professional Taxi Service in Tirupur
             </h1>
 
