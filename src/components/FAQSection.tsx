@@ -103,9 +103,11 @@ export const FAQSection = () => {
             <div className="flex items-center gap-3">
               <a
                 href="tel:+919786223334"
-                className="bg-[#D4A017] hover:bg-[#b88910] text-black font-bold px-4 py-2.5 rounded-xl text-xs flex items-center gap-1.5 shadow-sm"
+                className="bg-[#D4A017] hover:bg-[#b88910] text-black font-extrabold px-4 py-2.5 rounded-xl text-xs flex items-center gap-1.5 shadow-sm font-heading"
               >
-                <Phone className="w-3.5 h-3.5 fill-black" /> Call +91 97862 23334
+                <Phone className="w-3.5 h-3.5 fill-black" />
+                <span className="sm:hidden">Call</span>
+                <span className="hidden sm:inline">Call +91 97862 23334</span>
               </a>
               <a
                 href={`https://wa.me/919786223334?text=${whatsappMessage}`}

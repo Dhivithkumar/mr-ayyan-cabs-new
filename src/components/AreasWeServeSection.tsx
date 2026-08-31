@@ -28,16 +28,16 @@ export const AreasWeServeSection = () => {
             </h2>
           </ScrollReveal>
 
-          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-12">
+          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5 sm:gap-4 mb-12">
             {primaryAreas.map((area, idx) => (
               <StaggerItem key={idx} animation="zoom-in">
                 <div 
-                  className="bg-white p-4 sm:p-5 rounded-2xl border border-gray-200/80 hover:border-amber-400 flex items-center gap-3 text-gray-900 font-bold text-sm shadow-sm hover:shadow-md transition-all card-hover-effect"
+                  className="bg-white p-3 sm:p-5 rounded-2xl border border-gray-200/80 hover:border-amber-400 flex items-center gap-2 sm:gap-3 text-gray-900 font-bold shadow-sm hover:shadow-md transition-all card-hover-effect min-w-0"
                 >
-                  <div className="w-8 h-8 rounded-full bg-amber-50 border border-amber-100 flex items-center justify-center shrink-0 text-[#F59E0B]">
-                    <MapPin className="w-4 h-4" />
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-amber-50 border border-amber-100 flex items-center justify-center shrink-0 text-[#F59E0B]">
+                    <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </div>
-                  <span className="font-heading">{area}</span>
+                  <span className="font-heading text-xs sm:text-sm font-extrabold text-gray-900 leading-snug break-words min-w-0 flex-1">{area}</span>
                 </div>
               </StaggerItem>
             ))}
