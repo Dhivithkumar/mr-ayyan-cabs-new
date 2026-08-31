@@ -26,13 +26,13 @@ export const MobileBottomBar = () => {
   };
 
   return (
-    <div className="fixed bottom-3 left-0 right-0 z-50 sm:hidden flex justify-center pointer-events-none px-3 pb-[env(safe-area-inset-bottom,0px)]">
-      <div className="w-[88%] max-w-[290px] flex flex-col items-center pointer-events-auto">
+    <div className="fixed bottom-3 left-0 right-0 z-50 sm:hidden flex justify-center pointer-events-none px-3 pb-[env(safe-area-inset-bottom,0px)] mobile-bottom-bar max-sm:![animation:none] max-sm:![transition:none] max-sm:![transform:none]">
+      <div className="w-[88%] max-w-[290px] flex flex-col items-center pointer-events-auto max-sm:![animation:none] max-sm:![transition:none] max-sm:![transform:none]">
         
         {/* 1. TOP SCROLL TO TOP CHEVRON ARROW */}
         <button 
           onClick={scrollToTop}
-          className="mb-0.5 text-white focus:outline-none p-0.5 drop-shadow"
+          className="mb-0.5 text-white focus:outline-none p-0.5 drop-shadow max-sm:![animation:none] max-sm:![transition:none] max-sm:![transform:none]"
           aria-label="Scroll to top"
           title="Scroll to top"
         >
@@ -40,16 +40,16 @@ export const MobileBottomBar = () => {
         </button>
 
         {/* 2. FLOATING DARK CAPSULE BAR WITH VERTICAL DIVIDERS */}
-        <div className="w-full bg-[#18191c]/95 backdrop-blur-xl border border-neutral-700/80 rounded-[18px] py-1.5 px-1 shadow-[0_6px_25px_rgba(0,0,0,0.85)]">
-          <div className="grid grid-cols-3 divide-x divide-neutral-700/80 items-center w-full">
+        <div className="w-full bg-[#18191c]/95 backdrop-blur-xl border border-neutral-700/80 rounded-[18px] py-1.5 px-1 shadow-[0_6px_25px_rgba(0,0,0,0.85)] max-sm:![animation:none] max-sm:![transition:none] max-sm:![transform:none]">
+          <div className="grid grid-cols-3 divide-x divide-neutral-700/80 items-center w-full max-sm:![animation:none] max-sm:![transition:none] max-sm:![transform:none]">
             
             {/* COLUMN 1: CALL */}
             <a
               href="tel:+919786223334"
-              className="flex flex-col items-center justify-center px-0.5"
+              className="flex flex-col items-center justify-center px-0.5 max-sm:![animation:none] max-sm:![transition:none] max-sm:![transform:none]"
               aria-label="Call Mr Ayyan Cabs"
             >
-              <div className="w-8 h-8 rounded-full bg-[#f5a623] flex items-center justify-center shadow-md">
+              <div className="w-8 h-8 rounded-full bg-[#f5a623] flex items-center justify-center shadow-md max-sm:![animation:none] max-sm:![transition:none] max-sm:![transform:none]">
                 <Phone className="w-4 h-4 fill-black text-black" />
               </div>
               <span className="text-[9px] font-extrabold text-white tracking-wider uppercase mt-1 font-heading">
@@ -61,10 +61,10 @@ export const MobileBottomBar = () => {
             <a
               href="#booking"
               onClick={scrollToBooking}
-              className="flex flex-col items-center justify-center px-0.5"
+              className="flex flex-col items-center justify-center px-0.5 max-sm:![animation:none] max-sm:![transition:none] max-sm:![transform:none]"
               aria-label="Book a Cab Now"
             >
-              <div className="w-8 h-8 rounded-full bg-neutral-900/90 border border-neutral-600 flex items-center justify-center shadow-md">
+              <div className="w-8 h-8 rounded-full bg-neutral-900/90 border border-neutral-600 flex items-center justify-center shadow-md max-sm:![animation:none] max-sm:![transition:none] max-sm:![transform:none]">
                 <Calendar className="w-4 h-4 text-[#f5a623]" />
               </div>
               <span className="text-[9px] font-extrabold text-white tracking-wider uppercase mt-1 font-heading">
@@ -77,10 +77,10 @@ export const MobileBottomBar = () => {
               href={`https://wa.me/919786223334?text=${whatsappMessage}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center justify-center px-0.5"
+              className="flex flex-col items-center justify-center px-0.5 max-sm:![animation:none] max-sm:![transition:none] max-sm:![transform:none]"
               aria-label="Contact Mr Ayyan Cabs on WhatsApp"
             >
-              <div className="w-8 h-8 rounded-full bg-[#25D366] flex items-center justify-center shadow-md">
+              <div className="w-8 h-8 rounded-full bg-[#25D366] flex items-center justify-center shadow-md max-sm:![animation:none] max-sm:![transition:none] max-sm:![transform:none]">
                 <MessageCircle className="w-4 h-4 fill-white text-white" />
               </div>
               <span className="text-[9px] font-extrabold text-white tracking-wider uppercase mt-1 font-heading">

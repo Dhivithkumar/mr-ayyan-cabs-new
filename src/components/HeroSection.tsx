@@ -8,7 +8,7 @@ import heroBgMobile from '../assets/hero_background_mobile.jpg';
 
 const HeroSection = () => {
   return (
-    <div className="relative flex flex-col bg-[#0a0a0a] text-white overflow-hidden font-sans">
+    <div className="relative flex flex-col bg-[#0a0a0a] text-white font-sans">
       
       {/* 1. MINIMAL TRANSPARENT HEADER */}
       <HeroHeader />

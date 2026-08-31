@@ -179,3 +179,16 @@ html.lenis, html.lenis body {
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+/* Mobile Navigation Optimization - Zero Animations & Locked Fixed Frame */
+@media (max-width: 639px) {
+  header, 
+  .mobile-bottom-bar,
+  .mobile-bottom-bar * {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    will-change: auto !important;
+  }
+}
+

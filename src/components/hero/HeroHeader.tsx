@@ -101,7 +101,7 @@ export const HeroHeader = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-40 py-2 sm:py-3 border-b border-white/10 bg-black/70 backdrop-blur-lg text-white">
+      <header className="fixed top-0 left-0 right-0 z-40 py-2 sm:py-3 border-b border-white/10 bg-black/70 backdrop-blur-lg text-white max-sm:![animation:none] max-sm:![transition:none] max-sm:![transform:none]">
         <div className="container mx-auto px-4 md:px-8 flex items-center justify-between">
           
           {/* Logo & Brand Identity */}
@@ -143,7 +143,7 @@ export const HeroHeader = () => {
             </a>
 
             <button 
-              className="w-10 h-10 bg-black/80 hover:bg-black border border-white/20 hover:border-[#F5B800] text-white rounded-full flex items-center justify-center shadow-lg focus:outline-none"
+              className="w-10 h-10 bg-black/80 hover:bg-black border border-white/20 hover:border-[#F5B800] text-white rounded-full flex items-center justify-center shadow-lg focus:outline-none max-sm:![transition:none] max-sm:![transform:none]"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle Navigation Menu"
             >
@@ -160,7 +160,7 @@ export const HeroHeader = () => {
 
       {/* Full Overlay Drawer Navigation Menu (Static Instant Rendering, Zero Animation Overhead) */}
       {isMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex flex-col justify-between p-6 sm:p-10 overflow-y-auto">
+        <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex flex-col justify-between p-6 sm:p-10 overflow-y-auto max-sm:![animation:none] max-sm:![transition:none] max-sm:![transform:none]">
           
           {/* Header Bar inside Drawer */}
           <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-4 sm:mb-6">
@@ -173,7 +173,7 @@ export const HeroHeader = () => {
             
             <button 
               onClick={() => setIsMenuOpen(false)}
-              className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center focus:outline-none"
+              className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center focus:outline-none max-sm:![transition:none] max-sm:![transform:none]"
               aria-label="Close Menu"
             >
               <X className="w-5 h-5 text-[#F5B800]" />
@@ -191,13 +191,13 @@ export const HeroHeader = () => {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="p-3.5 rounded-2xl bg-white/5 hover:bg-amber-500/15 border border-white/10 hover:border-[#F5B800] text-gray-100 hover:text-[#F5B800] flex items-center justify-between text-sm sm:text-base font-bold transition-colors group"
+                  className="p-3.5 rounded-2xl bg-white/5 sm:hover:bg-amber-500/15 border border-white/10 sm:hover:border-[#F5B800] text-gray-100 sm:hover:text-[#F5B800] flex items-center justify-between text-sm sm:text-base font-bold sm:transition-colors group max-sm:![transition:none] max-sm:![transform:none]"
                 >
                   <div className="flex items-center gap-3">
                     {link.icon}
                     <span>{link.name}</span>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-gray-500 group-hover:text-[#F5B800] group-hover:translate-x-1 transition-all" />
+                  <ArrowRight className="w-4 h-4 text-gray-500 sm:group-hover:text-[#F5B800] sm:group-hover:translate-x-1 sm:transition-all max-sm:![transition:none] max-sm:![transform:none]" />
                 </a>
               ))}
             </div>
