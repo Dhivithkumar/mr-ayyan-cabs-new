@@ -26,7 +26,7 @@ export const MobileBottomBar = () => {
   };
 
   return (
-    <div className="fixed bottom-2.5 left-0 right-0 z-50 sm:hidden flex justify-center pointer-events-none px-2">
+    <div className="fixed bottom-3 left-0 right-0 z-50 sm:hidden flex justify-center pointer-events-none px-3 pb-[env(safe-area-inset-bottom,0px)]">
       <div className="w-[88%] max-w-[290px] flex flex-col items-center pointer-events-auto">
         
         {/* 1. TOP SCROLL TO TOP CHEVRON ARROW */}
