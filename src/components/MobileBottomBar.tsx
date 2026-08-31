@@ -26,8 +26,8 @@ export const MobileBottomBar = () => {
   };
 
   return (
-    <div className="fixed bottom-3 left-0 right-0 z-50 sm:hidden flex justify-center pointer-events-none px-3 pb-[env(safe-area-inset-bottom,0px)] mobile-bottom-bar max-sm:![animation:none] max-sm:![transition:none] max-sm:![transform:none]">
-      <div className="w-[88%] max-w-[290px] flex flex-col items-center pointer-events-auto max-sm:![animation:none] max-sm:![transition:none] max-sm:![transform:none]">
+    <div className="fixed bottom-5 left-0 right-0 z-[100] sm:hidden flex justify-center pointer-events-none px-3 pb-[calc(0.5rem+env(safe-area-inset-bottom,0px))] mobile-bottom-bar max-sm:![animation:none] max-sm:![transition:none] max-sm:![transform:none]">
+      <div className="w-[90%] max-w-[300px] flex flex-col items-center pointer-events-auto max-sm:![animation:none] max-sm:![transition:none] max-sm:![transform:none]">
         
         {/* 1. TOP SCROLL TO TOP CHEVRON ARROW */}
         <button 

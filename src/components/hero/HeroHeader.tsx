@@ -101,17 +101,17 @@ export const HeroHeader = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-40 py-2 sm:py-3 border-b border-white/10 bg-black/70 backdrop-blur-lg text-white max-sm:![animation:none] max-sm:![transition:none] max-sm:![transform:none]">
-        <div className="container mx-auto px-4 md:px-8 flex items-center justify-between">
+      <header className="fixed top-0 left-0 right-0 z-40 w-full max-w-[100vw] py-2 sm:py-3 border-b border-white/10 bg-black/70 backdrop-blur-lg text-white box-border overflow-hidden max-sm:![animation:none] max-sm:![transition:none] max-sm:![transform:none]">
+        <div className="w-full max-w-7xl mx-auto px-3 sm:px-6 md:px-8 flex items-center justify-between box-border">
           
           {/* Logo & Brand Identity */}
-          <a href="/" onClick={(e) => handleNavClick(e, '/')} className="flex items-center gap-2.5 group focus:outline-none shrink-0">
+          <a href="/" onClick={(e) => handleNavClick(e, '/')} className="flex items-center gap-2 sm:gap-2.5 group focus:outline-none shrink-0 min-w-0">
             <img 
               src={logo} 
               alt="Mr Ayyan Cabs Logo" 
-              className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 object-contain drop-shadow-md"
+              className="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 object-contain drop-shadow-md shrink-0"
             />
-            <span className="text-lg sm:text-xl md:text-2xl font-black text-white leading-none tracking-tight uppercase font-heading">
+            <span className="text-base sm:text-xl md:text-2xl font-black text-white leading-none tracking-tight uppercase font-heading truncate">
               <span className="text-white">MR </span>
               <span className="text-[#F5B800]">AYYAN </span>
               <span className="text-white">CABS</span>
@@ -133,7 +133,7 @@ export const HeroHeader = () => {
           </nav>
 
           {/* Burger Menu Button Toggle */}
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-3 shrink-0 ml-2">
             <a 
               href="tel:+919786223334" 
               className="hidden sm:inline-flex items-center gap-2 bg-[#F5B800] hover:bg-[#e0a700] text-black font-extrabold text-xs px-4 py-2 rounded-full shadow-md font-heading"
@@ -143,7 +143,7 @@ export const HeroHeader = () => {
             </a>
 
             <button 
-              className="w-10 h-10 bg-black/80 hover:bg-black border border-white/20 hover:border-[#F5B800] text-white rounded-full flex items-center justify-center shadow-lg focus:outline-none max-sm:![transition:none] max-sm:![transform:none]"
+              className="w-9 h-9 sm:w-10 sm:h-10 bg-black/80 hover:bg-black border border-white/20 hover:border-[#F5B800] text-white rounded-full flex items-center justify-center shadow-lg focus:outline-none shrink-0 max-sm:![transition:none] max-sm:![transform:none]"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle Navigation Menu"
             >

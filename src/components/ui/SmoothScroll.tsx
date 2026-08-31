@@ -13,6 +13,11 @@ export const SmoothScroll: React.FC<SmoothScrollProps> = ({ children }) => {
   const [lenisInstance, setLenisInstance] = useState<Lenis | null>(null);
 
   useEffect(() => {
+    // Only initialize Lenis on desktop devices (width >= 768px)
+    if (typeof window === "undefined" || window.innerWidth < 768) {
+      return;
+    }
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
