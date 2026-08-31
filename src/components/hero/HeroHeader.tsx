@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone, MessageCircle, ArrowRight, Home, Car, MapPin, Route, Star, HelpCircle, Mail } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate, useLocation } from "react-router-dom";
 import logo from '../../assets/mr_ayyan_cabs_logo.png';
 import { useSmoothScroll } from "../ui/SmoothScroll";
@@ -160,82 +159,71 @@ export const HeroHeader = () => {
         </div>
       </header>
 
-      {/* Full Overlay Drawer Navigation Menu with Silky Spring Animation */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, y: "-100%" }}
-            animate={{ opacity: 1, y: "0%" }}
-            exit={{ opacity: 0, y: "-100%" }}
-            transition={{ type: "spring", damping: 28, stiffness: 280, mass: 0.8 }}
-            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex flex-col justify-between p-6 sm:p-10 overflow-y-auto transform-gpu"
-          >
+      {/* Full Overlay Drawer Navigation Menu (Static Instant Rendering, Zero Animation Overhead) */}
+      {isMenuOpen && (
+        <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex flex-col justify-between p-6 sm:p-10 overflow-y-auto">
+          
+          {/* Header Bar inside Drawer */}
+          <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-4 sm:mb-6">
+            <a href="/" onClick={(e) => handleNavClick(e, '/')} className="flex items-center gap-2">
+              <img src={logo} alt="Mr Ayyan Cabs" className="w-10 h-10 object-contain" />
+              <span className="text-xl font-black text-white font-heading">
+                MR <span className="text-[#F5B800]">AYYAN</span> CABS
+              </span>
+            </a>
             
-            {/* Header Bar inside Drawer */}
-            <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-4 sm:mb-6">
-              <a href="/" onClick={(e) => handleNavClick(e, '/')} className="flex items-center gap-2">
-                <img src={logo} alt="Mr Ayyan Cabs" className="w-10 h-10 object-contain" />
-                <span className="text-xl font-black text-white font-heading">
-                  MR <span className="text-[#F5B800]">AYYAN</span> CABS
-                </span>
-              </a>
-              
-              <button 
-                onClick={() => setIsMenuOpen(false)}
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center active:scale-90 transition-all transform-gpu"
-                aria-label="Close Menu"
-              >
-                <X className="w-5 h-5 text-[#F5B800]" />
-              </button>
-            </div>
+            <button 
+              onClick={() => setIsMenuOpen(false)}
+              className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center focus:outline-none"
+              aria-label="Close Menu"
+            >
+              <X className="w-5 h-5 text-[#F5B800]" />
+            </button>
+          </div>
 
-            {/* Navigation Links Grid */}
-            <div className="max-w-4xl mx-auto w-full my-auto py-2">
-              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 font-heading">
-                Navigation Menu
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
-                {navLinks.map((link, idx) => (
-                  <motion.a
-                    key={link.name}
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.05 + idx * 0.02, duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                    className="p-3.5 rounded-2xl bg-white/5 hover:bg-amber-500/15 border border-white/10 hover:border-[#F5B800] text-gray-100 hover:text-[#F5B800] flex items-center justify-between text-sm sm:text-base font-bold transition-all active:scale-[0.98] transform-gpu group"
-                  >
-                    <div className="flex items-center gap-3">
-                      {link.icon}
-                      <span>{link.name}</span>
-                    </div>
-                    <ArrowRight className="w-4 h-4 text-gray-500 group-hover:text-[#F5B800] group-hover:translate-x-1 transition-all" />
-                  </motion.a>
-                ))}
-              </div>
+          {/* Navigation Links Grid */}
+          <div className="max-w-4xl mx-auto w-full my-auto py-2">
+            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 font-heading">
+              Navigation Menu
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className="p-3.5 rounded-2xl bg-white/5 hover:bg-amber-500/15 border border-white/10 hover:border-[#F5B800] text-gray-100 hover:text-[#F5B800] flex items-center justify-between text-sm sm:text-base font-bold transition-colors group"
+                >
+                  <div className="flex items-center gap-3">
+                    {link.icon}
+                    <span>{link.name}</span>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-gray-500 group-hover:text-[#F5B800] group-hover:translate-x-1 transition-all" />
+                </a>
+              ))}
             </div>
+          </div>
 
-            {/* Bottom Action CTAs */}
-            <div className="max-w-4xl mx-auto w-full pt-4 sm:pt-6 border-t border-white/10 flex flex-col sm:flex-row gap-3">
-              <a 
-                href="tel:+919786223334"
-                className="flex-1 bg-[#F5B800] hover:bg-[#e0a700] text-black font-extrabold py-3.5 rounded-xl flex items-center justify-center gap-2 text-sm sm:text-base shadow-lg transition-transform active:scale-95 transform-gpu font-heading"
-              >
-                <Phone className="w-4 h-4 fill-black" /> Call +91 97862 23334
-              </a>
-              <a 
-                href={`https://wa.me/919786223334?text=${whatsappMessage}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold py-3.5 rounded-xl flex items-center justify-center gap-2 text-sm sm:text-base shadow-lg transition-transform active:scale-95 transform-gpu font-heading"
-              >
-                <MessageCircle className="w-4 h-4 fill-white" /> WhatsApp Booking
-              </a>
-            </div>
+          {/* Bottom Action CTAs */}
+          <div className="max-w-4xl mx-auto w-full pt-4 sm:pt-6 border-t border-white/10 flex flex-col sm:flex-row gap-3">
+            <a 
+              href="tel:+919786223334"
+              className="flex-1 bg-[#F5B800] hover:bg-[#e0a700] text-black font-extrabold py-3.5 rounded-xl flex items-center justify-center gap-2 text-sm sm:text-base shadow-lg font-heading"
+            >
+              <Phone className="w-4 h-4 fill-black" /> Call +91 97862 23334
+            </a>
+            <a 
+              href={`https://wa.me/919786223334?text=${whatsappMessage}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold py-3.5 rounded-xl flex items-center justify-center gap-2 text-sm sm:text-base shadow-lg font-heading"
+            >
+              <MessageCircle className="w-4 h-4 fill-white" /> WhatsApp Booking
+            </a>
+          </div>
 
-          </motion.div>
-        )}
-      </AnimatePresence>
+        </div>
+      )}
     </>
   );
 };
