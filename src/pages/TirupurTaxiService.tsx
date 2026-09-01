@@ -16,6 +16,8 @@ const TirupurTaxiService = () => {
     "@type": "TaxiService",
     "name": "Mr Ayyan Cabs - Tirupur Taxi Service",
     "url": "https://mrayyancabs.com/tirupur-taxi-service",
+    "image": "https://mrayyancabs.com/mr_ayyan_cabs_logo.png",
+    "logo": "https://mrayyancabs.com/mr_ayyan_cabs_logo.png",
     "description": "24x7 taxi service in Tirupur for urgent city travel, outstation trips, and airport transfers.",
     "telephone": "+919786223334",
     "areaServed": "Tirupur, Tamil Nadu"

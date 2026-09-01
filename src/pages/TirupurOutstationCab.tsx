@@ -17,6 +17,8 @@ const TirupurOutstationCab = () => {
     "@type": "TaxiService",
     "name": "Mr Ayyan Cabs - Tirupur Outstation Cab",
     "url": "https://mrayyancabs.com/tirupur-outstation-cab",
+    "image": "https://mrayyancabs.com/mr_ayyan_cabs_logo.png",
+    "logo": "https://mrayyancabs.com/mr_ayyan_cabs_logo.png",
     "description": "Outstation cab rental service from Tirupur to Coimbatore, Chennai, Madurai, Bangalore, Salem, and Ooty.",
     "telephone": "+919786223334",
     "areaServed": "Tirupur, Tamil Nadu"

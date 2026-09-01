@@ -17,6 +17,8 @@ const TirupurAirportTaxi = () => {
     "@type": "TaxiService",
     "name": "Mr Ayyan Cabs - Tirupur Airport Taxi",
     "url": "https://mrayyancabs.com/tirupur-airport-taxi",
+    "image": "https://mrayyancabs.com/mr_ayyan_cabs_logo.png",
+    "logo": "https://mrayyancabs.com/mr_ayyan_cabs_logo.png",
     "description": "Airport cab service connecting Tirupur to Coimbatore International Airport (CJB). Punctual pickup and drop.",
     "telephone": "+919786223334",
     "areaServed": "Tirupur, Tamil Nadu"

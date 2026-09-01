@@ -18,6 +18,8 @@ const TirupurCabService = () => {
     "@type": "TaxiService",
     "name": "Mr Ayyan Cabs - Tirupur Cab Service",
     "url": "https://mrayyancabs.com/tirupur-cab-service",
+    "image": "https://mrayyancabs.com/mr_ayyan_cabs_logo.png",
+    "logo": "https://mrayyancabs.com/mr_ayyan_cabs_logo.png",
     "description": "Book trusted local cab service in Tirupur for daily commutes, shopping, business visits, and station transfers.",
     "telephone": "+919786223334",
     "areaServed": "Tirupur, Tamil Nadu"
