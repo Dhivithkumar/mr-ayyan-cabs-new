@@ -4,7 +4,7 @@ export const HeroCTA = () => {
   const whatsappMessage = encodeURIComponent("Hi Mr Ayyan Cabs, I would like to book a cab in Tirupur.");
 
   return (
-    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-7 max-w-md">
+    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-4 max-w-md w-full ml-auto justify-end">
       {/* Primary Call CTA */}
       <a 
         href="tel:+919786223334" 

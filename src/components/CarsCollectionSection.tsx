@@ -80,7 +80,7 @@ const CarsCollectionSection = () => {
         </ScrollReveal>
 
         {/* Fleet Carousel */}
-        <ScrollReveal animation="fade-up" duration={0.6} className="relative max-w-6xl mx-auto px-6">
+        <ScrollReveal animation="fade-up" duration={0.85} className="relative max-w-6xl mx-auto px-6">
           <Carousel className="w-full" opts={{ align: "start", loop: true }}>
             <CarouselContent className="-ml-2 md:-ml-4">
               {cars.map((car, index) => (

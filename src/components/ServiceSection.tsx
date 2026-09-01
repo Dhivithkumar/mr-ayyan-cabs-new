@@ -55,7 +55,7 @@ const VideoCard = ({ service }: { service: ServiceItem }) => {
     >
       <article
         ref={cardRef}
-        className="relative aspect-square sm:aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden bg-black border border-white/10 shadow-md hover:shadow-2xl transition-all duration-300 transform-gpu flex flex-col justify-end p-3.5 sm:p-5 md:p-6"
+        className="relative aspect-square sm:aspect-[16/9] sm:max-h-48 md:max-h-52 rounded-2xl sm:rounded-3xl overflow-hidden bg-black border border-white/10 shadow-md hover:shadow-2xl transition-all duration-300 transform-gpu flex flex-col justify-end p-3.5 sm:p-4 md:p-5"
       >
         {/* Background HTML5 Video Layer */}
         <div className="absolute inset-0 z-0 bg-black overflow-hidden transform-gpu">
@@ -145,24 +145,24 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-12 sm:py-16 md:py-24 bg-gradient-to-b from-neutral-950 via-black to-neutral-950 text-white border-t border-white/10">
+    <section id="services" className="py-10 sm:py-12 md:py-14 bg-gradient-to-b from-neutral-950 via-black to-neutral-950 text-white border-t border-white/10">
       <div className="container mx-auto px-3 sm:px-4 md:px-6">
         
         {/* Minimal Section Header */}
-        <ScrollReveal animation="fade-down" className="text-center max-w-2xl mx-auto mb-6 sm:mb-10">
+        <ScrollReveal animation="fade-down" className="text-center max-w-2xl mx-auto mb-5 sm:mb-8">
           <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#F5B800] bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-full inline-block mb-2 font-heading">
             OUR SERVICES
           </span>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-white tracking-tight font-heading">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight font-heading">
             Travel Your Way
           </h2>
-          <p className="text-xs sm:text-sm text-gray-400 font-medium mt-2">
+          <p className="text-xs sm:text-sm text-gray-400 font-medium mt-1.5">
             Local rides, airport transfers, tourism and round trips.
           </p>
         </ScrollReveal>
 
         {/* 2 × 2 Services Grid */}
-        <StaggerContainer staggerDelay={0.08} className="grid grid-cols-2 gap-2.5 sm:gap-4 md:gap-6 max-w-4xl mx-auto">
+        <StaggerContainer staggerDelay={0.14} className="grid grid-cols-2 gap-2.5 sm:gap-3.5 md:gap-4 max-w-3xl mx-auto">
           {services.map((service, idx) => (
             <StaggerItem key={service.id} animation={idx % 2 === 0 ? "slide-from-left" : "slide-from-right"}>
               <VideoCard service={service} />

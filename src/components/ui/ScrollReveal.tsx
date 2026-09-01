@@ -20,14 +20,14 @@ interface ScrollRevealProps {
   once?: boolean;
 }
 
-// Ultra-smooth decelerate ease-out curve
-const EASE_OUT: [number, number, number, number] = [0.22, 1, 0.36, 1];
+// Ultra-smooth decelerate ease-out curve for slow, fluid scroll reveals
+const EASE_OUT: [number, number, number, number] = [0.25, 1, 0.35, 1];
 
 export const ScrollReveal: React.FC<ScrollRevealProps> = ({
   children,
   animation = "fade-up",
   delay = 0,
-  duration = 0.55,
+  duration = 0.85,
   className = "",
   once = true,
 }) => {
@@ -35,29 +35,29 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
     switch (animation) {
       case "fade-up":
         return {
-          hidden: { opacity: 0, y: 24 },
+          hidden: { opacity: 0, y: 28 },
           visible: { opacity: 1, y: 0 },
         };
       case "fade-down":
         return {
-          hidden: { opacity: 0, y: -24 },
+          hidden: { opacity: 0, y: -28 },
           visible: { opacity: 1, y: 0 },
         };
       case "slide-left":
       case "slide-from-right":
         return {
-          hidden: { opacity: 0, x: 35 },
+          hidden: { opacity: 0, x: 40 },
           visible: { opacity: 1, x: 0 },
         };
       case "slide-right":
       case "slide-from-left":
         return {
-          hidden: { opacity: 0, x: -35 },
+          hidden: { opacity: 0, x: -40 },
           visible: { opacity: 1, x: 0 },
         };
       case "zoom-in":
         return {
-          hidden: { opacity: 0, scale: 0.97, y: 12 },
+          hidden: { opacity: 0, scale: 0.96, y: 12 },
           visible: { opacity: 1, scale: 1, y: 0 },
         };
       case "fade":
@@ -73,7 +73,7 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once, amount: 0.05, margin: "0px 0px -10px 0px" }}
+      viewport={{ once, amount: 0.1, margin: "0px 0px -20px 0px" }}
       variants={getVariants()}
       transition={{
         duration,
@@ -96,7 +96,7 @@ interface StaggerContainerProps {
 
 export const StaggerContainer: React.FC<StaggerContainerProps> = ({
   children,
-  staggerDelay = 0.04,
+  staggerDelay = 0.12,
   className = "",
   once = true,
 }) => {
@@ -114,7 +114,7 @@ export const StaggerContainer: React.FC<StaggerContainerProps> = ({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once, amount: 0.05, margin: "0px 0px -10px 0px" }}
+      viewport={{ once, amount: 0.1, margin: "0px 0px -20px 0px" }}
       variants={containerVariants}
       className={`transform-gpu ${className}`}
     >
@@ -128,7 +128,7 @@ export const StaggerItem: React.FC<{
   animation?: AnimationDirection;
   duration?: number;
   className?: string;
-}> = ({ children, animation = "fade-up", duration = 0.58, className = "" }) => {
+}> = ({ children, animation = "fade-up", duration = 0.85, className = "" }) => {
   const getItemVariants = (): Variants => {
     switch (animation) {
       case "slide-from-left":
@@ -153,7 +153,7 @@ export const StaggerItem: React.FC<{
         };
       case "zoom-in":
         return {
-          hidden: { opacity: 0, scale: 0.9, y: 16 },
+          hidden: { opacity: 0, scale: 0.95, y: 16 },
           visible: { opacity: 1, scale: 1, y: 0, transition: { duration, ease: EASE_OUT } },
         };
       case "fade-down":
@@ -164,7 +164,7 @@ export const StaggerItem: React.FC<{
       case "fade-up":
       default:
         return {
-          hidden: { opacity: 0, y: 20 },
+          hidden: { opacity: 0, y: 24 },
           visible: { opacity: 1, y: 0, transition: { duration, ease: EASE_OUT } },
         };
     }

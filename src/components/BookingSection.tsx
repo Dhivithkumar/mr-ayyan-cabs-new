@@ -41,7 +41,7 @@ const BookingSection = () => {
         </ScrollReveal>
 
         {/* Form Container */}
-        <ScrollReveal animation="fade-up" duration={0.6} className="max-w-4xl mx-auto bg-white border border-gray-200/80 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden p-8 md:p-12">
+        <ScrollReveal animation="fade-up" duration={0.85} className="max-w-4xl mx-auto bg-white border border-gray-200/80 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden p-8 md:p-12">
           <form onSubmit={handleSubmit} className="space-y-7">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
               

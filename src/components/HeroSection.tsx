@@ -27,18 +27,18 @@ const HeroSection = () => {
           <img 
             src={heroBg} 
             alt="Mr Ayyan Cabs Tirupur Cab and Taxi Service Background" 
-            className="hidden sm:block w-full h-full object-cover object-[75%_center] lg:object-[85%_center]"
+            className="hidden sm:block w-full h-full object-cover object-[20%_center] lg:object-[15%_center]"
             loading="eager"
           />
-          {/* Responsive Subtle Gradient Overlay - High Transparency to make image vibrant while preserving text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-black/25 to-transparent sm:bg-gradient-to-r sm:from-[#0a0a0a]/85 sm:via-black/40 sm:to-transparent pointer-events-none"></div>
+          {/* Responsive Subtle Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-black/25 to-transparent sm:bg-gradient-to-l sm:from-[#0a0a0a]/85 sm:via-black/40 sm:to-transparent pointer-events-none"></div>
         </div>
 
         {/* 3. HERO CONTENT */}
-        <div className="container mx-auto px-4 md:px-8 relative z-10 my-auto pt-16 sm:pt-0">
-          <div className="max-w-xl text-right sm:text-left ml-auto sm:ml-0 flex flex-col items-end sm:items-start">
+        <div className="container mx-auto px-4 md:px-8 relative z-10 my-auto pt-16 sm:pt-4">
+          <div className="max-w-xl text-right ml-auto flex flex-col items-end">
             
-            {/* Main H1 Headline - Mobile vs Desktop */}
+            {/* Main H1 Headline - Mobile & Desktop aligned right with matching design */}
             <h1 className="block sm:hidden text-4xl font-black tracking-tight leading-[1.08] mb-2 text-white uppercase drop-shadow-md font-heading text-right">
               <span className="text-white">PREMIUM</span>
               <br />
@@ -47,32 +47,32 @@ const HeroSection = () => {
               <span className="text-white">IN TIRUPUR</span>
             </h1>
 
-            <h1 className="hidden sm:block text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] mb-3 text-white uppercase drop-shadow-md text-left">
-              <span>TIRUPUR</span>
+            <h1 className="hidden sm:block text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.08] mb-2 text-white uppercase drop-shadow-md text-right font-heading">
+              <span className="text-white">PREMIUM</span>
               <br />
-              <span className="text-[#D4A017]">CAB &amp; TAXI</span>
+              <span className="text-[#F5B800]">CAB SERVICE</span>
               <br />
-              <span>SERVICE</span>
+              <span className="text-white">IN TIRUPUR</span>
             </h1>
 
-            {/* Accent Underline Bar for Mobile */}
-            <div className="block sm:hidden w-12 h-1 bg-[#F5B800] rounded-full my-2.5 ml-auto"></div>
+            {/* Accent Underline Bar */}
+            <div className="w-12 h-1 bg-[#F5B800] rounded-full my-2.5 ml-auto"></div>
 
             {/* Supporting Text */}
-            <p className="text-base sm:text-base md:text-lg text-gray-200 font-medium leading-relaxed mb-3 max-w-md drop-shadow text-right sm:text-left">
+            <p className="text-base sm:text-base md:text-lg text-gray-200 font-medium leading-relaxed mb-3 max-w-md drop-shadow text-right">
               Local, Airport &amp; Outstation<br className="block sm:hidden" /> Travel Made Easy
             </p>
 
             {/* Location Pill / Badge */}
             <LocationBadge />
 
-            {/* Free Benefits (Moved up on mobile) */}
-            <div className="w-full mt-2">
+            {/* Free Benefits */}
+            <div className="w-full">
               <FreeBenefits />
             </div>
 
-            {/* Desktop CTAs & Trust Strip */}
-            <div className="hidden sm:block">
+            {/* Desktop CTAs & Trust Strip - Aligned Right */}
+            <div className="hidden sm:flex flex-col items-end ml-auto w-full max-w-md gap-3">
               <HeroCTA />
               <TrustStrip />
             </div>
