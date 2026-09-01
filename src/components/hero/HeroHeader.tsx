@@ -109,9 +109,9 @@ export const HeroHeader = () => {
             <img 
               src={logo} 
               alt="Mr Ayyan Cabs Logo" 
-              className="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 object-contain drop-shadow-md shrink-0"
+              className="w-11 h-11 sm:w-13 sm:h-13 md:w-14 md:h-14 object-contain drop-shadow-md shrink-0"
             />
-            <span className="text-base sm:text-xl md:text-2xl font-black text-white leading-none tracking-tight uppercase font-heading truncate">
+            <span className="text-lg sm:text-xl md:text-2xl font-black text-white leading-none tracking-tight uppercase font-heading truncate">
               <span className="text-white">MR </span>
               <span className="text-[#F5B800]">AYYAN </span>
               <span className="text-white">CABS</span>
