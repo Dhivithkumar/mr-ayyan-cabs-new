@@ -31,14 +31,20 @@ const HeroSection = () => {
             loading="eager"
           />
           {/* Responsive Subtle Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-black/25 to-transparent sm:bg-gradient-to-l sm:from-[#0a0a0a]/85 sm:via-black/40 sm:to-transparent pointer-events-none"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-black/25 to-transparent sm:bg-gradient-to-l sm:from-[#0a0a0a]/90 sm:via-black/45 sm:to-transparent pointer-events-none"></div>
         </div>
 
         {/* 3. HERO CONTENT */}
         <div className="container mx-auto px-4 md:px-8 relative z-10 my-auto pt-16 sm:pt-4">
           <div className="max-w-xl text-right ml-auto flex flex-col items-end">
             
-            {/* Main H1 Headline - Mobile & Desktop aligned right with matching design */}
+            {/* Desktop Luxury Status Pill */}
+            <div className="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-amber-500/15 to-yellow-500/5 border border-amber-400/30 px-3.5 py-1 rounded-full text-xs font-bold text-[#F5B800] tracking-wider uppercase mb-3 shadow-md backdrop-blur-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F5B800] animate-pulse"></span>
+              <span>TIRUPUR'S PREMIER CAB SERVICE</span>
+            </div>
+
+            {/* Main H1 Headline - Mobile */}
             <h1 className="block sm:hidden text-4xl font-black tracking-tight leading-[1.08] mb-2 text-white uppercase drop-shadow-md font-heading text-right">
               <span className="text-white">PREMIUM</span>
               <br />
@@ -47,16 +53,18 @@ const HeroSection = () => {
               <span className="text-white">IN TIRUPUR</span>
             </h1>
 
-            <h1 className="hidden sm:block text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.08] mb-2 text-white uppercase drop-shadow-md text-right font-heading">
-              <span className="text-white">PREMIUM</span>
+            {/* Main H1 Headline - Desktop (Professional & Elegant) */}
+            <h1 className="hidden sm:block text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.08] mb-2 text-white uppercase text-right font-heading">
+              <span className="text-white drop-shadow-lg">PREMIUM</span>
               <br />
-              <span className="text-[#F5B800]">CAB SERVICE</span>
+              <span className="bg-gradient-to-r from-amber-200 via-[#F5B800] to-amber-400 bg-clip-text text-transparent drop-shadow-lg">CAB SERVICE</span>
               <br />
-              <span className="text-white">IN TIRUPUR</span>
+              <span className="text-white drop-shadow-lg">IN TIRUPUR</span>
             </h1>
 
             {/* Accent Underline Bar */}
-            <div className="w-12 h-1 bg-[#F5B800] rounded-full my-2.5 ml-auto"></div>
+            <div className="hidden sm:block w-16 h-1 bg-gradient-to-r from-amber-400 to-[#F5B800] rounded-full my-3 ml-auto shadow-sm shadow-amber-500/40"></div>
+            <div className="block sm:hidden w-12 h-1 bg-[#F5B800] rounded-full my-2.5 ml-auto"></div>
 
             {/* Supporting Text */}
             <p className="text-base sm:text-base md:text-lg text-gray-200 font-medium leading-relaxed mb-3 max-w-md drop-shadow text-right">

@@ -8,9 +8,9 @@ export const HeroCTA = () => {
       {/* Primary Call CTA */}
       <a 
         href="tel:+919786223334" 
-        className="flex-1 inline-flex items-center justify-center gap-3 bg-gold-gradient hover:bg-gold-gradient-hover text-black font-extrabold text-sm sm:text-base px-6 py-4 rounded-xl gold-shadow transition-all hover:scale-[1.02] active:scale-98"
+        className="flex-1 inline-flex items-center justify-center gap-3 bg-gradient-to-r from-amber-400 via-[#F5B800] to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black font-extrabold text-sm sm:text-base px-6 py-3.5 rounded-xl shadow-lg shadow-amber-500/20 hover:shadow-amber-500/35 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 group"
       >
-        <div className="w-8 h-8 bg-black/10 rounded-full flex items-center justify-center">
+        <div className="w-8 h-8 bg-black/15 group-hover:bg-black/25 rounded-full flex items-center justify-center transition-colors">
           <Phone className="w-4 h-4 fill-black" />
         </div>
         <div className="flex flex-col text-left leading-tight">
@@ -24,13 +24,13 @@ export const HeroCTA = () => {
         href={`https://wa.me/919786223334?text=${whatsappMessage}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex-1 inline-flex items-center justify-center gap-3 bg-black/60 hover:bg-black/80 backdrop-blur-xl border border-white/20 hover:border-emerald-500/50 text-white font-bold text-sm sm:text-base px-5 py-4 rounded-xl shadow-lg transition-all hover:scale-[1.02] active:scale-98"
+        className="flex-1 inline-flex items-center justify-center gap-3 bg-emerald-950/40 hover:bg-emerald-900/60 backdrop-blur-xl border border-emerald-500/30 hover:border-emerald-400/60 text-white font-bold text-sm sm:text-base px-5 py-3.5 rounded-xl shadow-lg hover:shadow-emerald-500/20 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 group"
       >
-        <div className="w-8 h-8 bg-emerald-500/20 rounded-full flex items-center justify-center border border-emerald-500/30">
-          <MessageCircle className="w-4 h-4 text-emerald-400" />
+        <div className="w-8 h-8 bg-emerald-500/20 group-hover:bg-emerald-500/30 rounded-full flex items-center justify-center border border-emerald-500/40 transition-colors">
+          <MessageCircle className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
         </div>
         <div className="flex flex-col text-left leading-tight">
-          <span className="text-[10px] tracking-widest uppercase text-gray-300 font-bold">WHATSAPP</span>
+          <span className="text-[10px] tracking-widest uppercase text-emerald-300/90 font-bold">WHATSAPP</span>
           <span className="text-sm font-bold text-white font-heading">Chat with Us</span>
         </div>
       </a>
