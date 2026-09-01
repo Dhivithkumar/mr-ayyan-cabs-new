@@ -13,8 +13,7 @@ export const SmoothScroll: React.FC<SmoothScrollProps> = ({ children }) => {
   const [lenisInstance, setLenisInstance] = useState<Lenis | null>(null);
 
   useEffect(() => {
-    // Only initialize Lenis on desktop devices (width >= 768px)
-    if (typeof window === "undefined" || window.innerWidth < 768) {
+    if (typeof window === "undefined") {
       return;
     }
 
@@ -24,9 +23,11 @@ export const SmoothScroll: React.FC<SmoothScrollProps> = ({ children }) => {
       orientation: "vertical",
       gestureOrientation: "vertical",
       smoothWheel: true,
-      syncTouch: false,
+      syncTouch: true,
+      syncTouchLerp: 0.08,
+      touchInertiaMultiplier: 1.5,
       wheelMultiplier: 1.0,
-      touchMultiplier: 1.0,
+      touchMultiplier: 1.2,
       infinite: false,
     });
 
