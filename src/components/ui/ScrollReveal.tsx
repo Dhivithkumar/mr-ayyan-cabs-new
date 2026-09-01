@@ -20,14 +20,14 @@ interface ScrollRevealProps {
   once?: boolean;
 }
 
-// Ultra-smooth Apple-like ease-out curve
-const EASE_OUT: [number, number, number, number] = [0.16, 1, 0.3, 1];
+// Ultra-smooth decelerate ease-out curve
+const EASE_OUT: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export const ScrollReveal: React.FC<ScrollRevealProps> = ({
   children,
   animation = "fade-up",
   delay = 0,
-  duration = 0.25,
+  duration = 0.55,
   className = "",
   once = true,
 }) => {
@@ -35,30 +35,30 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
     switch (animation) {
       case "fade-up":
         return {
-          hidden: { opacity: 0, y: 12 },
+          hidden: { opacity: 0, y: 24 },
           visible: { opacity: 1, y: 0 },
         };
       case "fade-down":
         return {
-          hidden: { opacity: 0, y: -12 },
+          hidden: { opacity: 0, y: -24 },
           visible: { opacity: 1, y: 0 },
         };
       case "slide-left":
       case "slide-from-right":
         return {
-          hidden: { opacity: 0, x: 40 },
+          hidden: { opacity: 0, x: 35 },
           visible: { opacity: 1, x: 0 },
         };
       case "slide-right":
       case "slide-from-left":
         return {
-          hidden: { opacity: 0, x: -40 },
+          hidden: { opacity: 0, x: -35 },
           visible: { opacity: 1, x: 0 },
         };
       case "zoom-in":
         return {
-          hidden: { opacity: 0, scale: 0.96 },
-          visible: { opacity: 1, scale: 1 },
+          hidden: { opacity: 0, scale: 0.97, y: 12 },
+          visible: { opacity: 1, scale: 1, y: 0 },
         };
       case "fade":
       default:

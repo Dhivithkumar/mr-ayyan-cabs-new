@@ -162,9 +162,9 @@ const ServicesSection = () => {
         </ScrollReveal>
 
         {/* 2 × 2 Services Grid */}
-        <StaggerContainer staggerDelay={0.16} className="grid grid-cols-2 gap-2.5 sm:gap-4 md:gap-6 max-w-4xl mx-auto">
-          {services.map((service) => (
-            <StaggerItem key={service.id} animation="zoom-in">
+        <StaggerContainer staggerDelay={0.08} className="grid grid-cols-2 gap-2.5 sm:gap-4 md:gap-6 max-w-4xl mx-auto">
+          {services.map((service, idx) => (
+            <StaggerItem key={service.id} animation={idx % 2 === 0 ? "slide-from-left" : "slide-from-right"}>
               <VideoCard service={service} />
             </StaggerItem>
           ))}
