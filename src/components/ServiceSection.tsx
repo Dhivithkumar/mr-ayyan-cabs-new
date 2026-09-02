@@ -1,6 +1,7 @@
 import { useRef, useEffect } from "react";
 import { Car, Plane, Camera, Navigation, ArrowRight, Calendar } from "lucide-react";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "./ui/ScrollReveal";
+import { trackServiceClick, trackBookingClick } from "@/utils/analytics";
 
 import localCityImg from "../assets/service_local_city.jpg";
 import airportDepartureImg from "../assets/service_airport_departure.jpg";
@@ -50,6 +51,7 @@ const VideoCard = ({ service }: { service: ServiceItem }) => {
   return (
     <a 
       href={service.link} 
+      onClick={() => trackServiceClick(service.title)}
       className="block relative group focus:outline-none"
       aria-label={`${service.title} - ${service.desc}`}
     >
@@ -174,6 +176,7 @@ const ServicesSection = () => {
         <ScrollReveal animation="fade-up" delay={0.2} className="mt-8 sm:mt-10 text-center">
           <a
             href="#booking"
+            onClick={() => trackBookingClick('website_booking')}
             className="inline-flex items-center gap-2 bg-[#F5B800] hover:bg-[#e0a700] text-black font-extrabold text-xs sm:text-sm px-6 py-3 rounded-full shadow-lg transition-transform active:scale-95 transform-gpu font-heading"
           >
             <Calendar className="w-4 h-4 fill-black" />

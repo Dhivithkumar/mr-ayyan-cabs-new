@@ -1,4 +1,5 @@
 import { Phone, MessageCircle } from "lucide-react";
+import { trackCallClick, trackWhatsAppClick } from "@/utils/analytics";
 
 export const HeroCTA = () => {
   const whatsappMessage = encodeURIComponent("Hi Mr Ayyan Cabs, I would like to book a cab in Tirupur.");
@@ -8,6 +9,7 @@ export const HeroCTA = () => {
       {/* Primary Call CTA */}
       <a 
         href="tel:+919786223334" 
+        onClick={() => trackCallClick()}
         className="flex-1 inline-flex items-center justify-center gap-3 bg-gradient-to-r from-amber-400 via-[#F5B800] to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black font-extrabold text-sm sm:text-base px-6 py-3.5 rounded-xl shadow-lg shadow-amber-500/20 hover:shadow-amber-500/35 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 group"
       >
         <div className="w-8 h-8 bg-black/15 group-hover:bg-black/25 rounded-full flex items-center justify-center transition-colors">
@@ -22,6 +24,7 @@ export const HeroCTA = () => {
       {/* Secondary WhatsApp CTA */}
       <a 
         href={`https://wa.me/919786223334?text=${whatsappMessage}`}
+        onClick={() => trackWhatsAppClick()}
         target="_blank"
         rel="noopener noreferrer"
         className="flex-1 inline-flex items-center justify-center gap-3 bg-emerald-950/40 hover:bg-emerald-900/60 backdrop-blur-xl border border-emerald-500/30 hover:border-emerald-400/60 text-white font-bold text-sm sm:text-base px-5 py-3.5 rounded-xl shadow-lg hover:shadow-emerald-500/20 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 group"

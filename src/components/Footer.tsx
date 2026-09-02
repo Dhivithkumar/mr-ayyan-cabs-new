@@ -1,5 +1,6 @@
 import { Phone, MessageCircle, Instagram, Facebook, Youtube, MapPin } from "lucide-react";
 import logo from '../assets/mr_ayyan_cabs_logo.png';
+import { trackCallClick, trackWhatsAppClick, trackBookingClick } from "@/utils/analytics";
 
 const Footer = () => {
   const whatsappMessage = encodeURIComponent("Hi Mr Ayyan Cabs, I want to inquire about booking a cab.");
@@ -84,12 +85,14 @@ const Footer = () => {
             <div className="space-y-3 mb-4">
               <a 
                 href="tel:+919786223334" 
+                onClick={() => trackCallClick()}
                 className="flex items-center gap-2 text-xs text-amber-400 hover:underline font-bold"
               >
                 <Phone className="w-4 h-4 fill-amber-400" /> +91 97862 23334
               </a>
               <a 
                 href={`https://wa.me/919786223334?text=${whatsappMessage}`}
+                onClick={() => trackWhatsAppClick()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-xs text-emerald-400 hover:underline font-bold"

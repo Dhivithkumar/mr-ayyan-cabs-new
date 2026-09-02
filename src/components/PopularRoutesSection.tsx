@@ -1,5 +1,6 @@
 import { ArrowRight, Phone } from "lucide-react";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "./ui/ScrollReveal";
+import { trackCallClick } from "@/utils/analytics";
 
 export const PopularRoutesSection = () => {
   const routes = [
@@ -47,6 +48,7 @@ export const PopularRoutesSection = () => {
                   {/* Call Icon Button */}
                   <a
                     href="tel:+919786223334"
+                    onClick={() => trackCallClick()}
                     className="shrink-0 w-9 h-9 bg-gray-900 hover:bg-[#D4A017] text-white hover:text-black rounded-full flex items-center justify-center transition-colors shadow-sm"
                     aria-label={`Call to book cab from ${route.from} to ${route.to}`}
                     title={`Call +91 97862 23334 to book ${route.from} to ${route.to}`}

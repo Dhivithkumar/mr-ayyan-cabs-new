@@ -2,6 +2,7 @@ import { useState } from "react";
 import { MapPin, Navigation, Calendar as CalendarIcon, Car, Phone, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "./ui/ScrollReveal";
+import { trackContactFormSubmit, trackBookingClick, trackCallClick } from "@/utils/analytics";
 
 const BookingSection = () => {
   const [formData, setFormData] = useState({
@@ -19,6 +20,9 @@ const BookingSection = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
+    trackContactFormSubmit();
+    trackBookingClick('whatsapp_booking');
+
     const formattedDate = formData.datetime 
       ? new Date(formData.datetime).toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' }) 
       : 'Not specified';
@@ -154,6 +158,7 @@ const BookingSection = () => {
               </Button>
               <a
                 href="tel:+919786223334"
+                onClick={() => trackCallClick()}
                 className="w-full sm:w-auto bg-gold-gradient hover:bg-gold-gradient-hover text-black font-extrabold px-9 py-4 rounded-xl text-base gold-shadow transition-all flex items-center justify-center gap-2 text-center font-heading"
               >
                 <Phone className="w-5 h-5 fill-black" />

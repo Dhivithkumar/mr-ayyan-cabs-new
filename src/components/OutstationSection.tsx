@@ -1,4 +1,5 @@
 import { MapPin, Navigation, Phone, MessageCircle, Check } from "lucide-react";
+import { trackCallClick, trackWhatsAppClick } from "@/utils/analytics";
 
 export const OutstationSection = () => {
   const whatsappMessage = encodeURIComponent("Hi Mr Ayyan Cabs, I would like to book an Outstation Cab from Tirupur.");
@@ -44,6 +45,7 @@ export const OutstationSection = () => {
               </div>
               <a
                 href="tel:+919786223334"
+                onClick={() => trackCallClick()}
                 className="inline-flex items-center justify-center gap-2 bg-[#8b1c1c] hover:bg-[#6b1515] text-white font-bold py-3 px-4 rounded-xl text-sm transition-colors"
               >
                 <Phone className="w-4 h-4" /> Book One-Way Cab
@@ -77,6 +79,7 @@ export const OutstationSection = () => {
               </div>
               <a
                 href="tel:+919786223334"
+                onClick={() => trackCallClick()}
                 className="inline-flex items-center justify-center gap-2 bg-[#8b1c1c] hover:bg-[#6b1515] text-white font-bold py-3 px-4 rounded-xl text-sm transition-colors"
               >
                 <Phone className="w-4 h-4" /> Book Round Trip Cab
@@ -93,12 +96,14 @@ export const OutstationSection = () => {
             <div className="flex items-center gap-3">
               <a
                 href="tel:+919786223334"
+                onClick={() => trackCallClick()}
                 className="bg-[#D4A017] hover:bg-[#b88910] text-black font-bold px-5 py-2.5 rounded-xl text-xs sm:text-sm flex items-center gap-2 shadow-sm"
               >
                 <Phone className="w-4 h-4 fill-black" /> Call Now
               </a>
               <a
                 href={`https://wa.me/919786223334?text=${whatsappMessage}`}
+                onClick={() => trackWhatsAppClick()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm flex items-center gap-2 shadow-sm"

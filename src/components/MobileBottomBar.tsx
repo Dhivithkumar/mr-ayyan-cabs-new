@@ -1,5 +1,6 @@
 import { ChevronUp, Phone, Calendar, MessageCircle } from "lucide-react";
 import { useSmoothScroll } from "./ui/SmoothScroll";
+import { trackCallClick, trackWhatsAppClick, trackBookingClick } from "@/utils/analytics";
 
 export const MobileBottomBar = () => {
   const whatsappMessage = encodeURIComponent("Hi Mr Ayyan Cabs, I would like to book a cab in Tirupur.");
@@ -14,6 +15,7 @@ export const MobileBottomBar = () => {
   };
 
   const scrollToBooking = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    trackBookingClick('website_booking');
     const bookingElem = document.getElementById("booking");
     if (bookingElem) {
       e.preventDefault();
@@ -46,6 +48,7 @@ export const MobileBottomBar = () => {
             {/* COLUMN 1: CALL */}
             <a
               href="tel:+919786223334"
+              onClick={() => trackCallClick()}
               className="flex flex-col items-center justify-center px-0.5 max-sm:![animation:none] max-sm:![transition:none] max-sm:![transform:none]"
               aria-label="Call Mr Ayyan Cabs"
             >
@@ -75,6 +78,7 @@ export const MobileBottomBar = () => {
             {/* COLUMN 3: WHATSAPP */}
             <a
               href={`https://wa.me/919786223334?text=${whatsappMessage}`}
+              onClick={() => trackWhatsAppClick()}
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center justify-center px-0.5 max-sm:![animation:none] max-sm:![transition:none] max-sm:![transform:none]"

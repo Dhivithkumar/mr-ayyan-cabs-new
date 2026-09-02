@@ -1,5 +1,6 @@
 import { Plane, Clock, Shield, Luggage, Phone, MessageCircle } from "lucide-react";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "./ui/ScrollReveal";
+import { trackCallClick, trackWhatsAppClick } from "@/utils/analytics";
 
 export const AirportTaxiSection = () => {
   const whatsappMessage = encodeURIComponent("Hi Mr Ayyan Cabs, I want to book an Airport Taxi from Tirupur to Coimbatore Airport.");
@@ -95,6 +96,7 @@ export const AirportTaxiSection = () => {
             <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto shrink-0">
               <a
                 href="tel:+919786223334"
+                onClick={() => trackCallClick()}
                 className="inline-flex items-center justify-center gap-2.5 bg-gold-gradient hover:bg-gold-gradient-hover text-black font-extrabold px-7 py-4 rounded-xl text-sm transition-all gold-shadow font-heading"
               >
                 <Phone className="w-4 h-4 fill-black" />
@@ -102,6 +104,7 @@ export const AirportTaxiSection = () => {
               </a>
               <a
                 href={`https://wa.me/919786223334?text=${whatsappMessage}`}
+                onClick={() => trackWhatsAppClick()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-4 rounded-xl text-sm transition-all shadow-md font-heading"

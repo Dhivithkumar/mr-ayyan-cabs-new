@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 import MobileBottomBar from "../components/MobileBottomBar";
 import SEOHead from "../components/SEOHead";
 import { Phone, MessageCircle, Plane, Clock, Shield } from "lucide-react";
+import { trackCallClick, trackWhatsAppClick } from "@/utils/analytics";
 
 const TirupurAirportTaxi = () => {
   const whatsappMessage = encodeURIComponent("Hi Mr Ayyan Cabs, I want to book an Airport Taxi to Coimbatore Airport.");
@@ -81,6 +82,7 @@ const TirupurAirportTaxi = () => {
             <div className="flex flex-col sm:flex-row gap-3">
               <a
                 href="tel:+919786223334"
+                onClick={() => trackCallClick()}
                 className="inline-flex items-center justify-center gap-2 bg-[#D4A017] hover:bg-[#b88910] text-black font-bold px-6 py-3.5 rounded-xl text-sm shadow-md"
               >
                 <Phone className="w-4 h-4 fill-black" />
@@ -88,6 +90,7 @@ const TirupurAirportTaxi = () => {
               </a>
               <a
                 href={`https://wa.me/919786223334?text=${whatsappMessage}`}
+                onClick={() => trackWhatsAppClick()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 rounded-xl text-sm shadow-md"

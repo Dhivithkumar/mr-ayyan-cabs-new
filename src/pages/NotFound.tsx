@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import SEOHead from "../components/SEOHead";
 import { Phone, Home, MessageCircle } from "lucide-react";
+import { trackCallClick, trackWhatsAppClick } from "@/utils/analytics";
 
 const NotFound = () => {
   const location = useLocation();
@@ -35,12 +36,14 @@ const NotFound = () => {
           </a>
           <a 
             href="tel:+919786223334" 
+            onClick={() => trackCallClick()}
             className="inline-flex items-center justify-center gap-2 bg-[#D4A017] hover:bg-[#b88910] text-black font-bold py-3 px-5 rounded-xl text-sm transition-colors"
           >
             <Phone className="w-4 h-4 fill-black" /> Call +91 97862 23334
           </a>
           <a 
             href={`https://wa.me/919786223334?text=${whatsappMessage}`}
+            onClick={() => trackWhatsAppClick()}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-5 rounded-xl text-sm transition-colors"

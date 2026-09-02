@@ -1,4 +1,5 @@
 import { CheckCircle, Phone, MessageCircle } from "lucide-react";
+import { trackCallClick, trackWhatsAppClick } from "@/utils/analytics";
 
 const PricingSection = () => {
   const whatsappMessage = encodeURIComponent("Hi Mr Ayyan Cabs, please provide a fare quote for my ride.");
@@ -55,12 +56,14 @@ const PricingSection = () => {
           <div className="flex flex-col sm:flex-row justify-center gap-3">
             <a
               href="tel:+919786223334"
+              onClick={() => trackCallClick()}
               className="inline-flex items-center justify-center gap-2 bg-[#D4A017] hover:bg-[#b88910] text-black font-bold px-6 py-3 rounded-xl text-sm transition-all shadow-sm"
             >
               <Phone className="w-4 h-4 fill-black" /> Get Instant Price Quote
             </a>
             <a
               href={`https://wa.me/919786223334?text=${whatsappMessage}`}
+              onClick={() => trackWhatsAppClick()}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-3 rounded-xl text-sm transition-all shadow-sm"

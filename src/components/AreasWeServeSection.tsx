@@ -1,5 +1,6 @@
 import { MapPin, Phone } from "lucide-react";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "./ui/ScrollReveal";
+import { trackCallClick } from "@/utils/analytics";
 
 export const AreasWeServeSection = () => {
   const primaryAreas = [
@@ -53,6 +54,7 @@ export const AreasWeServeSection = () => {
             </div>
             <a
               href="tel:+919786223334"
+              onClick={() => trackCallClick()}
               className="inline-flex items-center gap-2 bg-maroon-gradient hover:opacity-95 text-white font-extrabold px-6 py-3.5 rounded-xl text-sm shrink-0 transition-colors shadow-md font-heading"
             >
               <Phone className="w-4 h-4" /> Check Pickup Availability

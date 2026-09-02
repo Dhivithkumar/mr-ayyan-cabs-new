@@ -1,5 +1,6 @@
 import { Phone, MessageCircle, Mail, MapPin, Clock } from "lucide-react";
 import { ScrollReveal } from "./ui/ScrollReveal";
+import { trackCallClick, trackWhatsAppClick } from "@/utils/analytics";
 
 export const ContactSection = () => {
   const whatsappMessage = encodeURIComponent("Hi Mr Ayyan Cabs, I want to book a cab in Tirupur.");
@@ -35,6 +36,7 @@ export const ContactSection = () => {
               {/* 1. Phone Number */}
               <a 
                 href="tel:+919786223334" 
+                onClick={() => trackCallClick()}
                 className="flex items-center gap-2.5 sm:gap-4 p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-amber-50/40 border border-amber-200/70 hover:border-[#D4A017] transition-colors group"
               >
                 <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-black text-[#F5B800] border border-[#F5B800]/30 flex items-center justify-center shrink-0 shadow-sm">
@@ -51,6 +53,7 @@ export const ContactSection = () => {
               {/* 2. WhatsApp Number */}
               <a 
                 href={`https://wa.me/919786223334?text=${whatsappMessage}`}
+                onClick={() => trackWhatsAppClick()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2.5 sm:gap-4 p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-amber-50/40 border border-amber-200/70 hover:border-[#D4A017] transition-colors group"

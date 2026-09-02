@@ -1,6 +1,7 @@
 import { ShieldCheck, Clock, HeartHandshake, Car, Phone } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "./ui/ScrollReveal";
+import { trackCallClick } from "@/utils/analytics";
 
 const WhyChooseUsSection = () => {
   const points = [
@@ -58,6 +59,7 @@ const WhyChooseUsSection = () => {
           <ScrollReveal animation="zoom-in" delay={0.2} className="text-center">
             <a
               href="tel:+919786223334"
+              onClick={() => trackCallClick()}
               className="inline-flex items-center gap-2 bg-[#D4A017] hover:bg-[#b88910] text-black font-bold px-8 py-3.5 rounded-xl text-sm transition-all shadow-md"
             >
               <Phone className="w-4 h-4 fill-black" />

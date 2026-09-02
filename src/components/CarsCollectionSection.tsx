@@ -1,6 +1,7 @@
 import { Phone, Users, Luggage } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { ScrollReveal } from "./ui/ScrollReveal";
+import { trackCallClick } from "@/utils/analytics";
 import {
   Carousel,
   CarouselContent,
@@ -120,6 +121,7 @@ const CarsCollectionSection = () => {
                     <div className="p-6 pt-0">
                       <a
                         href="tel:+919786223334"
+                        onClick={() => trackCallClick()}
                         className="w-full inline-flex items-center justify-center gap-2 bg-maroon-gradient hover:opacity-95 text-white font-extrabold text-xs py-3 px-4 rounded-xl transition-all shadow-md font-heading"
                       >
                         <Phone className="w-3.5 h-3.5" /> Call to Book

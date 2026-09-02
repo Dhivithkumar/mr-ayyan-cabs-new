@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronDown, Phone, MessageCircle } from "lucide-react";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "./ui/ScrollReveal";
+import { trackCallClick, trackWhatsAppClick } from "@/utils/analytics";
 
 export const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -103,6 +104,7 @@ export const FAQSection = () => {
             <div className="flex items-center gap-3">
               <a
                 href="tel:+919786223334"
+                onClick={() => trackCallClick()}
                 className="bg-[#D4A017] hover:bg-[#b88910] text-black font-extrabold px-4 py-2.5 rounded-xl text-xs flex items-center gap-1.5 shadow-sm font-heading"
               >
                 <Phone className="w-3.5 h-3.5 fill-black" />
@@ -111,6 +113,7 @@ export const FAQSection = () => {
               </a>
               <a
                 href={`https://wa.me/919786223334?text=${whatsappMessage}`}
+                onClick={() => trackWhatsAppClick()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs flex items-center gap-1.5 shadow-sm"

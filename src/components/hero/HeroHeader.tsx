@@ -3,6 +3,7 @@ import { Menu, X, Phone, MessageCircle, ArrowRight, Home, Car, MapPin, Route, St
 import { useNavigate, useLocation } from "react-router-dom";
 import logo from '../../assets/mr_ayyan_cabs_logo.png';
 import { useSmoothScroll } from "../ui/SmoothScroll";
+import { trackCallClick, trackWhatsAppClick, trackBookingClick } from "@/utils/analytics";
 
 export const HeroHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -137,6 +138,7 @@ export const HeroHeader = () => {
           <div className="flex items-center gap-3 shrink-0 ml-2">
             <a 
               href="tel:+919786223334" 
+              onClick={() => trackCallClick()}
               className="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-amber-400 via-[#F5B800] to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black font-extrabold text-xs px-4 py-2 rounded-full shadow-md shadow-amber-500/20 hover:shadow-amber-500/40 transition-all duration-300 hover:scale-105 font-heading"
             >
               <Phone className="w-3.5 h-3.5 fill-black" />
@@ -191,7 +193,12 @@ export const HeroHeader = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
+                  onClick={(e) => {
+                    if (link.name === "Booking" || link.href.includes("booking")) {
+                      trackBookingClick('website_booking');
+                    }
+                    handleNavClick(e, link.href);
+                  }}
                   className="p-3.5 rounded-2xl bg-white/5 sm:hover:bg-amber-500/15 border border-white/10 sm:hover:border-[#F5B800] text-gray-100 sm:hover:text-[#F5B800] flex items-center justify-between text-sm sm:text-base font-bold sm:transition-colors group max-sm:![transition:none] max-sm:![transform:none]"
                 >
                   <div className="flex items-center gap-3">
@@ -208,12 +215,14 @@ export const HeroHeader = () => {
           <div className="max-w-4xl mx-auto w-full pt-4 sm:pt-6 border-t border-white/10 flex flex-col sm:flex-row gap-3">
             <a 
               href="tel:+919786223334"
+              onClick={() => trackCallClick()}
               className="flex-1 bg-[#F5B800] hover:bg-[#e0a700] text-black font-extrabold py-3.5 rounded-xl flex items-center justify-center gap-2 text-sm sm:text-base shadow-lg font-heading"
             >
               <Phone className="w-4 h-4 fill-black" /> Call +91 97862 23334
             </a>
             <a 
               href={`https://wa.me/919786223334?text=${whatsappMessage}`}
+              onClick={() => trackWhatsAppClick()}
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold py-3.5 rounded-xl flex items-center justify-center gap-2 text-sm sm:text-base shadow-lg font-heading"
