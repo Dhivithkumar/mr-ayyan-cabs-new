@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Phone, MessageCircle, ArrowRight, Home, Car, MapPin, Route, Star, HelpCircle, Mail } from "lucide-react";
+import { Menu, X, Phone, MessageCircle, ArrowRight, Home, Car, MapPin, Route, Star, HelpCircle, Mail, Gift } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import logo from '../../assets/mr_ayyan_cabs_logo.png';
 import { useSmoothScroll } from "../ui/SmoothScroll";
@@ -45,6 +45,7 @@ export const HeroHeader = () => {
 
   const navLinks = [
     { name: "Home", href: "/", icon: <Home className="w-4 h-4 text-white" /> },
+    { name: "Offers 🌱", href: "/offers", icon: <Gift className="w-4 h-4 text-emerald-400" /> },
     { name: "Tirupur Cab Service", href: "/tirupur-cab-service", icon: <Car className="w-4 h-4 text-[#F5B800]" /> },
     { name: "Tirupur Taxi Service", href: "/tirupur-taxi-service", icon: <Car className="w-4 h-4 text-[#F5B800]" /> },
     { name: "Airport Taxi", href: "/tirupur-airport-taxi", icon: <Car className="w-4 h-4 text-sky-400" /> },

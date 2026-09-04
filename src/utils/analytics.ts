@@ -47,7 +47,7 @@ export const trackWhatsAppClick = (phoneNumber: string = '+919786223334'): void 
  * Track booking CTA clicks
  */
 export const trackBookingClick = (
-  method: 'website_booking' | 'whatsapp_booking' = 'website_booking'
+  method: string = 'website_booking'
 ): void => {
   pushToDataLayer('booking_click', {
     method,

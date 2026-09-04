@@ -1,4 +1,4 @@
-import { Shield, Heart, Zap, Users } from "lucide-react";
+import { Shield, Heart, Award, Users } from "lucide-react";
 import { ScrollReveal } from "./ui/ScrollReveal";
 
 const BlessingsSection = () => {
@@ -28,10 +28,10 @@ const BlessingsSection = () => {
                 <span className="text-[11px] text-gray-500">Fair Billing</span>
               </div>
 
-              <div className="p-3 bg-orange-50/50 rounded-xl border border-orange-100 flex flex-col items-center">
-                <Zap className="w-6 h-6 text-orange-700 mb-1" />
-                <span className="text-xs font-bold text-gray-900">Quick Response</span>
-                <span className="text-[11px] text-gray-500">Prompt Booking</span>
+              <div className="p-3 bg-orange-50/50 rounded-xl border border-orange-100 flex flex-col items-center text-center">
+                <Award className="w-6 h-6 text-orange-700 mb-1" />
+                <span className="text-xs font-bold text-gray-900">10+ Yrs Exp.</span>
+                <span className="text-[11px] text-gray-500">Expert Drivers</span>
               </div>
 
               <div className="p-3 bg-rose-50/50 rounded-xl border border-rose-100 flex flex-col items-center">

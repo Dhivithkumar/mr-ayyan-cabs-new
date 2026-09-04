@@ -9,6 +9,7 @@ import TirupurCabService from "./pages/TirupurCabService.tsx";
 import TirupurTaxiService from "./pages/TirupurTaxiService.tsx";
 import TirupurAirportTaxi from "./pages/TirupurAirportTaxi.tsx";
 import TirupurOutstationCab from "./pages/TirupurOutstationCab.tsx";
+import OffersPage from "./pages/OffersPage.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import MobileBottomBar from "./components/MobileBottomBar.tsx";
 
@@ -27,6 +28,8 @@ const App = () => (
             <Route path="/tirupur-taxi-service" element={<TirupurTaxiService />} />
             <Route path="/tirupur-airport-taxi" element={<TirupurAirportTaxi />} />
             <Route path="/tirupur-outstation-cab" element={<TirupurOutstationCab />} />
+            <Route path="/offers" element={<OffersPage />} />
+            <Route path="/offer-free-plant" element={<OffersPage />} />
             {/* CATCH-ALL ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
