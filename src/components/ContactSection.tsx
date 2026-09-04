@@ -73,7 +73,7 @@ export const ContactSection = () => {
 
             {/* 3. Mail Address */}
             <a 
-              href="mailto:mrayyancabs@gmail.com"
+              href="mailto:mrayyancabs4912@gmail.com"
               className="flex items-center gap-2.5 sm:gap-4 p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-amber-50/40 border border-amber-200/70 hover:border-[#D4A017] transition-colors group"
             >
               <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-black text-[#F5B800] border border-[#F5B800]/30 flex items-center justify-center shrink-0 shadow-sm">
@@ -82,7 +82,7 @@ export const ContactSection = () => {
               <div className="min-w-0 flex-1">
                 <span className="text-[10px] sm:text-xs font-extrabold text-[#D4A017] uppercase tracking-wider block font-heading">Email</span>
                 <span className="text-xs sm:text-base font-black text-gray-900 truncate block">
-                  mrayyancabs@gmail.com
+                  mrayyancabs4912@gmail.com
                 </span>
               </div>
             </a>

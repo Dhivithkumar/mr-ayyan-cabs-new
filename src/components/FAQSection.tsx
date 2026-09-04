@@ -29,7 +29,7 @@ export const FAQSection = () => {
     },
     {
       q: "What types of vehicles are available in your fleet?",
-      a: "Our well-maintained air-conditioned fleet includes sedan cabs (Toyota Etios, Tata Zest), hatchbacks (Maruti Swift), and 7-seater family SUVs (Toyota Innova and Innova Crysta)."
+      a: "Our well-maintained air-conditioned fleet includes sedan cabs (Toyota Etios), hatchbacks (Swift, Baleno), and 7-seater vehicles (Maruti Eeco, Maruti Ertiga, Toyota Innova, and Innova Crysta)."
     },
     {
       q: "How can I contact Mr Ayyan Cabs?",

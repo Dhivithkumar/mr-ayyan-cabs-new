@@ -6,7 +6,7 @@ import BookingSection from "../components/BookingSection";
 import { Leaf, Phone, MessageCircle, ArrowRight, CheckCircle, ShieldCheck, Award, HeartHandshake } from "lucide-react";
 import { trackCallClick, trackWhatsAppClick, trackBookingClick } from "@/utils/analytics";
 import offerBannerDesktop from "../assets/free_plant_offer_banner.png";
-import offerBannerMobile from "../assets/free_plant_offer_banner_mobile.jpg";
+import offerBannerMobile from "../assets/free_plant_offer_banner_mobile.png";
 
 const OffersPage: React.FC = () => {
   const whatsappMessage = encodeURIComponent("Hi Mr Ayyan Cabs, I would like to book a long trip and claim the Free Plant Offer!");

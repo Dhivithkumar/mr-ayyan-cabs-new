@@ -139,9 +139,11 @@ const BookingSection = () => {
                 >
                   <option value="Toyota Etios (Sedan - 4+1)">Toyota Etios (Sedan - 4+1 Seats)</option>
                   <option value="Swift (Hatchback - 4+1)">Swift (Hatchback - 4+1 Seats)</option>
-                  <option value="Tata Zest (Sedan - 4+1)">Tata Zest (Sedan - 4+1 Seats)</option>
-                  <option value="Innova (SUV - 7+1)">Toyota Innova (SUV - 7+1 Seats)</option>
-                  <option value="Crysta (Premium SUV - 7+1)">Toyota Innova Crysta (Premium SUV - 7+1 Seats)</option>
+                  <option value="Baleno (Premium Hatchback - 4+1)">Baleno (Premium Hatchback - 4+1 Seats)</option>
+                  <option value="Eeco (7 Seater Van - 6+1)">Eeco (7 Seater Van - 6+1 Seats)</option>
+                  <option value="Ertiga (7 Seater MUV - 6+1)">Ertiga (7 Seater MUV - 6+1 Seats)</option>
+                  <option value="Toyota Innova (SUV - 7+1)">Toyota Innova (SUV - 7+1 Seats)</option>
+                  <option value="Toyota Innova Crysta (Premium SUV - 7+1)">Toyota Innova Crysta (Premium SUV - 7+1 Seats)</option>
                 </select>
               </div>
 

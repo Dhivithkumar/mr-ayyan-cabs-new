@@ -1,4 +1,4 @@
-import { Phone, MessageCircle, Instagram, Facebook, Youtube, MapPin } from "lucide-react";
+import { Phone, MessageCircle, Mail, Instagram, Facebook, Youtube, MapPin } from "lucide-react";
 import logo from '../assets/mr_ayyan_cabs_logo.png';
 import { trackCallClick, trackWhatsAppClick, trackBookingClick } from "@/utils/analytics";
 
@@ -21,7 +21,7 @@ const Footer = () => {
               <div className="flex flex-col">
                 <span className="text-lg font-black text-white leading-none">Mr Ayyan Cabs</span>
                 <span className="text-xs text-amber-400 font-medium">Tirupur Cab &amp; Taxi Service</span>
-                <span className="text-[11px] text-gray-400 mt-0.5">Owned by Rajapandi</span>
+                <span className="text-[11px] text-gray-400 mt-0.5">Owned by Mr Rajapandi</span>
               </div>
             </a>
             <p className="text-xs text-gray-400 leading-relaxed">
@@ -75,6 +75,11 @@ const Footer = () => {
                   Tirupur Outstation Cab
                 </a>
               </li>
+              <li>
+                <a href="/tirupur-travels" className="hover:text-amber-400 transition-colors">
+                  Tirupur Travels
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -83,7 +88,7 @@ const Footer = () => {
             <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4 border-b border-white/10 pb-2">
               Contact &amp; Book
             </h4>
-            <div className="space-y-3 mb-4">
+            <div className="space-y-2.5 mb-4">
               <a 
                 href="tel:+919786223334" 
                 onClick={() => trackCallClick()}
@@ -99,6 +104,12 @@ const Footer = () => {
                 className="flex items-center gap-2 text-xs text-emerald-400 hover:underline font-bold"
               >
                 <MessageCircle className="w-4 h-4" /> WhatsApp Booking
+              </a>
+              <a 
+                href="mailto:mrayyancabs4912@gmail.com"
+                className="flex items-center gap-2 text-xs text-gray-300 hover:text-amber-400 transition-colors font-semibold"
+              >
+                <Mail className="w-4 h-4 text-amber-400 shrink-0" /> mrayyancabs4912@gmail.com
               </a>
             </div>
 
@@ -137,7 +148,7 @@ const Footer = () => {
 
         <div className="border-t border-white/10 pt-6 text-center text-xs text-gray-500 space-y-1.5">
           <p>© {new Date().getFullYear()} Mr Ayyan Cabs - மிஸ்டர் அய்யன் கேப்ஸ் | Tirupur, Tamil Nadu. All rights reserved.</p>
-          <p className="text-gray-400 font-medium">Owned by Rajapandi</p>
+          <p className="text-gray-400 font-medium">Owned by Mr Rajapandi</p>
         </div>
       </div>
     </footer>

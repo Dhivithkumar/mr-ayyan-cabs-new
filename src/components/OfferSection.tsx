@@ -4,7 +4,7 @@ import { ArrowRight, MessageCircle, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { trackBookingClick, trackWhatsAppClick, trackCallClick } from "@/utils/analytics";
 import offerBannerDesktop from "../assets/free_plant_offer_banner.png";
-import offerBannerMobile from "../assets/free_plant_offer_banner_mobile.jpg";
+import offerBannerMobile from "../assets/free_plant_offer_banner_mobile.png";
 
 export const OfferSection: React.FC = () => {
   const shouldReduceMotion = useReducedMotion();

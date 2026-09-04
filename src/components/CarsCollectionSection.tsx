@@ -11,10 +11,12 @@ import {
 } from "@/components/ui/carousel";
 
 import toyotaEtios from "../assets/Toyotoetios.jpg";
-import crysta from "../assets/crysta.jpg";
 import swift from "../assets/swift.jpg";
+import baleno from "../assets/baleno.jpg";
+import eeco from "../assets/eeco.jpg";
+import ertiga from "../assets/ertiga.jpg";
 import innova from "../assets/innova.jpg";
-import zest from "../assets/zest.jpg";
+import crysta from "../assets/crysta.jpg";
 
 type CarType = {
   name: string;
@@ -26,6 +28,7 @@ type CarType = {
 };
 
 const CarsCollectionSection = () => {
+  // 7 Fleets in exact requested order
   const cars: CarType[] = [
     {
       name: "Toyota Etios",
@@ -36,20 +39,36 @@ const CarsCollectionSection = () => {
       altText: "Toyota Etios sedan cab in Tirupur - Mr Ayyan Cabs",
     },
     {
-      name: "Maruti Swift",
+      name: "Swift",
       type: "Hatchback",
       seats: "4+1 Seats",
-      bags: "1 Bag",
+      bags: "2 Bags",
       image: swift,
-      altText: "Maruti Swift hatchback cab in Tirupur - Mr Ayyan Cabs",
+      altText: "Maruti Swift cab in Tirupur - Mr Ayyan Cabs",
     },
     {
-      name: "Tata Zest",
-      type: "Sedan",
+      name: "Baleno",
+      type: "Premium Hatchback",
       seats: "4+1 Seats",
       bags: "2 Bags",
-      image: zest,
-      altText: "Tata Zest sedan cab in Tirupur - Mr Ayyan Cabs",
+      image: baleno,
+      altText: "Maruti Baleno cab in Tirupur - Mr Ayyan Cabs",
+    },
+    {
+      name: "Eeco",
+      type: "7 Seater Van",
+      seats: "6+1 Seats",
+      bags: "2 Bags",
+      image: eeco,
+      altText: "Maruti Eeco 7 seater cab in Tirupur - Mr Ayyan Cabs",
+    },
+    {
+      name: "Ertiga",
+      type: "7 Seater MUV",
+      seats: "6+1 Seats",
+      bags: "3 Bags",
+      image: ertiga,
+      altText: "Maruti Ertiga 7 seater cab in Tirupur - Mr Ayyan Cabs",
     },
     {
       name: "Toyota Innova",
@@ -92,20 +111,20 @@ const CarsCollectionSection = () => {
                   <Card className="w-full flex flex-col justify-between border-gray-200/80 hover:border-amber-400 rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-all duration-500 overflow-hidden group">
                     <div>
                       {/* Vehicle Image Container */}
-                      <div className="relative bg-gradient-to-b from-gray-50 to-gray-100 p-6 rounded-t-3xl overflow-hidden flex items-center justify-center h-52 border-b border-gray-100">
+                      <div className="relative bg-white rounded-t-3xl overflow-hidden flex items-center justify-center h-48 sm:h-52 border-b border-gray-100 p-2">
                         <img
                           src={car.image}
                           alt={car.altText}
-                          className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                          className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110 mix-blend-multiply"
                           loading="lazy"
                         />
-                        <span className="absolute top-4 right-4 bg-[#0a0a0a] text-[#F59E0B] text-xs font-extrabold px-3 py-1 rounded-full border border-amber-500/30 font-heading">
+                        <span className="absolute top-3.5 right-3.5 bg-black/85 backdrop-blur-md text-[#F59E0B] text-xs font-extrabold px-3 py-1 rounded-full border border-amber-500/30 font-heading z-10">
                           {car.type}
                         </span>
                       </div>
 
                       {/* Content: Name, Seats & Bags */}
-                      <CardContent className="p-6 text-center">
+                      <CardContent className="p-4 sm:p-5 text-center pb-2">
                         <h3 className="text-xl font-extrabold text-gray-900 font-heading mb-3">{car.name}</h3>
                         <div className="flex items-center justify-center gap-2 flex-wrap">
                           <span className="inline-flex items-center gap-1.5 text-xs font-bold text-gray-800 bg-amber-50/80 px-3 py-1.5 rounded-full border border-amber-200">
@@ -118,13 +137,13 @@ const CarsCollectionSection = () => {
                       </CardContent>
                     </div>
 
-                    <div className="p-6 pt-0">
+                    <div className="p-4 sm:p-5 pt-0">
                       <a
                         href="tel:+919786223334"
                         onClick={() => trackCallClick()}
-                        className="w-full inline-flex items-center justify-center gap-2 bg-maroon-gradient hover:opacity-95 text-white font-extrabold text-xs py-3 px-4 rounded-xl transition-all shadow-md font-heading"
+                        className="w-full inline-flex items-center justify-center gap-2 bg-maroon-gradient hover:opacity-95 text-white font-extrabold text-sm py-2.5 px-4 rounded-xl transition-all shadow-md font-heading"
                       >
-                        <Phone className="w-3.5 h-3.5" /> Call to Book
+                        <Phone className="w-4 h-4" /> Call to Book
                       </a>
                     </div>
                   </Card>

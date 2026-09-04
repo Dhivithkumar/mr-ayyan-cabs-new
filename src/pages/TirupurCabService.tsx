@@ -53,7 +53,7 @@ const TirupurCabService = () => {
                 Mr Ayyan Cabs offers dependable local cab services throughout Tirupur city and neighboring hubs. Whether you need a quick ride across town for textile business meetings, railway station pickup, hospital visits, or personal errands, our experienced local drivers ensure a comfortable trip.
               </p>
               <p>
-                We operate clean air-conditioned sedans (Toyota Etios, Tata Zest), hatchbacks (Swift), and 7-seater SUVs (Innova, Crysta). With transparent billing and 24x7 phone booking, getting a taxi in Tirupur is hassle-free.
+                We operate clean air-conditioned sedans (Toyota Etios), hatchbacks (Swift, Baleno), and 7-seater vehicles (Eeco, Ertiga, Innova, Crysta). With transparent billing and 24x7 phone booking, getting a taxi in Tirupur is hassle-free.
               </p>
             </div>
 
