@@ -38,9 +38,9 @@ export const FreeBenefits = () => {
             <span className="text-[9px] font-extrabold text-white uppercase tracking-wider block font-heading drop-shadow leading-tight">
               FREE GIFTS
             </span>
-            <span className="text-[7.5px] font-semibold text-amber-300/90 leading-tight mt-0.5">
+            {/* <span className="text-[7.5px] font-semibold text-amber-300/90 leading-tight mt-0.5">
               (Tourist place - advanced booking only)
-            </span>
+            </span> */}
           </div>
 
         </div>
