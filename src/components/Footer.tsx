@@ -21,6 +21,7 @@ const Footer = () => {
               <div className="flex flex-col">
                 <span className="text-lg font-black text-white leading-none">Mr Ayyan Cabs</span>
                 <span className="text-xs text-amber-400 font-medium">Tirupur Cab &amp; Taxi Service</span>
+                <span className="text-[11px] text-gray-400 mt-0.5">Owned by Rajapandi</span>
               </div>
             </a>
             <p className="text-xs text-gray-400 leading-relaxed">
@@ -134,8 +135,9 @@ const Footer = () => {
 
         </div>
 
-        <div className="border-t border-white/10 pt-6 text-center text-xs text-gray-500">
+        <div className="border-t border-white/10 pt-6 text-center text-xs text-gray-500 space-y-1.5">
           <p>© {new Date().getFullYear()} Mr Ayyan Cabs - மிஸ்டர் அய்யன் கேப்ஸ் | Tirupur, Tamil Nadu. All rights reserved.</p>
+          <p className="text-gray-400 font-medium">Owned by Rajapandi</p>
         </div>
       </div>
     </footer>
