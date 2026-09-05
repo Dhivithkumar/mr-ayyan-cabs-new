@@ -146,7 +146,7 @@ export const ReviewsSection = () => {
       {/* Static "Review Us on Google" Button Below */}
       <ScrollReveal animation="zoom-in" delay={0.2} className="container mx-auto px-4 mt-8 text-center">
         <a
-          href="https://www.google.com/search?q=Mr+Ayyan+Cabs+Tirupur"
+          href="https://g.page/r/Cb4-2nmu8AToEBM/review"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center gap-2.5 bg-[#D4A017] hover:bg-[#b88910] text-black font-extrabold px-8 py-4 rounded-2xl text-sm sm:text-base transition-all shadow-lg hover:shadow-xl font-heading active:scale-98 group"
